@@ -442,6 +442,77 @@ window.SITE_DATA = {
       ]
     },
     {
+      slug: 'tokenmuncher', name: 'TokenMuncher', repo: 'bartoszclapinski/TokenMuncher', demo: 'https://bartoszclapinski.github.io/TokenMuncher/', image: 'assets/tokenmuncher/live.png', demoLabel: 'Project page',
+      pl: {
+        "demoLabel": "Strona projektu",
+        "kind": "Aplikacja desktopowa (Windows)",
+        "status": "Wydana · używam codziennie",
+        "short": "Monitor limitów planów AI do kodowania: Claude Code, Cursor, Codex i Copilot w jednym oknie.",
+        "tagline": "Monitor limitów planów AI do kodowania: ile zostało, jak szybko spalam tokeny i czy wystarczy do resetu.",
+        "overview": "Zbudowałem TokenMunchera dla siebie, bo pracuję z kilkoma narzędziami AI naraz i chciałem widzieć ich limity w jednym miejscu. Aplikacja siedzi w zasobniku, pokazuje zużycie limitów, tempo spalania tokenów, prognozę do resetu i historię tygodni, a dane o użyciu nie opuszczają komputera. Ma instalator, stronę projektu i używam jej codziennie.",
+        "stats": [
+          { "value": "201", "label": "testów, wszystkie zielone" },
+          { "value": "4", "label": "źródła: Claude Code, Cursor, Codex, Copilot" },
+          { "value": "~0.3 s", "label": "start dzięki cache logów" },
+          { "value": "26", "label": "skórek" }
+        ],
+        "features": [
+          { "title": "Limity w jednym oknie", "text": "Okna 5 h i tygodniowe, tempo zużycia i prognoza, czy limit wystarczy do resetu." },
+          { "title": "Sesje i tokeny", "text": "Tokeny na sekundę, sesje, modele i projekty, dzienny budżet i koszt w cenach API." },
+          { "title": "Historia", "text": "Okna z poprzednich dni, podsumowania tygodni i porównanie z tygodniem wcześniej." },
+          { "title": "Zasobnik i powiadomienia", "text": "Ikona w kolorze najbardziej zużytego limitu, powiadomienia przy 80, 90 i 100%, mini widget." },
+          { "title": "Prywatność", "text": "Dane logowania tylko odczytywane i wysyłane wyłącznie do serwera danego narzędzia, bez telemetrii." },
+          { "title": "Instalator", "text": "Instalator Windows (x64 i ARM64) bez uprawnień administratora, z automatycznymi aktualizacjami." }
+        ],
+        "decisions": [
+          "Przyrostowe czytanie logów JSONL z cache na dysku: start w ~0,3 s zamiast kilku sekund.",
+          "Odpytywanie limitów z wycofaniem się przy HTTP 429 i częstszym odczytem przy 80% limitu.",
+          "Reguły powiadomień jako czyste funkcje, testowane osobno.",
+          "Niezależny projekt: nieoficjalne endpointy opisane wprost w README."
+        ],
+        "gallery": [
+          { "src": "assets/tokenmuncher/live.png", "title": "Widok na żywo", "caption": "Limity, tempo spalania, dzienny budżet." },
+          { "src": "assets/tokenmuncher/history.png", "title": "Historia", "caption": "Okna z poprzednich dni i podsumowania tygodni." }
+        ]
+      },
+      kind: 'Desktop app (Windows)', status: 'Released · used daily', core: 'Electron · React · Node.js',
+      tech: ['JavaScript', 'React', 'Electron'],
+      short: 'A monitor for AI coding plan limits: Claude Code, Cursor, Codex and Copilot in one window.',
+      tagline: 'A monitor for AI coding plan limits: how much is left, how fast tokens burn, and whether it lasts until the reset.',
+      overview: 'I built TokenMuncher for myself: I work with several AI tools at once and wanted their limits in one place. It lives in the tray and shows limit usage, token burn rate, a forecast to the next reset and weekly history, while usage data never leaves the machine. It has an installer, a project page, and I use it every day.',
+      stats: [{ value: '201', label: 'tests, all green' }, { value: '4', label: 'sources: Claude Code, Cursor, Codex, Copilot' }, { value: '~0.3 s', label: 'startup thanks to a log cache' }, { value: '26', label: 'skins' }],
+      features: [
+        { title: 'Limits in one window', text: '5-hour and weekly windows, usage pace and a forecast of whether the limit lasts until the reset.' },
+        { title: 'Sessions and tokens', text: 'Tokens per second, sessions, models and projects, a daily budget and API-price cost.' },
+        { title: 'History', text: 'Past windows, weekly summaries and a comparison with the week before.' },
+        { title: 'Tray and notifications', text: 'A tray icon coloured by the busiest limit, notifications at 80, 90 and 100%, a mini widget.' },
+        { title: 'Privacy', text: 'Logins are only read and sent only to each tool\'s own server; no telemetry.' },
+        { title: 'Installer', text: 'Windows installer (x64 and ARM64) without admin rights, with automatic updates.' }
+      ],
+      gallery: [
+        { src: 'assets/tokenmuncher/live.png', title: 'Live view', caption: 'Limits, burn rate and the daily budget.' },
+        { src: 'assets/tokenmuncher/history.png', title: 'History', caption: 'Past windows and weekly summaries.' }
+      ],
+      layers: [
+        { name: 'sources', text: 'One module per tool: limits, sessions and logs for Claude Code, Cursor, Codex and Copilot.' },
+        { name: 'store', text: 'Shared record store, incremental JSONL reader and on-disk usage cache.' },
+        { name: 'main', text: 'Electron main process: window, tray, notifications, mini widget, updates.' },
+        { name: 'renderer', text: 'React UI bundled with esbuild.' }
+      ],
+      decisions: [
+        'Incremental JSONL reading with an on-disk cache: startup in ~0.3 s instead of several seconds.',
+        'Limit polling that backs off on HTTP 429 and reads more often at 80% of a limit.',
+        'Notification rules as pure functions, tested on their own.',
+        'An independent project: the unofficial endpoints are stated plainly in the README.'
+      ],
+      stack: [
+        { group: 'App', items: ['Electron', 'React', 'esbuild'] },
+        { group: 'Runtime', items: ['Node.js', 'better-sqlite3'] },
+        { group: 'Delivery', items: ['electron-builder', 'GitHub Releases', 'GitHub Pages'] },
+        { group: 'Testing', items: ['node:test'] }
+      ]
+    },
+    {
       slug: 'lotterylab', name: 'Lottery Lab', repo: 'bartoszclapinski/LotteryLAB', demo: '', image: '',
       pl: {
         "kind": "Aplikacja webowa + REST API",
