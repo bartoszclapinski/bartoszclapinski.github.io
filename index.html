@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="icon" type="image/svg+xml" href="./favicon.svg">
@@ -13,9 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <script src="./site-data.js"></script>
-<title>Bartosz Cłapiński — .NET Developer</title>
-<meta name="description" content=".NET developer from Toruń. Ten years in operations, now building tested .NET apps with practical AI.">
-<meta property="og:title" content="Bartosz Cłapiński — .NET Developer">
+<title>Bartosz Cłapiński — Software Engineer</title>
+<meta name="description" content="Software engineer from Toruń. Ten years in operations, now building tested .NET apps with practical AI.">
+<meta property="og:title" content="Bartosz Cłapiński — Software Engineer">
 <meta property="og:description" content="Ten years in operations, now building tested .NET apps with practical AI.">
 <meta property="og:image" content="https://bartoszclapinski.github.io/assets/og-image.png">
 <meta property="og:url" content="https://bartoszclapinski.github.io/">
@@ -41,12 +41,10 @@ a:hover{color:inherit}
 <nav style="opacity:{{ navOp }};transition:opacity .9s ease .25s;position:fixed;top:0;left:0;right:0;z-index:50;background:var(--navbg,rgba(10,10,12,0.75));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)">
 <div style="max-width:1240px;margin:0 auto;padding:18px clamp(20px,4vw,40px);display:flex;align-items:center;gap:28px;flex-wrap:nowrap">
 <a href="#/" style="display:flex;align-items:center;gap:10px;flex:none;white-space:nowrap;font:600 16px 'Geist',sans-serif;letter-spacing:-0.01em"><svg viewBox="122 74 276 376" width="21" height="28" aria-hidden="true" style="display:block;flex:none;overflow:visible"><defs><linearGradient id="nbB" gradientUnits="userSpaceOnUse" x1="133" y1="84" x2="411" y2="439"><stop offset="0" stop-color="#ffb35c"></stop><stop offset="0.5" stop-color="#ff5a3c"></stop><stop offset="1" stop-color="#ff2d87"></stop></linearGradient><linearGradient id="nbC" gradientUnits="userSpaceOnUse" x1="150" y1="190" x2="400" y2="430"><stop offset="0" stop-color="#5fe0ff"></stop><stop offset="0.5" stop-color="#14c4f0"></stop><stop offset="1" stop-color="#7b4dff"></stop></linearGradient><mask id="nbM" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512"><rect width="512" height="512" fill="#ffffff"></rect><path d="M363.2 238.5 A110 110 0 1 0 363.2 361.5" fill="none" stroke="#000000" stroke-width="72" style="transform-box:view-box;transform-origin:272px 300px;animation:bcNavSpin 14s cubic-bezier(.65,0,.35,1) 3s infinite"></path></mask></defs><g mask="url(#nbM)"><path d="M133 300 V142 C133 114 158 94 191 84 V300 Z" fill="url(#nbB)" style="transform-box:view-box;transform-origin:133px 300px;animation:bcStem 14s cubic-bezier(.4,0,.2,1) 3s infinite"></path><circle cx="272" cy="300" r="110" fill="none" stroke="url(#nbB)" stroke-width="58"></circle></g><path d="M358.7 232.3 A110 110 0 1 0 358.7 367.7" fill="none" stroke="url(#nbC)" stroke-width="58" style="transform-box:view-box;transform-origin:272px 300px;animation:bcNavSpin 14s cubic-bezier(.65,0,.35,1) 3s infinite"></path></svg>Bartosz Cłapiński</a>
-<span style="display:{{ availDisp }};align-items:center;gap:8px;font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))"><span style="width:6px;height:6px;border-radius:50%;background:#1fd68a;animation:bcPulse 2.4s ease-in-out infinite"></span>{{ t.avail }}</span>
 <div style="margin-left:auto;display:{{ navLinksDisp }};align-items:center;gap:26px;font:400 14px 'Geist',sans-serif">
 <button onClick="{{ goWork }}" style="background:none;border:none;padding:0;color:var(--muted,rgba(244,244,245,0.66));font:inherit;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ t.navWork }}</button>
 <button onClick="{{ goAbout }}" style="background:none;border:none;padding:0;color:var(--muted,rgba(244,244,245,0.66));font:inherit;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ t.navAbout }}</button>
 <button onClick="{{ goContact }}" style="background:none;border:none;padding:0;color:var(--muted,rgba(244,244,245,0.66));font:inherit;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ t.navContact }}</button>
-<button onClick="{{ toggleTheme }}" style="background:none;border:none;padding:0;color:var(--faint,rgba(244,244,245,0.45));font:400 12px 'JetBrains Mono',monospace;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ themeLabel }}</button>
 <button onClick="{{ toggleLang }}" style="background:none;border:none;padding:0;color:var(--faint,rgba(244,244,245,0.45));font:400 12px 'JetBrains Mono',monospace;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ langLabel }}</button>
 </div>
 <button onClick="{{ toggleMenu }}" aria-label="Menu" style="margin-left:auto;display:{{ menuBtnDisp }};align-items:center;gap:8px;background:none;border:1px solid var(--line,rgba(244,244,245,0.14));color:var(--text,#f4f4f5);padding:6px 14px;border-radius:999px;font:400 13px 'JetBrains Mono',monospace;cursor:pointer;white-space:nowrap">{{ menuLabel }}</button>
@@ -57,7 +55,6 @@ a:hover{color:inherit}
 <button onClick="{{ mAbout }}" style="text-align:left;background:none;border:none;border-bottom:1px solid var(--line,rgba(244,244,245,0.14));color:var(--text,#f4f4f5);font:inherit;padding:14px 0;cursor:pointer">{{ t.navAbout }}</button>
 <button onClick="{{ mContact }}" style="text-align:left;background:none;border:none;border-bottom:1px solid var(--line,rgba(244,244,245,0.14));color:var(--text,#f4f4f5);font:inherit;padding:14px 0;cursor:pointer">{{ t.navContact }}</button>
 <div style="display:flex;gap:12px;padding-top:16px">
-<button onClick="{{ toggleTheme }}" style="background:none;border:1px solid var(--line,rgba(244,244,245,0.14));color:var(--faint,rgba(244,244,245,0.45));padding:10px 16px;border-radius:999px;font:400 13px 'JetBrains Mono',monospace;cursor:pointer">{{ themeLabel }}</button>
 <button onClick="{{ toggleLang }}" style="background:none;border:1px solid var(--line,rgba(244,244,245,0.14));color:var(--faint,rgba(244,244,245,0.45));padding:10px 16px;border-radius:999px;font:400 13px 'JetBrains Mono',monospace;cursor:pointer">{{ langLabel }}</button>
 </div>
 </div>
@@ -401,12 +398,12 @@ class Component extends DCLogic {
   static RM = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   static initLang() {
     try { const v = localStorage.getItem('bc_lang'); if (v === 'pl' || v === 'en') return v; } catch (e) {}
-    return (navigator.language || '').toLowerCase().indexOf('pl') === 0 ? 'pl' : 'en';
+    return 'en';
   }
   static isLight() { return /^#f/i.test((getComputedStyle(document.documentElement).getPropertyValue('--bg') || '').trim()); }
   static shade(hex, amt) { const n = parseInt(hex.slice(1), 16), c = sh => Math.round(((n >> sh) & 255) * (1 - amt)); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
   static I18N = {
-    en: { navWork: 'Work', navAbout: 'About', navContact: 'Contact', avail: 'available for junior .NET roles', role: '.NET Developer — Toruń, Poland',
+    en: { navWork: 'Work', navAbout: 'About', navContact: 'Contact', role: 'Software Engineer — Toruń, Poland',
       heroA: 'Ten years in operations. Now I build ', heroB: 'the software they run on', heroC: ', with tests and practical AI.', selWork: 'Selected work ↓',
       s1: '(01) Skills', s2: '(02) Selected work', s3: '(03) About', s4: '(04) Contact',
       aboutA: 'For ten years I kept operations running: processes, people, deadlines. Programming was what I did after hours, until it became what I wanted to do all day. Now I build complete applications, test what I ship, and use AI ', aboutB: 'where it removes real work',
@@ -418,7 +415,7 @@ class Component extends DCLogic {
       all: 'All', skCap: 'hover a technology or pick an area — matching projects light up below', usedIn: 'used in', notUsed: 'not in a featured project yet', of: ' of ', highlighted: ' projects highlighted below',
       again: 'Try again ↺', check: 'Check answer', correct: 'Correct — ', notQuite: 'Not quite — the answer is ',
       path: [['10 years', 'Operations', 'Processes, people and deadlines. How businesses really run.'], ['after hours', 'Hobby code', 'C#, Java and Python in the evenings.'], ['the switch', '.NET, full time', 'Complete, tested apps with Clean Architecture and CI.'], ['now', 'AI integration', 'LLMs inside real products. Looking for a junior role.']] },
-    pl: { navWork: 'Projekty', navAbout: 'O mnie', navContact: 'Kontakt', avail: 'szukam pracy jako junior .NET', role: '.NET Developer — Toruń',
+    pl: { navWork: 'Projekty', navAbout: 'O mnie', navContact: 'Kontakt', role: 'Software Engineer — Toruń',
       heroA: 'Dziesięć lat w operacjach. Teraz buduję ', heroB: 'oprogramowanie, na którym one działają', heroC: ', z testami i praktycznym AI.', selWork: 'Wybrane projekty ↓',
       s1: '(01) Umiejętności', s2: '(02) Wybrane projekty', s3: '(03) O mnie', s4: '(04) Kontakt',
       aboutA: 'Przez dziesięć lat dbałem, żeby operacje działały: procesy, ludzie, terminy. Programowanie było tym, czym zajmowałem się po godzinach, aż stało się tym, czym chciałem zajmować się cały dzień. Dziś buduję kompletne aplikacje, testuję to, co dostarczam, i używam AI ', aboutB: 'tam, gdzie zdejmuje prawdziwą pracę',
@@ -703,7 +700,7 @@ class Component extends DCLogic {
         const n = G.nodes[i], nbrs = G.adj[i].map(j => G.nodes[j]);
         if (n.type === 'tech') { const rel = nbrs.filter(m => m.type === 'tech').map(m => m.label); return "MATCH (:Tech {name: '" + n.label + "'})-[:WORKS_WITH]-(t)  →  " + (rel.length ? rel.join(', ') : n.area); }
         if (n.type === 'area') return "MATCH (:Area {name: '" + n.label + "'})-[:INCLUDES]->(t)  →  " + (n.deg - 1) + ' technologies';
-        return 'Bartosz Cłapiński · .NET developer · Toruń';
+        return 'Bartosz Cłapiński · software engineer · Toruń';
       };
       const draw = now => {
         raf = requestAnimationFrame(draw);
@@ -996,7 +993,7 @@ class Component extends DCLogic {
   static Mascot = function Mascot() {
     const h = React.createElement, ref = React.useRef(null), bubRef = React.useRef(null), hovRef = React.useRef(false), jumpRef = React.useRef(-10);
     const PLm = Component.LANG === 'pl';
-    const msgs = PLm ? ["Cześć, jestem Node, maskotka Bartosza.", "Szukasz junior .NET developera? Mogę to przekazać.", "MATCH (ty)-[:ZATRUDNIA]->(bartosz)", "Kliknij mnie, a skopiuję maila."] : ["Hi, I'm Node, Bartosz's graph mascot.", "Hiring a junior .NET developer? I can route that.", "MATCH (you)-[:HIRES]->(bartosz)", "Click me and I'll copy the email."];
+    const msgs = PLm ? ["Cześć, jestem Node, maskotka Bartosza.", "Szukasz software engineera? Mogę to przekazać.", "MATCH (ty)-[:ZATRUDNIA]->(bartosz)", "Kliknij mnie, a skopiuję maila."] : ["Hi, I'm Node, Bartosz's graph mascot.", "Hiring a software engineer? I can route that.", "MATCH (you)-[:HIRES]->(bartosz)", "Click me and I'll copy the email."];
     const [idx, setIdx] = React.useState(0), [over, setOver] = React.useState(null), [typed, setTyped] = React.useState(0), [dots, setDots] = React.useState(true);
     const talkRef = React.useRef(false), overRef = React.useRef(null);
     React.useEffect(() => {
@@ -1213,7 +1210,7 @@ class Component extends DCLogic {
       h('div', { ref: bar, style: { position: 'absolute', inset: 0, transformOrigin: '0 50%', transform: 'scaleX(0)', background: 'linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff,#14c4f0)', boxShadow: '0 0 14px rgba(255,45,135,0.55)' } }));
   };
 
-  themeName() { return this.state.theme || this.props.defaultTheme || 'dark'; }
+  themeName() { return 'dark'; }
 
   applyTheme() {
     const v = this.themeName() === 'dark'
