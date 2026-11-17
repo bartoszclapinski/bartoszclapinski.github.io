@@ -370,95 +370,74 @@ window.SITE_DATA = {
       ]
     },
     {
-      slug: 'blocksmith', name: 'BlockSmith', repo: 'bartoszclapinski/BlockSmith', demo: '', image: '',
+      slug: 'blocksmith', name: 'BlockSmith', repo: 'bartoszclapinski/BlockSmith', demo: 'https://bartoszclapinski.github.io/BlockSmith/', image: 'assets/blocksmith/dashboard.png',
       pl: {
-        "kind": "Silnik blockchain + węzeł P2P",
-        "status": "Faza 3 z 4 gotowa",
+        "kind": "Węzeł blockchain + sieć P2P",
+        "status": "Wszystkie 4 fazy gotowe",
         "short": "Blockchain i kryptowaluta zbudowane od zera w Javie.",
         "tagline": "Blockchain i kryptowaluta zbudowane od zera w Javie, żeby zrozumieć, jak to naprawdę działa.",
-        "overview": "To nie jest łańcuch z tutoriala. BlockSmith to działająca, rozproszona kryptowaluta z kopaniem Proof-of-Work, podpisanymi transakcjami, siecią peer-to-peer, REST API, panelem webowym i małą maszyną wirtualną smart kontraktów, budowana w krótkich sprintach metodą test-first.",
+        "overview": "To nie jest łańcuch z tutoriala. BlockSmith to działająca kryptowaluta: kopanie Proof-of-Work z regulacją trudności, transakcje podpisywane kluczami, które nigdy nie opuszczają przeglądarki, sieć peer-to-peer z wyborem najcięższego łańcucha, opłaty i rynek opłat, mała maszyna wirtualna kontraktów, baza H2 i panel z eksploratorem bloków. Strona projektu ma kopanie bloku w przeglądarce i nagrane demo prawdziwego węzła.",
         "stats": [
-          {
-            "value": "323",
-            "label": "testy przechodzą"
-          },
-          {
-            "value": "18",
-            "label": "sprintów"
-          },
-          {
-            "value": "3",
-            "label": "gotowe fazy"
-          },
-          {
-            "value": "~65k",
-            "label": "hashy na blok"
-          }
+          { "value": "483", "label": "testy JUnit, wszystkie zielone" },
+          { "value": "28", "label": "sprintów" },
+          { "value": "~10.9k", "label": "linii Javy (+13.3k w testach)" },
+          { "value": "0", "label": "bibliotek blockchain" }
         ],
         "features": [
-          {
-            "title": "Proof-of-Work",
-            "text": "Kopanie SHA-256 z regulowaną trudnością."
-          },
-          {
-            "title": "Portfele",
-            "text": "Pary kluczy ECDSA z adresami w stylu 0x."
-          },
-          {
-            "title": "Transakcje",
-            "text": "Drzewa Merkle, mempool i ochrona przed podwójnym wydaniem."
-          },
-          {
-            "title": "Sieć P2P",
-            "text": "Wykrywanie węzłów, heartbeat, rozgłaszanie bloków i synchronizacja przez TCP."
-          },
-          {
-            "title": "API i panel",
-            "text": "REST API w Javalin z eksploratorem w przeglądarce."
-          },
-          {
-            "title": "Smart kontrakty",
-            "text": "Stosowa VM skryptów: hashlock, timelock, multisig M-z-N."
-          }
+          { "title": "Proof-of-Work", "text": "Kopanie SHA-256 z 256-bitowym targetem i regulacją trudności co 10 bloków." },
+          { "title": "Portfele i podpisy", "text": "Klucze ECDSA tworzone i szyfrowane w przeglądarce (PBKDF2 + AES-GCM); węzeł nigdy nie trzyma klucza prywatnego." },
+          { "title": "Wybór łańcucha", "text": "Bloki konkurencyjne na bocznych gałęziach, reorganizacja na łańcuch z największą pracą, cofnięte transakcje wracają do mempoola." },
+          { "title": "Opłaty", "text": "Bloki wypełniane według opłaty za bajt, replace-by-fee i szacowanie opłat." },
+          { "title": "Sieć P2P", "text": "Gniazda TCP, wykrywanie węzłów, rozgłaszanie bloków i transakcji, synchronizacja przez block locator." },
+          { "title": "Kontrakty", "text": "Stosowa VM skryptów: hashlock, timelock, multisig M-z-N podpisywany w przeglądarkach członków." }
         ],
         "decisions": [
           "Bez bibliotek blockchain, tylko kryptografia z JDK.",
-          "Krótkie sprinty (8a, 8b…) z testami pisanymi najpierw.",
-          "Buforowanie bloków-sierot przy rozgłaszaniu w złej kolejności.",
-          "Odporny na replay sighash dla multisig."
+          "Po restarcie każdy blok przechodzi pełną walidację, zanim trafi do łańcucha.",
+          "Kopanie poza blokadą łańcucha: API i węzły nie czekają na koparkę.",
+          "Nagrane demo ma test, który nie przejdzie, gdy demo zostanie w tyle za API."
+        ],
+        "gallery": [
+          { "src": "assets/blocksmith/dashboard.png", "title": "Panel węzła", "caption": "Łańcuch, akcje, saldo i węzły; nagranie prawdziwej sesji." },
+          { "src": "assets/blocksmith/site.png", "title": "Strona projektu", "caption": "Kopanie bloku w przeglądarce tą samą pętlą Proof-of-Work co węzeł." }
         ]
       },
-      kind: 'Blockchain engine + P2P node', status: 'Phase 3 of 4 complete', core: 'Java 20 · Javalin · JUnit 5',
+      kind: 'Blockchain node + P2P network', status: 'All 4 phases complete', core: 'Java 20 · Javalin · H2 · JUnit 5',
       tech: ['Java', 'Javalin'],
       short: 'A blockchain and cryptocurrency built from scratch in Java.',
       tagline: 'A blockchain and cryptocurrency built from scratch in Java, to understand how it really works.',
-      overview: 'Not a tutorial chain. BlockSmith is a working distributed cryptocurrency with Proof-of-Work mining, signed transactions, peer-to-peer networking, a REST API, a web dashboard and a small smart-contract VM, built in small test-first sprints.',
-      stats: [{ value: '323', label: 'tests passing' }, { value: '18', label: 'sprints' }, { value: '3', label: 'phases complete' }, { value: '~65k', label: 'hashes per block' }],
+      overview: 'Not a tutorial chain. BlockSmith is a working cryptocurrency: Proof-of-Work mining with difficulty retargeting, transactions signed with keys that never leave the browser, a peer-to-peer network that follows the chain with the most work, fees and a fee market, a small contract VM, an H2 store and a dashboard with a block explorer. The project page lets you mine a block in your browser and replay a recorded session of a real node.',
+      stats: [{ value: '483', label: 'JUnit tests, all green' }, { value: '28', label: 'sprints' }, { value: '~10.9k', label: 'lines of Java (+13.3k in tests)' }, { value: '0', label: 'blockchain libraries' }],
       features: [
-        { title: 'Proof-of-Work', text: 'SHA-256 mining with adjustable difficulty.' },
-        { title: 'Wallets', text: 'ECDSA key pairs with 0x-style addresses.' },
-        { title: 'Transactions', text: 'Merkle trees, a mempool and double-spend prevention.' },
-        { title: 'P2P network', text: 'Discovery, heartbeat, block gossip and chain sync over TCP.' },
-        { title: 'API and dashboard', text: 'Javalin REST API with a web explorer.' },
-        { title: 'Smart contracts', text: 'Stack-based script VM: hashlock, timelock, M-of-N multisig.' }
+        { title: 'Proof-of-Work', text: 'SHA-256 mining with a 256-bit target, retargeted every 10 blocks.' },
+        { title: 'Wallets and signatures', text: 'ECDSA keys created and encrypted in the browser (PBKDF2 + AES-GCM); the node never holds a private key.' },
+        { title: 'Fork choice', text: 'Competing blocks kept on side branches, reorganisation onto the chain with the most work, undone transactions back to the mempool.' },
+        { title: 'Fees', text: 'Blocks filled by fee per byte, replace-by-fee and fee estimation.' },
+        { title: 'P2P network', text: 'TCP sockets, peer discovery, block and transaction gossip, block-locator sync.' },
+        { title: 'Contracts', text: 'Stack-based script VM: hashlock, timelock, M-of-N multisig signed in the members\' browsers.' }
+      ],
+      gallery: [
+        { src: 'assets/blocksmith/dashboard.png', title: 'Node dashboard', caption: 'Chain, actions, balance and peers; a recording of a real session.' },
+        { src: 'assets/blocksmith/site.png', title: 'Project page', caption: 'Mine a block in your browser with the same Proof-of-Work loop as the node.' }
       ],
       layers: [
-        { name: 'core', text: 'Block, Blockchain, Transaction, Wallet.' },
+        { name: 'core', text: 'Block, Blockchain, Transaction, Wallet, fork choice.' },
         { name: 'network', text: 'Node, Peer, PeerManager, JSON message protocol.' },
-        { name: 'api', text: 'Javalin REST API and static dashboard.' },
+        { name: 'api', text: 'Javalin REST API, dashboard and block explorer.' },
+        { name: 'storage', text: 'Embedded H2; every block revalidated on restart.' },
         { name: 'contract', text: 'ScriptVM, Contract, MultiSigWallet.' }
       ],
       decisions: [
         "No blockchain libraries, only the JDK's own cryptography.",
-        'Small sprints (8a, 8b…) with tests written first.',
-        'Orphan-block buffering for out-of-order gossip.',
-        'Replay-safe sighash for multisig claims.'
+        'On restart every block is replayed through full validation before it joins the chain.',
+        'Mining runs outside the chain lock, so the API and peers never wait for it.',
+        'The recorded demo has a test that fails when it falls behind the API.'
       ],
       stack: [
         { group: 'Language', items: ['Java 20', 'Maven'] },
-        { group: 'Crypto', items: ['JCA', 'SHA-256', 'ECDSA'] },
+        { group: 'Crypto', items: ['JCA', 'SHA-256', 'ECDSA', 'Web Crypto'] },
         { group: 'Network & API', items: ['TCP sockets', 'Gson', 'Javalin'] },
-        { group: 'Testing', items: ['JUnit 5'] }
+        { group: 'Data & testing', items: ['H2', 'JUnit 5'] }
       ]
     },
     {
