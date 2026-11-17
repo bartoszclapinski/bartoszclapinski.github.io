@@ -13,9 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <script src="./site-data.js"></script>
-<title>Bartosz Cłapiński — Software Engineer</title>
+<title>Bartosz Cłapiński · Software Engineer</title>
 <meta name="description" content="Software engineer from Toruń. Ten years in operations, now building tested .NET apps with practical AI.">
-<meta property="og:title" content="Bartosz Cłapiński — Software Engineer">
+<meta property="og:title" content="Bartosz Cłapiński · Software Engineer">
 <meta property="og:description" content="Ten years in operations, now building tested .NET apps with practical AI.">
 <meta property="og:image" content="https://bartoszclapinski.github.io/assets/og-image.png">
 <meta property="og:url" content="https://bartoszclapinski.github.io/">
@@ -403,7 +403,7 @@ class Component extends DCLogic {
   static isLight() { return /^#f/i.test((getComputedStyle(document.documentElement).getPropertyValue('--bg') || '').trim()); }
   static shade(hex, amt) { const n = parseInt(hex.slice(1), 16), c = sh => Math.round(((n >> sh) & 255) * (1 - amt)); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
   static I18N = {
-    en: { navWork: 'Work', navAbout: 'About', navContact: 'Contact', role: 'Software Engineer — Toruń, Poland',
+    en: { navWork: 'Work', navAbout: 'About', navContact: 'Contact', role: 'Software Engineer · Toruń, Poland',
       heroA: 'Ten years in operations. Now I build ', heroB: 'the software they run on', heroC: ', with tests and practical AI.', selWork: 'Selected work ↓',
       s1: '(01) Skills', s2: '(02) Selected work', s3: '(03) About', s4: '(04) Contact',
       aboutA: 'For ten years I kept operations running: processes, people, deadlines. Programming was what I did after hours, until it became what I wanted to do all day. Now I build complete applications, test what I ship, and use AI ', aboutB: 'where it removes real work',
@@ -411,11 +411,11 @@ class Component extends DCLogic {
       type: 'Type', status: 'Status', core: 'Core stack', links: 'Links', p1: '(01) Overview', p2: '(02) What it does', p3: '(03) Architecture', p4: '(04) Key decisions', p5: '(05) Built with', next: 'Next project',
       scr: '(✦) Screens', tryIt: '(✦) Try it', tryHint: 'One real question from the app. Click an answer or press 1–4, then Enter.', tryKeys: 'Press 1–4 to select · Enter to check', play: 'Play the full app ↗',
       phases: '(✦) Built in phases', graph: '(✦) In the graph', graphHint: 'Where this project sits in everything I work with. Lit nodes are the technologies it uses.',
-      foot: '© 2026 Bartosz Cłapiński — Toruń, Poland', ftSite: 'Site', ftElse: 'Elsewhere', replay: 'replay intro ↻', lightL: 'light ○', darkL: 'dark ●', langL: 'PL',
-      all: 'All', skCap: 'hover a technology or pick an area — matching projects light up below', usedIn: 'used in', notUsed: 'not in a featured project yet', of: ' of ', highlighted: ' projects highlighted below',
-      again: 'Try again ↺', check: 'Check answer', correct: 'Correct — ', notQuite: 'Not quite — the answer is ',
+      foot: '© 2026 Bartosz Cłapiński · Toruń, Poland', ftSite: 'Site', ftElse: 'Elsewhere', replay: 'replay intro ↻', lightL: 'light ○', darkL: 'dark ●', langL: 'PL',
+      all: 'All', skCap: 'hover a technology or pick an area, and matching projects light up below', usedIn: 'used in', notUsed: 'not in a featured project yet', of: ' of ', highlighted: ' projects highlighted below',
+      again: 'Try again ↺', check: 'Check answer', correct: 'Correct: ', notQuite: 'Not quite. The answer is ',
       path: [['10 years', 'Operations', 'Processes, people and deadlines. How businesses really run.'], ['after hours', 'Hobby code', 'C#, Java and Python in the evenings.'], ['the switch', '.NET, full time', 'Complete, tested apps with Clean Architecture and CI.'], ['now', 'AI integration', 'LLMs inside real products. Looking for a junior role.']] },
-    pl: { navWork: 'Projekty', navAbout: 'O mnie', navContact: 'Kontakt', role: 'Software Engineer — Toruń',
+    pl: { navWork: 'Projekty', navAbout: 'O mnie', navContact: 'Kontakt', role: 'Software Engineer · Toruń',
       heroA: 'Dziesięć lat w operacjach. Teraz buduję ', heroB: 'oprogramowanie, na którym one działają', heroC: ', z testami i praktycznym AI.', selWork: 'Wybrane projekty ↓',
       s1: '(01) Umiejętności', s2: '(02) Wybrane projekty', s3: '(03) O mnie', s4: '(04) Kontakt',
       aboutA: 'Przez dziesięć lat dbałem, żeby operacje działały: procesy, ludzie, terminy. Programowanie było tym, czym zajmowałem się po godzinach, aż stało się tym, czym chciałem zajmować się cały dzień. Dziś buduję kompletne aplikacje, testuję to, co dostarczam, i używam AI ', aboutB: 'tam, gdzie zdejmuje prawdziwą pracę',
@@ -423,9 +423,9 @@ class Component extends DCLogic {
       type: 'Typ', status: 'Status', core: 'Główny stack', links: 'Linki', p1: '(01) Opis', p2: '(02) Co robi', p3: '(03) Architektura', p4: '(04) Kluczowe decyzje', p5: '(05) Zbudowane z', next: 'Następny projekt',
       scr: '(✦) Ekrany', tryIt: '(✦) Spróbuj', tryHint: 'Jedno prawdziwe pytanie z aplikacji. Kliknij odpowiedź albo naciśnij 1–4, potem Enter.', tryKeys: '1–4 wybór · Enter sprawdza', play: 'Zagraj w pełną wersję ↗',
       phases: '(✦) Etapy budowy', graph: '(✦) Na mapie', graphHint: 'Gdzie ten projekt jest na mapie mojej wiedzy. Świecą technologie, których używa.',
-      foot: '© 2026 Bartosz Cłapiński — Toruń', ftSite: 'Strona', ftElse: 'Gdzie indziej', replay: 'odtwórz intro ↻', lightL: 'jasny ○', darkL: 'ciemny ●', langL: 'EN',
-      all: 'Wszystko', skCap: 'najedź na technologię albo wybierz obszar — pasujące projekty podświetlą się niżej', usedIn: 'użyte w', notUsed: 'jeszcze nie w wyróżnionym projekcie', of: ' z ', highlighted: ' projektów podświetlonych niżej',
-      again: 'Jeszcze raz ↺', check: 'Sprawdź', correct: 'Dobrze — ', notQuite: 'Nie tym razem — poprawna to ',
+      foot: '© 2026 Bartosz Cłapiński · Toruń', ftSite: 'Strona', ftElse: 'Gdzie indziej', replay: 'odtwórz intro ↻', lightL: 'jasny ○', darkL: 'ciemny ●', langL: 'EN',
+      all: 'Wszystko', skCap: 'najedź na technologię albo wybierz obszar, a pasujące projekty podświetlą się niżej', usedIn: 'użyte w', notUsed: 'jeszcze nie w wyróżnionym projekcie', of: ' z ', highlighted: ' projektów podświetlonych niżej',
+      again: 'Jeszcze raz ↺', check: 'Sprawdź', correct: 'Dobrze: ', notQuite: 'Nie tym razem. Poprawna to ',
       path: [['10 lat', 'Operacje', 'Procesy, ludzie i terminy. Jak naprawdę działa firma.'], ['po godzinach', 'Kod z pasji', 'C#, Java i Python wieczorami.'], ['zmiana', '.NET na pełen etat', 'Kompletne, przetestowane aplikacje z Clean Architecture i CI.'], ['teraz', 'Integracja AI', 'LLM-y w prawdziwych produktach. Szukam pracy jako junior.']] }
   };
   static PAL = ['#ff8a1f', '#ff2d87', '#7b4dff', '#14c4f0', '#1fd68a', '#ffb21f'];
@@ -812,7 +812,7 @@ class Component extends DCLogic {
     return h('div', { style: { position: 'fixed', inset: 0, zIndex: 1000, color: 'var(--text,#f4f4f5)', pointerEvents: phase === 'load' ? 'auto' : 'none' } },
       h('div', { ref: bgRef, style: { position: 'absolute', inset: 0, background: 'var(--bg,#0a0a0c)' } }),
       h('div', { style: { position: 'absolute', inset: 0 } }, h('canvas', { ref, style: { position: 'absolute', inset: 0 } })),
-      h('div', { style: Object.assign({}, mono, fade, { position: 'absolute', left: nw ? 20 : 40, top: 28 }) }, nw ? 'Bartosz Cłapiński' : 'Bartosz Cłapiński — portfolio'),
+      h('div', { style: Object.assign({}, mono, fade, { position: 'absolute', left: nw ? 20 : 40, top: 28 }) }, nw ? 'Bartosz Cłapiński' : 'Bartosz Cłapiński · portfolio'),
       h('div', { style: Object.assign({}, mono, fade, { position: 'absolute', right: nw ? 20 : 40, top: nw ? 50 : 28, fontVariantNumeric: 'tabular-nums' }) }, st.nodes + ' nodes · ' + st.rels + ' relationships'),
       h('button', { onClick: () => { skipRef.current = true; }, style: Object.assign({}, mono, fade, { position: 'absolute', right: nw ? 20 : 40, top: nw ? 76 : 54, background: 'transparent', border: '1px solid var(--line,rgba(244,244,245,0.14))', color: 'var(--muted,rgba(244,244,245,0.66))', padding: '7px 14px', borderRadius: 999, cursor: 'pointer' }) }, Component.LANG === 'pl' ? 'pomiń intro  esc' : 'skip intro  esc'),
       h('div', { style: Object.assign({}, fade, { position: 'absolute', left: nw ? 20 : 40, right: nw ? 20 : 40, bottom: 32, display: 'flex', flexDirection: nw ? 'column' : 'row', justifyContent: 'space-between', alignItems: nw ? 'flex-start' : 'flex-end', gap: nw ? 8 : 24 }) },
@@ -845,14 +845,14 @@ class Component extends DCLogic {
     const T = PL ? {
       title: { check: 'Sprawdzam demo…', wake: 'Wybudzam demo…', ready: 'Demo nie śpi!', slow: 'Trwa dłużej niż zwykle' },
       body: 'Projekt działa na darmowym planie Render, który usypia aplikację po 15 minutach bezczynności. Pierwsze uruchomienie trwa około minuty.',
-      slow: 'Serwer jeszcze się nie odezwał. Możesz otworzyć demo bezpośrednio — doładuje się w nowej karcie.',
+      slow: 'Serwer jeszcze się nie odezwał. Możesz otworzyć demo bezpośrednio. Doładuje się w nowej karcie.',
       msgs: ['Psst… serwer śpi. Już go budzę.', 'Darmowy hosting = drzemki po 15 min.', 'Wysyłam pingi. Tak, wiele pingów.', 'Zwykle to około minuty. Warto!', 'Rozgrzewam .NET i bazę…'],
       ready: 'Wstał! Otwieram demo…', slowMsg: 'Śpi jak kamień. Spróbuj bezpośrednio?',
       anyway: 'Otwórz mimo to →', open: 'Otwórz demo →', cancel: 'Anuluj', st: { check: 'ping', wake: 'czekam na odpowiedź', ready: 'odpowiada', slow: 'brak odpowiedzi' }
     } : {
       title: { check: 'Checking the demo…', wake: 'Waking up the demo…', ready: 'The demo is awake!', slow: 'Taking longer than usual' },
       body: "This project runs on Render's free tier, which sleeps after 15 minutes of inactivity. The first load takes about a minute.",
-      slow: "The server hasn't answered yet. You can open the demo directly — it will finish loading in a new tab.",
+      slow: "The server hasn't answered yet. You can open the demo directly. It will finish loading in a new tab.",
       msgs: ['Psst… the server is napping. Waking it up.', 'Free hosting = naps after 15 idle minutes.', 'Sending pings. Lots of pings.', 'Usually about a minute. Worth it!', 'Warming up .NET and the database…'],
       ready: "It's up! Opening the demo…", slowMsg: 'Sleeping like a log. Try it directly?',
       anyway: 'Go anyway →', open: 'Open demo →', cancel: 'Cancel', st: { check: 'ping', wake: 'waiting for response', ready: 'responding', slow: 'no response yet' }
@@ -1299,7 +1299,7 @@ class Component extends DCLogic {
       techTop: (p.tech || []).slice(0, 5).map(n => { const a = (D.areas || []).find(x => (x.techs || []).indexOf(n) >= 0), col = (a && a.color) || '#9a9aa5'; return { n, c: lt ? Component.shade(col, 0.38) : col, bd: col + '59' }; }),
       grad: pg(p, i), gradV: pg(p, i).replace('90deg', '180deg'),
       acA: p.accent ? p.accent[0] : PAL[i % PAL.length], url: p.url || '',
-      hasShowcase: !!p.showcase, showcaseCaption: p.showcaseCaption || '', hasVideo: !!p.video && !p.showcase, noVideo: !p.video && !p.showcase, videoBg: p.video ? "url('" + p.video + "') center / cover no-repeat" : 'none', videoCaption: p.videoCaption || '',
+      hasShowcase: !!p.showcase, showcaseCaption: p.showcaseCaption || '', hasVideo: !!p.video && !p.showcase, noVideo: !p.video && !p.showcase && !!p.image, videoBg: p.video ? "url('" + p.video + "') center / cover no-repeat" : 'none', videoCaption: p.videoCaption || '',
       glowA: (p.accent ? p.accent[0] : PAL[i % PAL.length]) + '40', glowB: (p.accent ? p.accent[1] : PAL[(i + 1) % PAL.length]) + '33',
       hasGallery: !!(p.gallery && p.gallery.length), hasTry: !!p.tryIt, tryIt: p.tryIt || { question: '', explanation: '', label: '', options: [] },
       hasTimeline: !!(p.timeline && p.timeline.length),
@@ -1345,7 +1345,7 @@ class Component extends DCLogic {
     const techOf = (n, a) => {
       const by = D.projects.filter(p => (p.tech || []).indexOf(n) >= 0).map(p => p.name);
       num += 1;
-      return { n, c: a.c, bd: a.c + '55', bg: a.c + '12', sym: symOf(n), num: String(num).padStart(2, '0'), uses: by.length, dots: '●'.repeat(Math.min(3, by.length)), countLabel: by.length ? '×' + by.length : '', title: n + (by.length ? ' — used in ' + by.join(', ') : ' — not in a featured project yet') };
+      return { n, c: a.c, bd: a.c + '55', bg: a.c + '12', sym: symOf(n), num: String(num).padStart(2, '0'), uses: by.length, dots: '●'.repeat(Math.min(3, by.length)), countLabel: by.length ? '×' + by.length : '', title: n + (by.length ? ': used in ' + by.join(', ') : ': not in a featured project yet') };
     };
     const skillRows = G ? G.areas.map(a => ({ name: a.label, c: a.c, techs: a.techs.map(n => techOf(n, a)) })) : [];
     const skillTechs = [].concat.apply([], skillRows.map(r => r.techs));
@@ -1353,7 +1353,7 @@ class Component extends DCLogic {
     skillRows.forEach((r, i) => {
       const lastA = i === skillRows.length - 1;
       treeLines.push({ pre: lastA ? '└──' : '├──', label: r.name.toLowerCase().replace(/[^a-z]+/g, '-') + '/', c: r.c, w: 600, meta: r.techs.length + ' items', mc: 'var(--faint,rgba(244,244,245,0.45))', lead: 'transparent' });
-      r.techs.forEach((e, j) => treeLines.push({ pre: (lastA ? '    ' : '│   ') + (j === r.techs.length - 1 ? '└──' : '├──'), label: e.n, c: 'var(--text,#f4f4f5)', w: 400, meta: e.uses ? e.uses + (e.uses > 1 ? ' projects' : ' project') : '—', mc: e.uses ? r.c : 'var(--faint,rgba(244,244,245,0.45))', lead: 'var(--line,rgba(244,244,245,0.14))' }));
+      r.techs.forEach((e, j) => treeLines.push({ pre: (lastA ? '    ' : '│   ') + (j === r.techs.length - 1 ? '└──' : '├──'), label: e.n, c: 'var(--text,#f4f4f5)', w: 400, meta: e.uses ? e.uses + (e.uses > 1 ? ' projects' : ' project') : '·', mc: e.uses ? r.c : 'var(--faint,rgba(244,244,245,0.45))', lead: 'var(--line,rgba(244,244,245,0.14))' }));
     });
     const treeSummary = skillRows.length + ' areas, ' + skillTechs.length + ' technologies, ' + D.projects.length + ' projects';
     const sv = this.props.skillsView || 'marquee';
