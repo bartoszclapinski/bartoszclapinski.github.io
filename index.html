@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;family=Geist:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="./site-data.js"></script>
+<title>Bartosz Cłapiński — .NET Developer</title>
+<meta name="description" content=".NET developer from Toruń. Ten years in operations, now building tested .NET apps with practical AI.">
+<meta property="og:title" content="Bartosz Cłapiński — .NET Developer">
+<meta property="og:description" content="Ten years in operations, now building tested .NET apps with practical AI.">
+<meta property="og:image" content="https://bartoszclapinski.github.io/assets/og-image.png">
+<meta property="og:url" content="https://bartoszclapinski.github.io/">
+<link rel="canonical" href="https://bartoszclapinski.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<style>@keyframes bcFadeIn{from{opacity:0}to{opacity:1}}@keyframes bcPopIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}@keyframes bcNavSpin{0%,36%{transform:rotate(0deg)}50%,100%{transform:rotate(360deg)}}@keyframes bcStem{0%,86%{transform:scaleY(1)}91%{transform:scaleY(1.2)}95%{transform:scaleY(.93)}98%{transform:scaleY(1.03)}100%{transform:scaleY(1)}}@media (prefers-reduced-motion:reduce){[style*="bcNavSpin"],[style*="bcStem"]{animation:none!important}}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg,#0a0a0c);color:var(--text,#f4f4f5);font-family:'Geist',sans-serif;transition:background .5s,color .5s;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{color:inherit}
+::selection{background:#7b4dff;color:#fff}
+@keyframes bcPulse{50%{opacity:.35}}
+@keyframes bcPop{0%{transform:scale(.3) rotate(-10deg);opacity:0}55%{transform:scale(1.1) rotate(3deg);opacity:1}78%{transform:scale(.96) rotate(-1deg)}100%{transform:scale(1) rotate(0)}}
+@keyframes bcBob{0%,100%{translate:0 0;rotate:-1deg}50%{translate:0 -7px;rotate:1deg}}
+@keyframes bcDot{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-5px);opacity:1}}
+</style>
+</helmet>
+{{ bgEl }}
+{{ loaderEl }}
+{{ wakeEl }}
+<nav style="opacity:{{ navOp }};transition:opacity .9s ease .25s;position:fixed;top:0;left:0;right:0;z-index:50;background:var(--navbg,rgba(10,10,12,0.75));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)">
+<div style="max-width:1240px;margin:0 auto;padding:18px clamp(20px,4vw,40px);display:flex;align-items:center;gap:28px;flex-wrap:nowrap">
+<a href="#/" style="display:flex;align-items:center;gap:10px;flex:none;white-space:nowrap;font:600 16px 'Geist',sans-serif;letter-spacing:-0.01em"><svg viewBox="122 74 276 376" width="21" height="28" aria-hidden="true" style="display:block;flex:none;overflow:visible"><defs><linearGradient id="nbB" gradientUnits="userSpaceOnUse" x1="133" y1="84" x2="411" y2="439"><stop offset="0" stop-color="#ffb35c"></stop><stop offset="0.5" stop-color="#ff5a3c"></stop><stop offset="1" stop-color="#ff2d87"></stop></linearGradient><linearGradient id="nbC" gradientUnits="userSpaceOnUse" x1="150" y1="190" x2="400" y2="430"><stop offset="0" stop-color="#5fe0ff"></stop><stop offset="0.5" stop-color="#14c4f0"></stop><stop offset="1" stop-color="#7b4dff"></stop></linearGradient><mask id="nbM" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512"><rect width="512" height="512" fill="#ffffff"></rect><path d="M363.2 238.5 A110 110 0 1 0 363.2 361.5" fill="none" stroke="#000000" stroke-width="72" style="transform-box:view-box;transform-origin:272px 300px;animation:bcNavSpin 14s cubic-bezier(.65,0,.35,1) 3s infinite"></path></mask></defs><g mask="url(#nbM)"><path d="M133 300 V142 C133 114 158 94 191 84 V300 Z" fill="url(#nbB)" style="transform-box:view-box;transform-origin:133px 300px;animation:bcStem 14s cubic-bezier(.4,0,.2,1) 3s infinite"></path><circle cx="272" cy="300" r="110" fill="none" stroke="url(#nbB)" stroke-width="58"></circle></g><path d="M358.7 232.3 A110 110 0 1 0 358.7 367.7" fill="none" stroke="url(#nbC)" stroke-width="58" style="transform-box:view-box;transform-origin:272px 300px;animation:bcNavSpin 14s cubic-bezier(.65,0,.35,1) 3s infinite"></path></svg>Bartosz Cłapiński</a>
+<span style="display:{{ availDisp }};align-items:center;gap:8px;font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))"><span style="width:6px;height:6px;border-radius:50%;background:#1fd68a;animation:bcPulse 2.4s ease-in-out infinite"></span>{{ t.avail }}</span>
+<div style="margin-left:auto;display:{{ navLinksDisp }};align-items:center;gap:26px;font:400 14px 'Geist',sans-serif">
+<button onClick="{{ goWork }}" style="background:none;border:none;padding:0;color:var(--muted,rgba(244,244,245,0.66));font:inherit;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ t.navWork }}</button>
+<button onClick="{{ goAbout }}" style="background:none;border:none;padding:0;color:var(--muted,rgba(244,244,245,0.66));font:inherit;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ t.navAbout }}</button>
+<button onClick="{{ goContact }}" style="background:none;border:none;padding:0;color:var(--muted,rgba(244,244,245,0.66));font:inherit;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ t.navContact }}</button>
+<button onClick="{{ toggleTheme }}" style="background:none;border:none;padding:0;color:var(--faint,rgba(244,244,245,0.45));font:400 12px 'JetBrains Mono',monospace;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ themeLabel }}</button>
+<button onClick="{{ toggleLang }}" style="background:none;border:none;padding:0;color:var(--faint,rgba(244,244,245,0.45));font:400 12px 'JetBrains Mono',monospace;cursor:pointer" style-hover="color:var(--text,#f4f4f5)">{{ langLabel }}</button>
+</div>
+<button onClick="{{ toggleMenu }}" aria-label="Menu" style="margin-left:auto;display:{{ menuBtnDisp }};align-items:center;gap:8px;background:none;border:1px solid var(--line,rgba(244,244,245,0.14));color:var(--text,#f4f4f5);padding:6px 14px;border-radius:999px;font:400 13px 'JetBrains Mono',monospace;cursor:pointer;white-space:nowrap">{{ menuLabel }}</button>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;padding:4px clamp(20px,4vw,40px) 22px;font:500 24px 'Geist',sans-serif;letter-spacing:-0.02em">
+<button onClick="{{ mWork }}" style="text-align:left;background:none;border:none;border-bottom:1px solid var(--line,rgba(244,244,245,0.14));color:var(--text,#f4f4f5);font:inherit;padding:14px 0;cursor:pointer">{{ t.navWork }}</button>
+<button onClick="{{ mAbout }}" style="text-align:left;background:none;border:none;border-bottom:1px solid var(--line,rgba(244,244,245,0.14));color:var(--text,#f4f4f5);font:inherit;padding:14px 0;cursor:pointer">{{ t.navAbout }}</button>
+<button onClick="{{ mContact }}" style="text-align:left;background:none;border:none;border-bottom:1px solid var(--line,rgba(244,244,245,0.14));color:var(--text,#f4f4f5);font:inherit;padding:14px 0;cursor:pointer">{{ t.navContact }}</button>
+<div style="display:flex;gap:12px;padding-top:16px">
+<button onClick="{{ toggleTheme }}" style="background:none;border:1px solid var(--line,rgba(244,244,245,0.14));color:var(--faint,rgba(244,244,245,0.45));padding:10px 16px;border-radius:999px;font:400 13px 'JetBrains Mono',monospace;cursor:pointer">{{ themeLabel }}</button>
+<button onClick="{{ toggleLang }}" style="background:none;border:1px solid var(--line,rgba(244,244,245,0.14));color:var(--faint,rgba(244,244,245,0.45));padding:10px 16px;border-radius:999px;font:400 13px 'JetBrains Mono',monospace;cursor:pointer">{{ langLabel }}</button>
+</div>
+</div>
+</sc-if>
+{{ navLine }}
+</nav>
+<div style="height:69px"></div>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<main>
+<section style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,40px);box-sizing:border-box;min-height:{{ heroMinH }};display:flex;flex-wrap:wrap;align-items:center;gap:0 40px">
+<div style="flex:1 1 460px;display:flex;flex-direction:column;justify-content:center;box-sizing:border-box;gap:32px;padding:{{ heroPad }};min-height:{{ heroTextMinH }}">
+<div style="opacity:{{ rvOp }};transform:{{ rvTf }};transition:opacity .9s cubic-bezier(.2,.7,.2,1) 0s,transform 1.1s cubic-bezier(.2,.7,.2,1) 0s;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.role }}</div>
+<h1 style="opacity:{{ rvOp }};transform:{{ rvTf }};transition:opacity .9s cubic-bezier(.2,.7,.2,1) 0.08s,transform 1.1s cubic-bezier(.2,.7,.2,1) 0.08s;margin:0;font:500 clamp(56px,8vw,118px)/0.9 'Geist',sans-serif;letter-spacing:-0.055em">Bartosz<br>Cłapiński</h1>
+<p style="opacity:{{ rvOp }};transform:{{ rvTf }};transition:opacity .9s cubic-bezier(.2,.7,.2,1) 0.18s,transform 1.1s cubic-bezier(.2,.7,.2,1) 0.18s;margin:0;max-width:520px;font:300 clamp(20px,2vw,25px)/1.4 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66));text-wrap:pretty">{{ t.heroA }}<span style="background:linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:400">{{ t.heroB }}</span>{{ t.heroC }}</p>
+<div style="opacity:{{ rvOp }};transform:{{ rvTf }};transition:opacity .9s cubic-bezier(.2,.7,.2,1) 0.28s,transform 1.1s cubic-bezier(.2,.7,.2,1) 0.28s;display:flex;gap:32px;flex-wrap:wrap;font:400 15px 'Geist',sans-serif;margin-top:8px">
+<button onClick="{{ goWork }}" style="background:none;border:none;padding:0 0 6px;border-bottom:1px solid var(--text,#f4f4f5);color:var(--text,#f4f4f5);font:inherit;cursor:pointer">{{ t.selWork }}</button>
+<a href="mailto:bartosz.clapinski@gmail.com" style="padding-bottom:6px;border-bottom:1px solid var(--line,rgba(244,244,245,0.14));color:var(--muted,rgba(244,244,245,0.66))" style-hover="color:var(--text,#f4f4f5);border-bottom-color:var(--text,#f4f4f5)">bartosz.clapinski@gmail.com</a>
+</div>
+</div>
+<div id="hero-graph" style="flex:1 1 540px;position:relative;height:{{ heroGH }};margin-right:max(-200px,min(0px,calc((1240px - 100vw) / 2 + 24px)));margin-left:{{ heroML }}">
+{{ heroGraph }}
+</div>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:clamp(110px,15vw,200px) clamp(20px,4vw,40px) 0;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.s1 }}</div>
+<div style="flex:1 1 640px;min-width:0">
+<sc-if value="{{ svMarquee }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:22px">
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ skillTabs }}" as="a" hint-placeholder-count="6"><button onClick="{{ a.onClick }}" style="display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid {{ a.bd }};background:{{ a.bg }};color:var(--text,#f4f4f5);font:400 13px 'Geist',sans-serif;cursor:pointer;transition:border-color .25s,background .25s"><span style="width:8px;height:8px;border-radius:50%;background:{{ a.c }}"></span>{{ a.name }}<span style="font:400 11px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ a.count }}</span></button></sc-for>
+</div>
+{{ marqueeEl }}
+<div style="font:400 12.5px 'JetBrains Mono',monospace;color:var(--muted,rgba(244,244,245,0.66));min-height:20px">{{ skillCaption }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ svTable }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-wrap:wrap;gap:8px 22px;font:400 12px 'JetBrains Mono',monospace;color:var(--muted,rgba(244,244,245,0.66))">
+<sc-for list="{{ skills }}" as="k" hint-placeholder-count="5"><span style="display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:2px;background:{{ k.c }}"></span>{{ k.name }}</span></sc-for>
+<span style="margin-left:auto;color:var(--faint,rgba(244,244,245,0.45))">● = used in a project</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px">
+<sc-for list="{{ skillTechs }}" as="e" hint-placeholder-count="24">
+<div title="{{ e.title }}" style="position:relative;aspect-ratio:1;border-radius:10px;border:1px solid {{ e.bd }};background:{{ e.bg }};padding:9px 10px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s" style-hover="transform:translateY(-4px);box-shadow:0 10px 28px -8px {{ e.c }}">
+<div style="display:flex;justify-content:space-between;align-items:center;font:400 10px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))"><span>{{ e.num }}</span><span style="color:{{ e.c }};letter-spacing:1px">{{ e.dots }}</span></div>
+<div style="font:600 28px/1 'Geist',sans-serif;letter-spacing:-0.03em;color:{{ e.c }}">{{ e.sym }}</div>
+<div style="font:400 10.5px/1.2 'JetBrains Mono',monospace;color:var(--muted,rgba(244,244,245,0.66));white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ e.n }}</div>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ svRows }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-direction:column">
+<sc-for list="{{ skillRows }}" as="k" hint-placeholder-count="5">
+<div style="display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;padding:20px 0;border-top:1px solid var(--line,rgba(244,244,245,0.14))">
+<div style="flex:0 0 180px;display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:{{ k.c }};box-shadow:0 0 14px {{ k.c }}"></span><span style="font:500 19px 'Geist',sans-serif;letter-spacing:-0.02em">{{ k.name }}</span></div>
+<div style="flex:1 1 360px;display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ k.techs }}" as="e" hint-placeholder-count="6"><span title="{{ e.title }}" style="display:flex;align-items:center;gap:8px;font:400 13px 'JetBrains Mono',monospace;padding:7px 12px;border-radius:999px;border:1px solid {{ e.bd }};background:{{ e.bg }};color:var(--text,#f4f4f5)">{{ e.n }}<span style="font-size:11px;color:{{ e.c }}">{{ e.countLabel }}</span></span></sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ svTree }}" hint-placeholder-val="{{ false }}">
+<div style="border-radius:14px;border:1px solid var(--line,rgba(244,244,245,0.14));background:var(--hover,rgba(244,244,245,0.04));padding:22px 24px;font:400 14px/1.75 'JetBrains Mono',monospace;overflow-x:auto">
+<div style="color:var(--faint,rgba(244,244,245,0.45))">$ tree ~/skills --usage</div>
+<sc-for list="{{ treeLines }}" as="l" hint-placeholder-count="30">
+<div style="display:flex;gap:10px;white-space:pre"><span style="color:var(--faint,rgba(244,244,245,0.45))">{{ l.pre }}</span><span style="color:{{ l.c }};font-weight:{{ l.w }}">{{ l.label }}</span><span style="flex:1;min-width:24px;border-bottom:1px dotted {{ l.lead }};transform:translateY(-6px)"></span><span style="color:{{ l.mc }}">{{ l.meta }}</span></div>
+</sc-for>
+<div style="color:var(--faint,rgba(244,244,245,0.45));margin-top:8px">{{ treeSummary }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ svColumns }}" hint-placeholder-val="{{ false }}">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px 24px">
+<sc-for list="{{ skills }}" as="k" hint-placeholder-count="4">
+<div style="padding:22px 0 8px;border-top:1px solid {{ k.c }};display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:10px"><span style="flex:none;width:10px;height:10px;border-radius:50%;background:{{ k.c }};box-shadow:0 0 14px {{ k.c }}"></span><span style="font:500 20px 'Geist',sans-serif;letter-spacing:-0.02em">{{ k.name }}</span></div>
+<div style="display:flex;flex-direction:column;gap:4px;font:300 15px/1.5 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))"><sc-for list="{{ k.items }}" as="i" hint-placeholder-count="3"><span>{{ i }}</span></sc-for></div>
+<div style="font:400 11.5px/1.6 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ k.used }}</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section id="work" style="max-width:1240px;margin:0 auto;padding:clamp(120px,16vw,220px) clamp(20px,4vw,40px) 0;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.s2 }}</div>
+<div style="flex:1 1 640px;display:flex;flex-direction:column;border-top:1px solid var(--line,rgba(244,244,245,0.14))">
+<sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
+<a href="{{ p.href }}" style="position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;padding:34px 0;opacity:{{ p.op }};transition:transform .35s cubic-bezier(.2,.7,.2,1),background .35s,opacity .35s" style-hover="transform:translateX(10px);background:var(--hover,rgba(244,244,245,0.04))">
+<span style="position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line,rgba(244,244,245,0.14))"></span>
+<span style="flex:0 0 36px;font:500 12px 'JetBrains Mono',monospace;color:{{ p.c }}">{{ p.idx }}</span>
+<span style="flex:1 1 300px;display:flex;align-items:center;gap:18px"><span style="flex:none;width:14px;height:14px;border-radius:50%;background:{{ p.grad }};box-shadow:0 0 20px {{ p.glow }}"></span><span style="font:500 clamp(34px,4.6vw,58px)/1 'Geist',sans-serif;letter-spacing:-0.045em">{{ p.name }}</span></span>
+<span style="flex:1 1 260px;display:flex;flex-direction:column;gap:12px"><span style="font:300 15.5px/1.5 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66));text-wrap:pretty">{{ p.short }}</span><span style="display:flex;flex-wrap:wrap;gap:6px"><sc-for list="{{ p.techTop }}" as="t" hint-placeholder-count="4"><span style="font:400 11.5px 'JetBrains Mono',monospace;color:{{ t.c }};border:1px solid {{ t.bd }};padding:3px 9px;border-radius:999px">{{ t.n }}</span></sc-for></span></span>
+<span style="flex:0 0 auto;font:300 26px 'Geist',sans-serif;background:{{ p.grad }};-webkit-background-clip:text;background-clip:text;color:transparent">→</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<section id="about" style="max-width:1240px;margin:0 auto;padding:clamp(120px,16vw,220px) clamp(20px,4vw,40px) 0;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.s3 }}</div>
+<div style="flex:1 1 640px;display:flex;flex-direction:column;gap:64px">
+<p style="margin:0;font:400 clamp(28px,3.4vw,44px)/1.22 'Geist',sans-serif;letter-spacing:-0.03em;text-wrap:pretty">{{ t.aboutA }}<span style="background:linear-gradient(90deg,#14c4f0,#7b4dff,#ff2d87);-webkit-background-clip:text;background-clip:text;color:transparent">{{ t.aboutB }}</span>.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0 24px">
+<sc-for list="{{ path }}" as="s" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid {{ s.c }}">
+<span style="font:400 11.5px 'JetBrains Mono',monospace;color:{{ s.c }}">{{ s.when }}</span>
+<span style="font:500 18px 'Geist',sans-serif;letter-spacing:-0.01em">{{ s.title }}</span>
+<span style="font:300 14.5px/1.5 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ s.text }}</span>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<section id="contact" style="max-width:1240px;margin:0 auto;padding:clamp(120px,16vw,220px) clamp(20px,4vw,40px) 0;box-sizing:border-box;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.s4 }}</div>
+<div style="flex:1 1 640px;display:flex;flex-wrap:wrap;align-items:stretch;gap:24px 40px">
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:28px">
+<div style="font:500 clamp(48px,7.5vw,104px)/0.92 'Geist',sans-serif;letter-spacing:-0.055em">{{ t.ctaA }}<br>{{ t.ctaB }}</div>
+<a href="mailto:bartosz.clapinski@gmail.com" style="width:fit-content;font:300 clamp(22px,2.8vw,34px) 'Geist',sans-serif;letter-spacing:-0.02em;background:linear-gradient(90deg,#ff8a1f,#ff2d87 40%,#7b4dff 75%,#14c4f0);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:8px;border-bottom:1px solid var(--line,rgba(244,244,245,0.14))">bartosz.clapinski@gmail.com ↗</a>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:-10px">
+<button onClick="{{ copyEmail }}" style="display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line,rgba(244,244,245,0.14));background:transparent;color:var(--text,#f4f4f5);font:400 13px 'JetBrains Mono',monospace;cursor:pointer" style-hover="border-color:var(--text,#f4f4f5)">{{ copyLabel }}</button>
+<a href="mailto:bartosz.clapinski@gmail.com?subject=CV%20request" style="display:flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1px solid var(--line,rgba(244,244,245,0.14));color:var(--muted,rgba(244,244,245,0.66));font:400 13px 'JetBrains Mono',monospace" style-hover="border-color:var(--text,#f4f4f5);color:var(--text,#f4f4f5)">{{ t.cv }}</a>
+</div>
+<div style="display:flex;gap:28px;font:400 14px 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">
+<a href="https://www.linkedin.com/in/bartosz-clapinski/" style-hover="color:var(--text,#f4f4f5)">LinkedIn ↗</a>
+<a href="https://github.com/bartoszclapinski" style-hover="color:var(--text,#f4f4f5)">GitHub ↗</a>
+</div>
+</div>
+<div style="position:relative;flex:1 1 260px;min-height:300px">{{ mascot }}</div>
+</div>
+</section>
+</main>
+</sc-if>
+
+<sc-if value="{{ isProject }}" hint-placeholder-val="{{ false }}">
+<main style="max-width:1240px;margin:0 auto;padding:56px clamp(20px,4vw,40px) 0;box-sizing:border-box;display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:column;min-height:{{ projHeadMinH }};padding-bottom:8px;box-sizing:border-box">
+<div style="display:flex;justify-content:space-between;gap:16px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">
+<a href="#/" style-hover="color:var(--text,#f4f4f5)">{{ t.allWork }}</a>
+<span>{{ cur.idx }} / {{ total }}</span>
+</div>
+<h1 style="margin:clamp(40px,6vw,72px) 0 0;font:500 clamp(44px,12vw,160px)/0.9 'Geist',sans-serif;letter-spacing:-0.06em;overflow-wrap:anywhere">{{ cur.name }}</h1>
+<p style="margin:32px 0 0;max-width:760px;font:300 clamp(20px,2.2vw,28px)/1.4 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66));text-wrap:pretty">{{ cur.tagline }}</p>
+
+<div style="flex:0 0 64px"></div>
+<div style="margin-top:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:1px solid var(--line,rgba(244,244,245,0.14))">
+<div style="padding:18px 20px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font:400 11.5px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.type }}</span><span style="font:400 15px 'Geist',sans-serif">{{ cur.kind }}</span></div>
+<div style="padding:18px 20px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font:400 11.5px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.status }}</span><span style="font:400 15px 'Geist',sans-serif">{{ cur.status }}</span></div>
+<div style="padding:18px 20px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font:400 11.5px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.core }}</span><span style="font:400 15px 'Geist',sans-serif">{{ cur.core }}</span></div>
+<div style="padding:18px 20px 0 0;display:flex;flex-direction:column;gap:6px"><span style="font:400 11.5px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.links }}</span><span style="display:flex;gap:18px;font:400 15px 'Geist',sans-serif"><a href="{{ cur.repo }}" style="border-bottom:1px solid var(--text,#f4f4f5)">GitHub ↗</a><sc-if value="{{ cur.hasDemo }}" hint-placeholder-val="{{ false }}"><a href="{{ cur.demo }}" target="_blank" rel="noopener" onClick="{{ openDemo }}" style="border-bottom:1px solid var(--text,#f4f4f5)">Live demo ↗</a></sc-if></span></div>
+</div>
+</div>
+
+<sc-if value="{{ cur.hasShowcase }}" hint-placeholder-val="{{ false }}">
+<div style="position:relative;margin-top:72px">
+<div style="position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line,rgba(244,244,245,0.14));background:#0c0a11;box-shadow:0 40px 90px -30px rgba(0,0,0,0.7)">
+<div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06)"><span style="width:11px;height:11px;border-radius:50%;background:#ff5f57"></span><span style="width:11px;height:11px;border-radius:50%;background:#febc2e"></span><span style="width:11px;height:11px;border-radius:50%;background:#28c840"></span><span style="margin:0 auto;font:400 12px 'JetBrains Mono',monospace;color:#8b8496;background:rgba(255,255,255,0.05);padding:4px 14px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ cur.url }}</span><span style="width:49px"></span></div>
+<div data-stage="hero" data-base="{{ stageW }}" style="position:relative;aspect-ratio:{{ stageAR }};overflow:hidden;background:#17121f">
+<div style="position:absolute;left:0;top:0;width:{{ stageWpx }};height:{{ stageHpx }};transform-origin:0 0;pointer-events:none">
+<dc-import name="TechQuizScreens" embedded="{{ true }}" autoplay="{{ true }}" stage-h="{{ stageH }}" hint-size="100%,100%"></dc-import>
+</div>
+</div>
+</div>
+<div style="position:relative;margin-top:14px;font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ cur.showcaseCaption }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ cur.hasVideo }}" hint-placeholder-val="{{ false }}">
+<div style="position:relative;margin-top:72px">
+<div style="position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line,rgba(244,244,245,0.14));background:#0c0a11;box-shadow:0 40px 90px -30px rgba(0,0,0,0.7)">
+<div style="display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.06)"><span style="width:11px;height:11px;border-radius:50%;background:#ff5f57"></span><span style="width:11px;height:11px;border-radius:50%;background:#febc2e"></span><span style="width:11px;height:11px;border-radius:50%;background:#28c840"></span><span style="margin:0 auto;font:400 12px 'JetBrains Mono',monospace;color:#8b8496;background:rgba(255,255,255,0.05);padding:4px 14px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ cur.url }}</span><span style="width:49px"></span></div>
+<div role="img" aria-label="{{ cur.name }} demo" style="aspect-ratio:16/9;background:{{ cur.videoBg }}"></div>
+</div>
+<div style="position:relative;margin-top:14px;font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ cur.videoCaption }}</div>
+</div>
+</sc-if>
+<sc-if value="{{ cur.noVideo }}" hint-placeholder-val="{{ true }}">
+<div style="position:relative;margin-top:72px;height:clamp(280px,50vw,640px);border-radius:14px;overflow:hidden;background:var(--hover,rgba(244,244,245,0.04))">
+<sc-if value="{{ cur.hasImage }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ cur.name }} screenshot" style="position:absolute;inset:0;background:{{ cur.imageBg }}"></div></sc-if>
+<sc-if value="{{ cur.noImage }}" hint-placeholder-val="{{ true }}"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">screenshot — set "image" in site-data.js</div></sc-if>
+</div>
+</sc-if>
+
+<div style="margin-top:72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+<sc-for list="{{ cur.stats }}" as="s" hint-placeholder-count="4">
+<div style="padding:4px 24px 4px 0;display:flex;flex-direction:column;gap:10px">
+<span style="font:400 clamp(44px,5vw,68px)/1 'Geist',sans-serif;letter-spacing:-0.05em;background:{{ cur.grad }};-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content">{{ s.v }}</span>
+<span style="font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ s.k }}</span>
+</div>
+</sc-for>
+</div>
+
+<section style="margin-top:140px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.p1 }}</div>
+<p style="flex:1 1 640px;margin:0;font:400 clamp(24px,2.8vw,36px)/1.3 'Geist',sans-serif;letter-spacing:-0.025em;text-wrap:pretty">{{ cur.overview }}</p>
+</section>
+
+<sc-if value="{{ cur.hasGallery }}" hint-placeholder-val="{{ false }}">
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.scr }}</div>
+<div style="flex:1 1 640px;min-width:0;display:flex;flex-direction:column;gap:16px">
+<div style="position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line,rgba(244,244,245,0.14));background:#0b0a10;aspect-ratio:{{ stageAR }}">
+<div role="img" aria-label="{{ gal.title }}" style="position:absolute;inset:0;background:{{ gal.bg }}"></div>
+<sc-if value="{{ gal.isScreen }}" hint-placeholder-val="{{ false }}"><div data-stage="gal" data-base="{{ stageW }}" style="position:absolute;inset:0;overflow:hidden;background:#17121f"><div style="position:absolute;left:0;top:0;width:{{ stageWpx }};height:{{ stageHpx }};transform-origin:0 0;pointer-events:none"><dc-import name="TechQuizScreens" embedded="{{ true }}" screen="{{ gal.screen }}" stage-h="{{ stageH }}" hint-size="100%,100%"></dc-import></div></div></sc-if>
+<button onClick="{{ galPrev }}" aria-label="Previous screen" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:rgba(10,10,12,0.6);color:#fff;font:400 18px 'Geist',sans-serif;cursor:pointer;backdrop-filter:blur(8px)">←</button>
+<button onClick="{{ galNext }}" aria-label="Next screen" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.2);background:rgba(10,10,12,0.6);color:#fff;font:400 18px 'Geist',sans-serif;cursor:pointer;backdrop-filter:blur(8px)">→</button>
+</div>
+<div style="display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;align-items:baseline"><div style="display:flex;gap:12px;align-items:baseline;flex-wrap:wrap"><span style="font:500 18px 'Geist',sans-serif;letter-spacing:-0.01em">{{ gal.title }}</span><span style="font:300 15px 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ gal.caption }}</span></div><span style="font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ gal.pos }}</span></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px">
+<sc-for list="{{ galThumbs }}" as="g" hint-placeholder-count="6"><button onClick="{{ g.onClick }}" aria-label="{{ g.title }}" style="aspect-ratio:16/10;border-radius:8px;border:1px solid {{ g.bd }};background:{{ g.bg }};opacity:{{ g.op }};cursor:pointer;transition:opacity .25s,border-color .25s;display:flex;align-items:flex-end;padding:8px 10px;font:500 12px 'Geist',sans-serif;color:#f4f0fa;text-align:left">{{ g.label }}</button></sc-for>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ cur.hasTry }}" hint-placeholder-val="{{ false }}">
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;display:flex;flex-direction:column;gap:10px"><span style="font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.tryIt }}</span><span style="font:300 14px/1.5 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ t.tryHint }}</span></div>
+<div style="flex:1 1 640px;min-width:0;position:relative;border-radius:24px;overflow:hidden;background:#17121f;color:#f4f0fa;padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:22px;border:1px solid #2a2137">
+<div style="position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(251,191,36,0.16) 0%,transparent 65%);pointer-events:none"></div>
+<div style="position:absolute;left:-140px;bottom:-160px;width:460px;height:460px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,0.18) 0%,transparent 65%);pointer-events:none"></div>
+<div style="position:relative;display:flex;align-items:center;gap:14px;flex-wrap:wrap"><span style="font:600 11px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#a99fc0">{{ cur.tryIt.label }}</span><div style="flex:1;min-width:80px;height:6px;border-radius:3px;background:#2a2137"><div style="width:30%;height:100%;border-radius:3px;background:linear-gradient(135deg,#a78bfa,#fbbf24)"></div></div><span style="font:600 12px 'JetBrains Mono',monospace;color:#fbbf24;background:rgba(251,191,36,0.15);padding:4px 10px;border-radius:999px">+10 XP</span></div>
+<span style="position:relative;width:fit-content;font:500 12px 'Geist',sans-serif;color:#c4b5fd;border:1px solid #392c4d;padding:4px 12px;border-radius:999px">Medium</span>
+<div style="position:relative;font:800 clamp(22px,2.4vw,32px)/1.25 'Bricolage Grotesque',sans-serif;letter-spacing:-0.01em;text-wrap:pretty">{{ cur.tryIt.question }}</div>
+<div style="position:relative;display:flex;flex-direction:column;gap:10px">
+<sc-for list="{{ quizOpts }}" as="o" hint-placeholder-count="4"><button onClick="{{ o.onClick }}" style="display:flex;align-items:center;gap:16px;width:100%;text-align:left;padding:15px 18px;border-radius:16px;border:1px solid {{ o.bd }};background:{{ o.bg }};box-shadow:{{ o.ring }};opacity:{{ o.op }};color:#f4f0fa;cursor:{{ o.cur }};transition:border-color .2s,background .2s,opacity .2s,box-shadow .2s"><span style="flex:none;width:30px;height:30px;border-radius:9px;background:{{ o.badge }};color:{{ o.badgeFg }};display:flex;align-items:center;justify-content:center;font:600 13px 'JetBrains Mono',monospace">{{ o.n }}</span><span style="flex:1;font:500 16px 'JetBrains Mono',monospace">{{ o.text }}</span><span style="font:700 18px 'Geist',sans-serif;color:{{ o.markC }}">{{ o.mark }}</span></button></sc-for>
+</div>
+<sc-if value="{{ quizChecked }}" hint-placeholder-val="{{ false }}"><div style="position:relative;border-radius:16px;padding:16px 18px;background:{{ quizPanelBg }};border:1px solid {{ quizPanelBd }};display:flex;flex-direction:column;gap:6px"><span style="font:700 16px 'Bricolage Grotesque',sans-serif;color:{{ quizPanelC }}">{{ quizPanelTitle }}</span><span style="font:400 14.5px/1.55 'Geist',sans-serif;color:#c9c0dc">{{ cur.tryIt.explanation }}</span></div></sc-if>
+<div style="position:relative;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap"><span style="font:400 12px 'JetBrains Mono',monospace;color:#8f84a6">{{ t.tryKeys }}</span><div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap"><sc-if value="{{ cur.hasDemo }}" hint-placeholder-val="{{ false }}"><a href="{{ cur.demo }}" style="font:500 14px 'Geist',sans-serif;color:#c4b5fd">{{ t.play }}</a></sc-if><button onClick="{{ quizBtn }}" style="border:none;border-radius:999px;padding:12px 22px;background:linear-gradient(135deg,#8b5cf6,#a78bfa);color:#ffffff;font:600 14px 'Geist',sans-serif;cursor:pointer;opacity:{{ quizBtnOp }}">{{ quizBtnLabel }}</button></div></div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{ cur.hasTimeline }}" hint-placeholder-val="{{ false }}">
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.phases }}</div>
+<div style="flex:1 1 640px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:32px 20px">
+<sc-for list="{{ cur.timeline }}" as="t" hint-placeholder-count="6"><div style="display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid {{ t.line }}"><div style="display:flex;align-items:center;gap:8px"><span style="width:9px;height:9px;border-radius:50%;background:{{ t.dot }};box-shadow:0 0 12px {{ t.dot }}"></span><span style="font:400 11.5px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.phase }}</span><span style="margin-left:auto;font:500 10.5px 'JetBrains Mono',monospace;color:{{ t.sc }}">{{ t.status }}</span></div><span style="font:500 17px 'Geist',sans-serif;letter-spacing:-0.01em">{{ t.title }}</span><span style="font:300 14px/1.5 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ t.text }}</span></div></sc-for>
+</div>
+</section>
+</sc-if>
+
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.p2 }}</div>
+<div style="flex:1 1 640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));column-gap:40px">
+<sc-for list="{{ cur.features }}" as="f" hint-placeholder-count="6">
+<div style="display:grid;grid-template-columns:40px minmax(0,1fr);gap:4px;padding:22px 0;border-top:1px solid var(--line,rgba(244,244,245,0.14))">
+<span style="font:400 12px/1.9 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ f.n }}</span>
+<div style="display:flex;flex-direction:column;gap:6px"><span style="font:500 18px 'Geist',sans-serif;letter-spacing:-0.01em">{{ f.t }}</span><span style="font:300 15px/1.55 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ f.d }}</span></div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.p3 }}</div>
+<div style="flex:1 1 640px;position:relative;display:flex;flex-direction:column;padding-left:36px">
+<div style="position:absolute;left:5px;top:30px;bottom:30px;width:1px;background:{{ cur.gradV }}"></div>
+<sc-for list="{{ cur.layers }}" as="l" hint-placeholder-count="4">
+<div style="position:relative;display:flex;flex-wrap:wrap;gap:6px 32px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line,rgba(244,244,245,0.14))">
+<span style="position:absolute;left:-36px;top:29px;width:11px;height:11px;border-radius:50%;background:var(--bg,#0a0a0c);border:1px solid var(--text,#f4f4f5);box-sizing:border-box"></span>
+<span style="flex:0 0 200px;font:500 15px 'JetBrains Mono',monospace">{{ l.n }}</span>
+<span style="flex:1 1 300px;font:300 16px/1.5 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ l.d }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.p4 }}</div>
+<div style="flex:1 1 640px;display:flex;flex-direction:column">
+<sc-for list="{{ cur.decisions }}" as="d" hint-placeholder-count="4">
+<div style="display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px;padding:24px 0;border-top:1px solid var(--line,rgba(244,244,245,0.14))">
+<span style="font:400 26px/1.2 'Geist',sans-serif;letter-spacing:-0.03em;color:var(--faint,rgba(244,244,245,0.45))">{{ d.n }}</span>
+<span style="font:400 clamp(19px,1.8vw,23px)/1.4 'Geist',sans-serif;letter-spacing:-0.015em;text-wrap:pretty">{{ d.t }}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;display:flex;flex-direction:column;gap:10px"><span style="font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.graph }}</span><span style="font:300 14px/1.5 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ t.graphHint }}</span></div>
+<div style="flex:1 1 640px;min-width:0;position:relative;height:clamp(380px,48vw,560px)">{{ projGraph }}</div>
+</section>
+
+<section style="margin-top:120px;display:flex;flex-wrap:wrap;gap:24px 40px">
+<div style="flex:0 0 200px;font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.p5 }}</div>
+<div style="flex:1 1 640px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:32px 24px;border-top:1px solid var(--line,rgba(244,244,245,0.14));padding-top:22px">
+<sc-for list="{{ cur.stack }}" as="g" hint-placeholder-count="4">
+<div style="display:flex;flex-direction:column;gap:10px"><span style="font:400 11.5px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ g.g }}</span><div style="display:flex;flex-direction:column;gap:5px;font:400 15px 'Geist',sans-serif"><sc-for list="{{ g.items }}" as="i" hint-placeholder-count="3"><span>{{ i }}</span></sc-for></div></div>
+</sc-for>
+</div>
+</section>
+
+<a href="{{ cur.next.href }}" style="margin-top:160px;display:flex;flex-direction:column;gap:14px;padding:40px 0 0;border-top:1px solid var(--line,rgba(244,244,245,0.14));transition:padding .35s cubic-bezier(.2,.7,.2,1)" style-hover="padding-left:24px">
+<span style="font:400 13px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">{{ t.next }}</span>
+<span style="display:flex;align-items:baseline;gap:24px;flex-wrap:wrap"><span style="font:500 clamp(40px,8.5vw,120px)/0.9 'Geist',sans-serif;letter-spacing:-0.055em;overflow-wrap:anywhere">{{ cur.next.name }}</span><span style="font:300 clamp(40px,6vw,80px)/1 'Geist',sans-serif;background:{{ cur.next.grad }};-webkit-background-clip:text;background-clip:text;color:transparent">→</span></span>
+</a>
+</main>
+</sc-if>
+
+<footer style="max-width:1240px;margin:0 auto;padding:clamp(110px,15vw,200px) clamp(20px,4vw,40px) 40px;box-sizing:border-box;display:flex;flex-direction:column;gap:clamp(40px,6vw,72px)">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:40px 64px;padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--line,rgba(244,244,245,0.1))">
+<div style="display:flex;align-items:center;gap:clamp(18px,2.4vw,28px);min-width:0">
+<a href="#/" aria-label="Bartosz Cłapiński" style="display:block;flex:none;width:clamp(64px,7vw,88px)"><svg viewBox="122 74 276 376" aria-hidden="true" style="display:block;width:100%;height:auto;overflow:visible"><defs><linearGradient id="ftB" gradientUnits="userSpaceOnUse" x1="133" y1="84" x2="411" y2="439"><stop offset="0" stop-color="#ffb35c"></stop><stop offset="0.5" stop-color="#ff5a3c"></stop><stop offset="1" stop-color="#ff2d87"></stop></linearGradient><linearGradient id="ftC" gradientUnits="userSpaceOnUse" x1="150" y1="190" x2="400" y2="430"><stop offset="0" stop-color="#5fe0ff"></stop><stop offset="0.5" stop-color="#14c4f0"></stop><stop offset="1" stop-color="#7b4dff"></stop></linearGradient><mask id="ftM" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512"><rect width="512" height="512" fill="#ffffff"></rect><path d="M363.2 238.5 A110 110 0 1 0 363.2 361.5" fill="none" stroke="#000000" stroke-width="72" style="transform-box:view-box;transform-origin:272px 300px;animation:bcNavSpin 14s cubic-bezier(.65,0,.35,1) 10s infinite"></path></mask></defs><g mask="url(#ftM)"><path d="M133 300 V142 C133 114 158 94 191 84 V300 Z" fill="url(#ftB)" style="transform-box:view-box;transform-origin:133px 300px;animation:bcStem 14s cubic-bezier(.4,0,.2,1) 10s infinite"></path><circle cx="272" cy="300" r="110" fill="none" stroke="url(#ftB)" stroke-width="58"></circle></g><path d="M358.7 232.3 A110 110 0 1 0 358.7 367.7" fill="none" stroke="url(#ftC)" stroke-width="58" style="transform-box:view-box;transform-origin:272px 300px;animation:bcNavSpin 14s cubic-bezier(.65,0,.35,1) 10s infinite"></path></svg></a>
+<div style="display:flex;flex-direction:column;gap:8px;min-width:0">
+<span style="font:600 clamp(20px,2.2vw,26px)/1.1 'Geist',sans-serif;letter-spacing:-0.02em;color:var(--text,#f4f4f5)">Bartosz Cłapiński</span>
+<span style="font:300 15px/1.4 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">{{ t.role }}</span>
+</div>
+</div>
+<div style="display:flex;gap:clamp(40px,6vw,88px);flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:12px;font:400 14px 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">
+<span style="font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45));margin-bottom:4px">{{ t.ftSite }}</span>
+<button onClick="{{ goWork }}" style="background:none;border:none;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left" style-hover="color:var(--text,#f4f4f5)">{{ t.navWork }}</button>
+<button onClick="{{ goAbout }}" style="background:none;border:none;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left" style-hover="color:var(--text,#f4f4f5)">{{ t.navAbout }}</button>
+<button onClick="{{ goContact }}" style="background:none;border:none;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left" style-hover="color:var(--text,#f4f4f5)">{{ t.navContact }}</button>
+</div>
+<div style="display:flex;flex-direction:column;gap:12px;font:400 14px 'Geist',sans-serif;color:var(--muted,rgba(244,244,245,0.66))">
+<span style="font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45));margin-bottom:4px">{{ t.ftElse }}</span>
+<a href="https://github.com/bartoszclapinski" style-hover="color:var(--text,#f4f4f5)">GitHub ↗</a>
+<a href="https://www.linkedin.com/in/bartosz-clapinski/" style-hover="color:var(--text,#f4f4f5)">LinkedIn ↗</a>
+</div>
+</div>
+</div>
+<div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:400 12px 'JetBrains Mono',monospace;color:var(--faint,rgba(244,244,245,0.45))">
+<span>{{ t.foot }}</span>
+<button onClick="{{ replay }}" style="background:none;border:none;padding:0;color:inherit;font:inherit;cursor:pointer;text-align:left" style-hover="color:var(--text,#f4f4f5)">{{ t.replay }}</button>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;skillsView&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;marquee&quot;,&quot;table&quot;,&quot;rows&quot;,&quot;tree&quot;,&quot;columns&quot;],&quot;default&quot;:&quot;marquee&quot;,&quot;tsType&quot;:&quot;'marquee' | 'table' | 'rows' | 'tree' | 'columns'&quot;,&quot;label&quot;:&quot;Skills section style&quot;},&quot;showLoader&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Intro loader&quot;},&quot;loaderSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:3.5,&quot;min&quot;:1.5,&quot;max&quot;:7,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;label&quot;:&quot;Loader length&quot;},&quot;heroGraph&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Knowledge graph in hero&quot;},&quot;bgField&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Animated background grid&quot;},&quot;mascot&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;label&quot;:&quot;Contact mascot&quot;},&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;,&quot;label&quot;:&quot;Default theme&quot;},&quot;simulateColdStart&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Demo&quot;}}">
+class Component extends DCLogic {
+  state = { lang: Component.initLang(), narrow: window.innerWidth < 860, compact: window.innerWidth < 1080, route: 'home', theme: null, loaderKey: 0, loaderOn: true, revealed: false, usedLoader: false, dataReady: !!window.SITE_DATA };
+
+  static RM = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  static initLang() {
+    try { const v = localStorage.getItem('bc_lang'); if (v === 'pl' || v === 'en') return v; } catch (e) {}
+    return (navigator.language || '').toLowerCase().indexOf('pl') === 0 ? 'pl' : 'en';
+  }
+  static isLight() { return /^#f/i.test((getComputedStyle(document.documentElement).getPropertyValue('--bg') || '').trim()); }
+  static shade(hex, amt) { const n = parseInt(hex.slice(1), 16), c = sh => Math.round(((n >> sh) & 255) * (1 - amt)); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); }
+  static I18N = {
+    en: { navWork: 'Work', navAbout: 'About', navContact: 'Contact', avail: 'available for junior .NET roles', role: '.NET Developer — Toruń, Poland',
+      heroA: 'Ten years in operations. Now I build ', heroB: 'the software they run on', heroC: ', with tests and practical AI.', selWork: 'Selected work ↓',
+      s1: '(01) Skills', s2: '(02) Selected work', s3: '(03) About', s4: '(04) Contact',
+      aboutA: 'For ten years I kept operations running: processes, people, deadlines. Programming was what I did after hours, until it became what I wanted to do all day. Now I build complete applications, test what I ship, and use AI ', aboutB: 'where it removes real work',
+      ctaA: "Let's build", ctaB: 'something.', cv: 'CV on request ↗', copy: 'copy email ⧉', copied: 'copied ✓', allWork: '← all work',
+      type: 'Type', status: 'Status', core: 'Core stack', links: 'Links', p1: '(01) Overview', p2: '(02) What it does', p3: '(03) Architecture', p4: '(04) Key decisions', p5: '(05) Built with', next: 'Next project',
+      scr: '(✦) Screens', tryIt: '(✦) Try it', tryHint: 'One real question from the app. Click an answer or press 1–4, then Enter.', tryKeys: 'Press 1–4 to select · Enter to check', play: 'Play the full app ↗',
+      phases: '(✦) Built in phases', graph: '(✦) In the graph', graphHint: 'Where this project sits in everything I work with. Lit nodes are the technologies it uses.',
+      foot: '© 2026 Bartosz Cłapiński — Toruń, Poland', ftSite: 'Site', ftElse: 'Elsewhere', replay: 'replay intro ↻', lightL: 'light ○', darkL: 'dark ●', langL: 'PL',
+      all: 'All', skCap: 'hover a technology or pick an area — matching projects light up below', usedIn: 'used in', notUsed: 'not in a featured project yet', of: ' of ', highlighted: ' projects highlighted below',
+      again: 'Try again ↺', check: 'Check answer', correct: 'Correct — ', notQuite: 'Not quite — the answer is ',
+      path: [['10 years', 'Operations', 'Processes, people and deadlines. How businesses really run.'], ['after hours', 'Hobby code', 'C#, Java and Python in the evenings.'], ['the switch', '.NET, full time', 'Complete, tested apps with Clean Architecture and CI.'], ['now', 'AI integration', 'LLMs inside real products. Looking for a junior role.']] },
+    pl: { navWork: 'Projekty', navAbout: 'O mnie', navContact: 'Kontakt', avail: 'szukam pracy jako junior .NET', role: '.NET Developer — Toruń',
+      heroA: 'Dziesięć lat w operacjach. Teraz buduję ', heroB: 'oprogramowanie, na którym one działają', heroC: ', z testami i praktycznym AI.', selWork: 'Wybrane projekty ↓',
+      s1: '(01) Umiejętności', s2: '(02) Wybrane projekty', s3: '(03) O mnie', s4: '(04) Kontakt',
+      aboutA: 'Przez dziesięć lat dbałem, żeby operacje działały: procesy, ludzie, terminy. Programowanie było tym, czym zajmowałem się po godzinach, aż stało się tym, czym chciałem zajmować się cały dzień. Dziś buduję kompletne aplikacje, testuję to, co dostarczam, i używam AI ', aboutB: 'tam, gdzie zdejmuje prawdziwą pracę',
+      ctaA: 'Zbudujmy', ctaB: 'coś razem.', cv: 'CV na prośbę ↗', copy: 'kopiuj maila ⧉', copied: 'skopiowano ✓', allWork: '← wszystkie projekty',
+      type: 'Typ', status: 'Status', core: 'Główny stack', links: 'Linki', p1: '(01) Opis', p2: '(02) Co robi', p3: '(03) Architektura', p4: '(04) Kluczowe decyzje', p5: '(05) Zbudowane z', next: 'Następny projekt',
+      scr: '(✦) Ekrany', tryIt: '(✦) Spróbuj', tryHint: 'Jedno prawdziwe pytanie z aplikacji. Kliknij odpowiedź albo naciśnij 1–4, potem Enter.', tryKeys: '1–4 wybór · Enter sprawdza', play: 'Zagraj w pełną wersję ↗',
+      phases: '(✦) Etapy budowy', graph: '(✦) Na mapie', graphHint: 'Gdzie ten projekt jest na mapie mojej wiedzy. Świecą technologie, których używa.',
+      foot: '© 2026 Bartosz Cłapiński — Toruń', ftSite: 'Strona', ftElse: 'Gdzie indziej', replay: 'odtwórz intro ↻', lightL: 'jasny ○', darkL: 'ciemny ●', langL: 'EN',
+      all: 'Wszystko', skCap: 'najedź na technologię albo wybierz obszar — pasujące projekty podświetlą się niżej', usedIn: 'użyte w', notUsed: 'jeszcze nie w wyróżnionym projekcie', of: ' z ', highlighted: ' projektów podświetlonych niżej',
+      again: 'Jeszcze raz ↺', check: 'Sprawdź', correct: 'Dobrze — ', notQuite: 'Nie tym razem — poprawna to ',
+      path: [['10 lat', 'Operacje', 'Procesy, ludzie i terminy. Jak naprawdę działa firma.'], ['po godzinach', 'Kod z pasji', 'C#, Java i Python wieczorami.'], ['zmiana', '.NET na pełen etat', 'Kompletne, przetestowane aplikacje z Clean Architecture i CI.'], ['teraz', 'Integracja AI', 'LLM-y w prawdziwych produktach. Szukam pracy jako junior.']] }
+  };
+  static PAL = ['#ff8a1f', '#ff2d87', '#7b4dff', '#14c4f0', '#1fd68a', '#ffb21f'];
+  static data() { return window.SITE_DATA || { areas: [], projects: [] }; }
+
+  static copyEmail() {
+    const email = 'bartosz.clapinski@gmail.com';
+    const done = () => window.dispatchEvent(new CustomEvent('bc:copied'));
+    try { navigator.clipboard.writeText(email).then(done, () => { Component.copyFallback(email); done(); }); } catch (e) { Component.copyFallback(email); done(); }
+  }
+  static copyFallback(text) {
+    const ta = document.createElement('textarea'); ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove();
+  }
+
+  static fit(cv) {
+    const dpr = Math.min(2, window.devicePixelRatio || 1), r = cv.parentElement.getBoundingClientRect();
+    cv.width = Math.max(1, r.width * dpr); cv.height = Math.max(1, r.height * dpr);
+    cv.style.width = r.width + 'px'; cv.style.height = r.height + 'px';
+    const ctx = cv.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { ctx, W: r.width, H: r.height };
+  }
+  static refit(cv, g) {
+    const r = cv.parentElement.getBoundingClientRect();
+    return (Math.abs(r.width - g.W) > 0.5 || Math.abs(r.height - g.H) > 0.5) ? Component.fit(cv) : g;
+  }
+  static clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
+  static eob(x) { if (x <= 0) return 0; if (x >= 1) return 1; const c = 1.70158; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); }
+  static eio(x) { return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+  static themeColors() {
+    const cs = getComputedStyle(document.documentElement);
+    return { text: cs.getPropertyValue('--text').trim() || '#f4f4f5', bg: cs.getPropertyValue('--bg').trim() || '#0a0a0c' };
+  }
+  static heroGeom(W, H) {
+    const small = W < 520, S = Math.max(1, Math.min(1.6, Math.min(W, H) / 560));
+    const cx = small ? W / 2 : W * 0.44;
+    return { small, scale: S, cx, cy: H / 2 - 12, R: Math.max(80, Math.min(cx - (small ? 56 : 74) * S, H / 2 - 44 * S)) };
+  }
+
+  // Graph is derived entirely from SITE_DATA: areas = taxonomy, techs = union of project.tech, projects link to their techs.
+  static graph() {
+    if (Component._G) return Component._G;
+    const D = Component.data(), nodes = [], edges = [], at = {};
+    const areas = (D.areas || []).map((a, i) => ({ id: a.id, label: a.label, c: a.color || Component.PAL[i % 6], techs: (a.techs || []).slice() })).filter(a => a.techs.length);
+    const add = n => { at[n.key] = nodes.length; nodes.push(n); return nodes.length - 1; };
+    const pol = (r, a) => ({ x: Math.cos(a) * r, y: Math.sin(a) * r, ang: a });
+    add({ key: 'root', type: 'root', label: 'Bartosz Cłapiński', x: 0, y: 0, ang: 0, order: 0, c: null });
+    const T = Math.max(1, areas.reduce((t, a) => t + a.techs.length, 0)), gap = areas.length > 1 ? 0.18 : 0, span = Math.PI * 2 - gap * areas.length;
+    let cur = -Math.PI * 0.82, k = 0;
+    areas.forEach((a, i) => {
+      const sec = span * a.techs.length / T;
+      const ai = add(Object.assign({ key: 'a:' + a.id, type: 'area', label: a.label, c: a.c, order: 0.05 + i * 0.12 / areas.length }, pol(0.42, cur + sec / 2)));
+      edges.push({ a: 0, b: ai, type: 'tree', c: a.c, order: nodes[ai].order - 0.03 });
+      a.techs.forEach((t, j) => {
+        if (at['t:' + t] != null) return;
+        const ti = add(Object.assign({ key: 't:' + t, type: 'tech', label: t, c: a.c, area: a.label, order: 0.2 + (k++) * 0.42 / T }, pol(0.84 + (j % 2) * 0.16, cur + sec * (j + 0.5) / a.techs.length)));
+        edges.push({ a: ai, b: ti, type: 'tree', c: a.c, order: nodes[ti].order - 0.03 });
+      });
+      cur += sec + gap;
+    });
+    const links = (D.links || []).filter(l => at['t:' + l[0]] != null && at['t:' + l[1]] != null && l[0] !== l[1]);
+    links.forEach((l, i) => edges.push({ a: at['t:' + l[0]], b: at['t:' + l[1]], type: 'link', c: null, order: 0.66 + i * 0.26 / Math.max(1, links.length) }));
+    const adj = nodes.map(() => []);
+    edges.forEach(e => { adj[e.a].push(e.b); adj[e.b].push(e.a); });
+    nodes.forEach((n, i) => { n.deg = adj[i].length; });
+    const byOrder = nodes.map((n, i) => i).sort((x, y) => nodes[x].order - nodes[y].order);
+    const G = { nodes, edges, adj, at, byOrder, areas };
+    if (window.SITE_DATA) Component._G = G;
+    return G;
+  }
+
+  static render(ctx, G, o) {
+    const S = o.scale || 1, light = /^#f/i.test(o.bg || ''), cx = o.cx, cy = o.cy, R = o.R, t = o.t, text = o.text, bg = o.bg, AL = o.alpha == null ? 1 : o.alpha;
+    const cr = Math.cos(o.rot), sr = Math.sin(o.rot), C = Component.clamp;
+    const P = G.nodes.map((n, i) => {
+      const w = n.type === 'root' ? 0 : 0.014;
+      const x = n.x + Math.sin(t * 0.55 + i * 1.7) * w, y = n.y + Math.cos(t * 0.47 + i * 2.3) * w;
+      return [cx + (x * cr - y * sr) * R, cy + (x * sr + y * cr) * R];
+    });
+    const h = o.hover == null ? -1 : o.hover, nb = h >= 0 ? new Set([h].concat(G.adj[h])) : (o.focus || null);
+    const pt = (e, u) => {
+      const a = P[e.a], b = P[e.b];
+      if (e.type === 'tree') return [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u];
+      const qx = cx + ((a[0] + b[0]) / 2 - cx) * 0.5, qy = cy + ((a[1] + b[1]) / 2 - cy) * 0.5, v = 1 - u;
+      return [v * v * a[0] + 2 * v * u * qx + u * u * b[0], v * v * a[1] + 2 * v * u * qy + u * u * b[1]];
+    };
+    ctx.lineCap = 'round';
+    G.edges.forEach(e => {
+      const k = o.edgeK(e); if (k <= 0) return;
+      const lit = nb && (h >= 0 ? (e.a === h || e.b === h) : (nb.has(e.a) && nb.has(e.b))), dim = nb && !lit;
+      let a = e.type === 'tree' ? 0.5 : 0.12;
+      if (lit) a = e.type === 'tree' ? 0.95 : 0.75;
+      if (dim) a *= 0.22;
+      ctx.globalAlpha = a * AL; ctx.strokeStyle = e.c || text; ctx.lineWidth = lit ? 1.5 : 1;
+      ctx.beginPath();
+      const n = e.type === 'tree' ? 1 : 20;
+      for (let j = 0; j <= n; j++) { const p = pt(e, k * j / n); if (j) ctx.lineTo(p[0], p[1]); else ctx.moveTo(p[0], p[1]); }
+      ctx.stroke();
+    });
+    (o.pulses || []).forEach(p => {
+      const e = G.edges[p.e]; if (!e || o.edgeK(e) < 1) return;
+      const q = pt(e, p.dir > 0 ? p.s : 1 - p.s);
+      ctx.globalAlpha = Math.sin(p.s * Math.PI) * AL; ctx.fillStyle = e.c || text;
+      ctx.beginPath(); ctx.arc(q[0], q[1], 2.3 * S, 0, 7); ctx.fill();
+    });
+    const labels = [];
+    G.nodes.forEach((n, i) => {
+      const k = o.nodeK(n); if (k <= 0) return;
+      const sc = Component.eob(k) * S, x = P[i][0], y = P[i][1], dim = nb && !nb.has(i), base = (dim ? 0.2 : 1) * AL, fill = n.c || text;
+      ctx.globalAlpha = base;
+      if (n.type === 'root') {
+        const pulse = 1 + Math.sin(t * 2) * 0.12;
+        ctx.fillStyle = text; ctx.globalAlpha = base * 0.14; ctx.beginPath(); ctx.arc(x, y, 22 * sc * pulse, 0, 7); ctx.fill();
+        ctx.globalAlpha = base; ctx.beginPath(); ctx.arc(x, y, 6 * sc, 0, 7); ctx.fill();
+      } else if (n.type === 'area') {
+        ctx.fillStyle = fill; ctx.beginPath(); ctx.arc(x, y, 5 * sc, 0, 7); ctx.fill();
+        ctx.globalAlpha = base * 0.4; ctx.strokeStyle = fill; ctx.lineWidth = 1; ctx.beginPath(); ctx.arc(x, y, 10 * sc, 0, 7); ctx.stroke();
+      } else if (n.type === 'tech') {
+        ctx.fillStyle = fill; ctx.beginPath(); ctx.arc(x, y, (i === h ? 4.5 : 3) * sc, 0, 7); ctx.fill();
+      } else {
+        ctx.fillStyle = bg; ctx.strokeStyle = text; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(x, y, (i === h ? 8.5 : 6.5) * sc, 0, 7); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = text; ctx.beginPath(); ctx.arc(x, y, 2.5 * sc, 0, 7); ctx.fill();
+      }
+      const lk = C((k - 0.4) / 0.6) * base; if (lk <= 0) return;
+      const near = i === h || (nb && nb.has(i));
+      if (n.type === 'root' && !o.rootLabel) return;
+      if (n.type === 'tech' && o.small && !near) return;
+      let font, lx, ly, align = 'center', pillC = null, la = lk, pri;
+      if (n.type === 'root') { font = "500 " + 13 * S + "px Geist, sans-serif"; lx = x; ly = y + 34 * S; pillC = text; pri = 2; }
+      else if (n.type === 'area') { font = "500 " + 12.5 * S + "px Geist, sans-serif"; lx = x; ly = y - 20 * S; pillC = fill; pri = 0; }
+      else {
+        let dx = x - cx, dy = y - cy; const dl = Math.hypot(dx, dy) || 1; dx /= dl; dy /= dl;
+        const off = (n.type === 'project' ? 15 : 8) * S, center = Math.abs(dx) < 0.25;
+        font = n.type === 'project' ? "600 " + 14 * S + "px Geist, sans-serif" : "400 " + 10.5 * S + "px 'JetBrains Mono', monospace";
+        align = center ? 'center' : dx > 0 ? 'left' : 'right';
+        lx = x + dx * off; ly = y + dy * off + (center ? dy * 6 : 0);
+        la = lk * (n.type === 'tech' && !near ? 0.6 : 1);
+        pri = n.type === 'project' ? 1 : near ? 3 : 4;
+      }
+      labels.push({ pri, font, lx, ly, align, pillC, la, label: n.label, idx: i, nx: x, ny: y });
+    });
+    labels.sort((p, q) => p.pri - q.pri || p.idx - q.idx);
+    const boxes = [], DPR = ctx.getTransform().a || 1, CW = ctx.canvas.width / DPR, CH = ctx.canvas.height / DPR;
+    ctx.textBaseline = 'middle';
+    labels.forEach(L => {
+      ctx.font = L.font;
+      const w = ctx.measureText(L.label).width + (L.pillC ? 14 : 6) * S, hh = (L.pillC ? 20 : 15) * S;
+      const cands = !L.pillC ? [[L.lx, L.ly]] : L.idx === 0
+        ? [[L.nx, L.ny + 34 * S], [L.nx, L.ny - 34 * S]]
+        : [[L.nx, L.ny - 20 * S], [L.nx, L.ny + 22 * S], [L.nx + w / 2 + 14 * S, L.ny], [L.nx - w / 2 - 14 * S, L.ny]];
+      const boxAt = c => { let x0 = L.align === 'center' ? c[0] - w / 2 : L.align === 'left' ? c[0] - 3 : c[0] - w + 3; x0 = Math.max(4, Math.min(CW - 4 - w, x0)); const y0 = Math.max(4, Math.min(CH - 4 - hh, c[1] - hh / 2)); return [x0, y0, x0 + w, y0 + hh]; };
+      const hits = bb => boxes.some(c => bb[0] < c[2] && bb[2] > c[0] && bb[1] < c[3] && bb[3] > c[1]);
+      let b = null, pos = null;
+      for (const c of cands) { const bb = boxAt(c); if (!hits(bb)) { b = bb; pos = c; break; } }
+      if (!b) { if (L.pri !== 0) return; pos = cands[0]; b = boxAt(pos); }
+      if (L.pillC) L.lx = (b[0] + b[2]) / 2; else { L.align = 'left'; L.lx = b[0] + 3; }
+      L.ly = (b[1] + b[3]) / 2;
+      boxes.push(b);
+      if (L.pillC) {
+        ctx.globalAlpha = L.la * 0.92; ctx.fillStyle = bg; ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect(b[0], b[1], w, hh, hh / 2); else ctx.rect(b[0], b[1], w, hh);
+        ctx.fill(); ctx.globalAlpha = L.la; ctx.fillStyle = light && L.pillC[0] === '#' ? Component.shade(L.pillC, 0.38) : L.pillC; ctx.textAlign = 'center'; ctx.fillText(L.label, L.lx, L.ly + 0.5);
+      } else {
+        ctx.globalAlpha = L.la; ctx.textAlign = L.align; ctx.lineJoin = 'round'; ctx.lineWidth = 5; ctx.strokeStyle = bg;
+        ctx.strokeText(L.label, L.lx, L.ly); ctx.fillStyle = text; ctx.fillText(L.label, L.lx, L.ly);
+      }
+    });
+    ctx.globalAlpha = 1;
+    return P;
+  }
+
+  // Page-wide background: a faint dot grid with a cursor spotlight and L-shaped "query" pulses running along it.
+  static BgField = function BgField() {
+    const ref = React.useRef(null);
+    React.useEffect(() => {
+      const cv = ref.current, S = 32, pulses = [], PAL = Component.PAL;
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let g = Component.fit(cv), raf, mx = -9999, my = -9999, last = 0, prev = performance.now();
+      const move = e => { mx = e.clientX; my = e.clientY; };
+      const out = () => { mx = -9999; my = -9999; };
+      window.addEventListener('pointermove', move); document.addEventListener('pointerleave', out);
+      const spawn = (W, H, off) => {
+        const gx = Math.floor(Math.random() * (W / S)), gy = Math.floor((Math.random() * H + off) / S);
+        const n1 = 3 + Math.floor(Math.random() * 7), n2 = 2 + Math.floor(Math.random() * 6), sx = Math.random() < .5 ? -1 : 1, sy = Math.random() < .5 ? -1 : 1;
+        pulses.push({ pts: [[gx, gy], [gx + sx * n1, gy], [gx + sx * n1, gy + sy * n2]], l1: n1, len: n1 + n2, s: 0, c: PAL[Math.floor(Math.random() * PAL.length)], v: 4 + Math.random() * 4 });
+      };
+      const at = (p, d) => {
+        const a = p.pts[0], b = p.pts[1], c = p.pts[2];
+        if (d <= p.l1) return [a[0] + Math.sign(b[0] - a[0]) * d, a[1]];
+        return [b[0], b[1] + Math.sign(c[1] - b[1]) * (d - p.l1)];
+      };
+      const draw = now => {
+        raf = requestAnimationFrame(draw);
+        g = Component.refit(cv, g);
+        const ctx = g.ctx, W = g.W, H = g.H; if (W < 2 || H < 2) return;
+        const dt = Math.min(0.05, (now - prev) / 1000); prev = now;
+        const th = Component.themeColors(), off = window.scrollY * 0.25, oy = -(off % S);
+        const px = q => [S / 2 + q[0] * S, q[1] * S - off];
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = th.text;
+        for (let y = oy; y < H + S; y += S) for (let x = S / 2; x < W; x += S) {
+          const d = Math.hypot(x - mx, y - my), k = d < 220 ? 1 - d / 220 : 0, r = 1 + k * 1.2;
+          ctx.globalAlpha = 0.07 + k * 0.3; ctx.fillRect(x - r / 2, y - r / 2, r, r);
+        }
+        if (!reduce && W >= 860) {
+          if (now - last > 650 && pulses.length < 7) { last = now; spawn(W, H, off); }
+          ctx.lineWidth = 1.2; ctx.lineCap = 'round';
+          for (let i = pulses.length - 1; i >= 0; i--) {
+            const p = pulses[i]; p.s += p.v * dt;
+            const tail = 3.5, head = Math.min(p.s, p.len), from = Math.max(0, p.s - tail);
+            if (p.s - p.len > tail) { pulses.splice(i, 1); continue; }
+            ctx.strokeStyle = p.c; ctx.fillStyle = p.c;
+            if (from < head) for (let j = 0; j < 10; j++) {
+              const a = px(at(p, from + (head - from) * j / 10)), b = px(at(p, from + (head - from) * (j + 1) / 10));
+              ctx.globalAlpha = 0.45 * (j + 1) / 10; ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
+            }
+            if (p.s < p.len) { const q = px(at(p, head)); ctx.globalAlpha = 0.85; ctx.beginPath(); ctx.arc(q[0], q[1], 1.8, 0, 7); ctx.fill(); }
+            else { const q = px(p.pts[2]), e = (p.s - p.len) / tail; ctx.globalAlpha = 0.5 * (1 - e); ctx.beginPath(); ctx.arc(q[0], q[1], 2 + e * 10, 0, 7); ctx.stroke(); }
+          }
+        }
+        ctx.globalAlpha = 1;
+      };
+      raf = requestAnimationFrame(draw);
+      return () => { cancelAnimationFrame(raf); window.removeEventListener('pointermove', move); document.removeEventListener('pointerleave', out); };
+    }, []);
+    return React.createElement('div', { style: { position: 'fixed', inset: 0, zIndex: -1, pointerEvents: 'none' } }, React.createElement('canvas', { ref, style: { position: 'absolute', inset: 0 } }));
+  };
+
+  static ProjectGraph = function ProjectGraph(props) {
+    const ref = React.useRef(null), techs = React.useRef(props.techs);
+    techs.current = props.techs;
+    React.useEffect(() => {
+      const cv = ref.current, G = Component.graph(), C = Component.clamp;
+      let g = Component.fit(cv), raf, t0 = performance.now(), visible = true;
+      const io = new IntersectionObserver(es => { if (es[0].isIntersecting && !visible) t0 = performance.now(); visible = es[0].isIntersecting; }); io.observe(cv.parentElement);
+      const draw = now => {
+        raf = requestAnimationFrame(draw);
+        if (!visible) return;
+        g = Component.refit(cv, g);
+        const ctx = g.ctx, W = g.W, H = g.H; if (W < 2 || H < 2) return;
+        const focus = new Set([0]);
+        (techs.current || []).forEach(t => { const i = G.at['t:' + t]; if (i != null) { focus.add(i); G.adj[i].forEach(j => { if (G.nodes[j].type === 'area') focus.add(j); }); } });
+        const th = Component.themeColors(), small = W < 520, S = Math.max(1, Math.min(1.4, Math.min(W, H) / 560));
+        const R = Math.max(80, Math.min(W / 2 - (small ? 56 : 74) * S, H / 2 - 30 * S)), grow = Component.RM ? 9 : (now - t0) / 1000 * 0.9;
+        ctx.clearRect(0, 0, W, H);
+        Component.render(ctx, G, { cx: W / 2, cy: H / 2, R, t: Component.RM ? 0 : now / 1000, rot: Component.RM ? 0 : now / 1000 * 0.03, text: th.text, bg: th.bg, small, scale: S, focus,
+          nodeK: n => C((grow - n.order) / 0.25), edgeK: e => C((grow - e.order) / 0.3) });
+      };
+      raf = requestAnimationFrame(draw);
+      return () => { cancelAnimationFrame(raf); io.disconnect(); };
+    }, []);
+    return React.createElement('canvas', { ref, style: { position: 'absolute', inset: 0 } });
+  };
+
+  static HeroGraph = function HeroGraph(props) {
+    const ref = React.useRef(null), play = React.useRef(props.play), instant = React.useRef(props.instant);
+    play.current = props.play; instant.current = props.instant;
+    React.useEffect(() => {
+      const cv = ref.current, G = Component.graph(), C = Component.clamp;
+      let g = Component.fit(cv), P = [], hover = -1, raf, t0 = null, tS = null, tx = 0, mx = 0, last = 0;
+      const pulses = [];
+      const pick = (px, py) => { let best = -1, bd = 18; P.forEach((q, i) => { const d = Math.hypot(q[0] - px, q[1] - py); if (d < bd) { bd = d; best = i; } }); return best; };
+      const move = e => { const r = cv.getBoundingClientRect(); hover = pick(e.clientX - r.left, e.clientY - r.top); cv.style.cursor = hover >= 0 && G.nodes[hover].type === 'project' ? 'pointer' : 'default'; };
+      const gmove = e => { tx = e.clientX / window.innerWidth - 0.5; };
+      const leave = () => { hover = -1; };
+      const click = () => { const n = G.nodes[hover]; if (n && n.slug) window.location.hash = '#/work/' + n.slug; };
+      cv.addEventListener('pointermove', move); cv.addEventListener('pointerdown', move); cv.addEventListener('pointerleave', leave); cv.addEventListener('click', click);
+      window.addEventListener('pointermove', gmove);
+      const caption = i => {
+        if (i < 0) return Component.LANG === 'pl' ? 'najedź na węzeł, by zobaczyć jego połączenia' : 'hover a node to see what it connects to';
+        const n = G.nodes[i], nbrs = G.adj[i].map(j => G.nodes[j]);
+        if (n.type === 'tech') { const rel = nbrs.filter(m => m.type === 'tech').map(m => m.label); return "MATCH (:Tech {name: '" + n.label + "'})-[:WORKS_WITH]-(t)  →  " + (rel.length ? rel.join(', ') : n.area); }
+        if (n.type === 'area') return "MATCH (:Area {name: '" + n.label + "'})-[:INCLUDES]->(t)  →  " + (n.deg - 1) + ' technologies';
+        return 'Bartosz Cłapiński · .NET developer · Toruń';
+      };
+      const draw = now => {
+        raf = requestAnimationFrame(draw);
+        g = Component.refit(cv, g);
+        const ctx = g.ctx, W = g.W, H = g.H; if (W < 2 || H < 2) return;
+        if (!play.current) { t0 = null; tS = null; ctx.clearRect(0, 0, W, H); P = []; return; }
+        if (t0 === null) t0 = instant.current ? now - 10000 : now;
+        if (tS === null) tS = now;
+        const es = (now - tS) / 1000, spin = Component.RM ? 0 : es * 0.035 + Math.sin(es * 0.4) * 0.06;
+        const el = (now - t0) / 1000, grow = el * 0.75;
+        mx += (tx - mx) * 0.03;
+        if (!Component.RM && el > 1.6 && now - last > (hover >= 0 ? 90 : 240)) {
+          last = now;
+          let cand = G.edges.map((e, i) => i);
+          if (hover >= 0) { const f = cand.filter(i => G.edges[i].a === hover || G.edges[i].b === hover); if (f.length) cand = f; }
+          if (cand.length) pulses.push({ e: cand[Math.floor(Math.random() * cand.length)], s: 0, dir: Math.random() < 0.5 ? 1 : -1 });
+        }
+        for (let i = pulses.length - 1; i >= 0; i--) { pulses[i].s += 0.012; if (pulses[i].s >= 1) pulses.splice(i, 1); }
+        const th = Component.themeColors(), gm = Component.heroGeom(W, H);
+        ctx.clearRect(0, 0, W, H);
+        const glow = getComputedStyle(document.documentElement).getPropertyValue('--glow').trim() || 'rgba(123,77,255,0.22)';
+        const gg = ctx.createRadialGradient(gm.cx, gm.cy, 0, gm.cx, gm.cy, gm.R * 1.25);
+        gg.addColorStop(0, glow); gg.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.globalAlpha = C(grow * 1.5); ctx.fillStyle = gg; ctx.fillRect(0, 0, W, H); ctx.globalAlpha = 1;
+        P = Component.render(ctx, G, { cx: gm.cx, cy: gm.cy, R: gm.R, t: now / 1000, rot: -0.15 + spin + mx * 0.35, text: th.text, bg: th.bg, small: gm.small, scale: gm.scale, hover, pulses,
+          nodeK: n => C((grow - n.order) / 0.25), edgeK: e => C((grow - e.order) / 0.3) });
+        if (grow > 1) {
+          ctx.globalAlpha = C(grow - 1) * (hover >= 0 ? 0.85 : 0.5); ctx.fillStyle = th.text; ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+          ctx.font = "400 11.5px 'JetBrains Mono', monospace"; let cap = caption(hover); if (ctx.measureText(cap).width > W - 24) cap = cap.split('  →  ').pop(); ctx.fillText(cap, W / 2, H - 8); ctx.globalAlpha = 1;
+        }
+      };
+      raf = requestAnimationFrame(draw);
+      return () => { cancelAnimationFrame(raf); window.removeEventListener('pointermove', gmove); };
+    }, []);
+    return React.createElement('canvas', { ref, style: { position: 'absolute', inset: 0 } });
+  };
+
+  // Loader builds the graph, then flies it into the hero slot (shared-element hand-off) while the page fades in around it.
+  static Loader = function Loader(props) {
+    const h = React.createElement, ref = React.useRef(null), bgRef = React.useRef(null), skipRef = React.useRef(false);
+    const [st, setSt] = React.useState({ p: 0, log: '', nodes: 0, rels: 0 });
+    const [phase, setPhase] = React.useState('load');
+    React.useEffect(() => {
+      window.scrollTo(0, 0);
+      const cv = ref.current, G = Component.graph(), C = Component.clamp, eio = Component.eio;
+      let g = Component.fit(cv), raf, doneAt = 0, key = '', flight = null, revealed = false, ended = false;
+      const timers = [], pulses = [];
+      const dur = Math.max(1.5, props.seconds) * 1000; let t0 = performance.now();
+      const onKey = e => { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') skipRef.current = true; };
+      window.addEventListener('keydown', onKey);
+      const eo = x => 1 - Math.pow(1 - x, 3);
+      const curve = t => t < .4 ? .58 * eo(t / .4) : t < .55 ? .58 + .06 * ((t - .4) / .15) : .64 + .36 * eio((t - .55) / .45);
+      const reveal = () => { if (!revealed) { revealed = true; props.onReveal && props.onReveal(); } };
+      const end = () => { if (!ended) { ended = true; reveal(); props.onDone && props.onDone(); } };
+      timers.push(setTimeout(end, dur + 5000));
+      const target = () => {
+        const el = document.getElementById('hero-graph'); if (!el) return null;
+        const r = el.getBoundingClientRect(); if (r.width < 2 || r.bottom < 0 || r.top > window.innerHeight) return null;
+        const gm = Component.heroGeom(r.width, r.height);
+        if (r.top + gm.cy > window.innerHeight - 40 || r.top + gm.cy < 40) return null;
+        return { cx: r.left + gm.cx, cy: r.top + gm.cy, R: gm.R, rot: -0.15, small: gm.small, scale: gm.scale };
+      };
+      const logOf = i => {
+        const n = G.nodes[i];
+        if (n.type === 'root') return "CREATE (me:Developer {name: 'Bartosz Cłapiński'})";
+        if (n.type === 'area') return "MERGE (me)-[:KNOWS]->(:Area {name: '" + n.label + "'})";
+        if (n.type === 'tech') return "MERGE (:Area {name: '" + n.area + "'})-[:INCLUDES]->(:Tech {name: '" + n.label + "'})";
+        return "CREATE (:Project {name: '" + n.label + "'})-[:USES]->(" + n.deg + ' techs)';
+      };
+      const draw = now => {
+        raf = requestAnimationFrame(draw);
+        g = Component.refit(cv, g);
+        const ctx = g.ctx, W = g.W, H = g.H; if (W < 2 || H < 2) return;
+        if (skipRef.current && !doneAt) t0 = now - dur;
+        const el = now - t0, P = curve(Math.min(1, el / dur));
+        if (el >= dur && !doneAt) doneAt = now;
+        const after = doneAt ? (now - doneAt) / 1000 : 0;
+        const S0 = Math.max(1, Math.min(1.6, Math.min(W, H) / 640)), base = Math.max(100, Math.min(W / 2 - (W < 640 ? 50 : 110) * S0, H / 2 - 84 * S0)), zoom = 1.75 - 0.75 * eo(C(P / 0.8));
+        let geo = { cx: W / 2, cy: H / 2, R: base * zoom, rot: -0.5 + el / 1000 * 0.1, small: W < 640, scale: S0 }, alpha = 1;
+        if (doneAt && after >= 0.35) {
+          if (!flight) { flight = { from: geo, to: target() }; setPhase('flight'); }
+          const f = eio(C((after - 0.35) / 1.1)), a = flight.from, b = flight.to;
+          if (b) geo = { cx: a.cx + (b.cx - a.cx) * f, cy: a.cy + (b.cy - a.cy) * f, R: a.R + (b.R - a.R) * f, rot: a.rot + (b.rot - a.rot) * f, small: f > 0.5 ? b.small : a.small, scale: a.scale + (b.scale - a.scale) * f };
+          else { geo = a; alpha = 1 - C((after - 0.35) / 0.6); }
+          if (bgRef.current) bgRef.current.style.opacity = String(1 - C((after - 0.35) / 0.9));
+          if (after >= 0.7) reveal();
+          if (after >= 1.5) end();
+        }
+        if (!doneAt && P > 0.3 && Math.random() < 0.3 && G.edges.length) pulses.push({ e: Math.floor(Math.random() * G.edges.length), s: 0, dir: 1 });
+        for (let i = pulses.length - 1; i >= 0; i--) { pulses[i].s += 0.018; if (pulses[i].s >= 1) pulses.splice(i, 1); }
+        if (!flight) {
+          const nVis = G.nodes.filter(n => n.order <= P).length, eVis = G.edges.filter(e => e.order <= P).length;
+          let lastI = 0; G.byOrder.forEach(i => { if (G.nodes[i].order <= P) lastI = i; });
+          let lastL = null; G.edges.forEach(e => { if (e.type === 'link' && e.order <= P) lastL = e; });
+          const log = (P > 0.985 || doneAt) ? 'MATCH (n)-[r]-() RETURN n, r   ✓ ' + G.nodes.length + ' nodes, ' + G.edges.length + ' relationships' : lastL ? "MERGE (:Tech {name: '" + G.nodes[lastL.a].label + "'})-[:WORKS_WITH]->(:Tech {name: '" + G.nodes[lastL.b].label + "'})" : logOf(lastI);
+          const k2 = Math.floor(P * 100) + '|' + log + '|' + nVis + '|' + eVis;
+          if (k2 !== key) { key = k2; setSt({ p: P * 100, log, nodes: nVis, rels: eVis }); }
+        }
+        const th = Component.themeColors();
+        ctx.clearRect(0, 0, W, H);
+        Component.render(ctx, G, { cx: geo.cx, cy: geo.cy, R: geo.R, t: now / 1000, rot: geo.rot, text: th.text, bg: th.bg, small: geo.small, scale: geo.scale, pulses, rootLabel: !flight, alpha,
+          nodeK: n => C((P - n.order) / 0.07), edgeK: e => C((P - e.order) / 0.06) });
+      };
+      raf = requestAnimationFrame(draw);
+      return () => { cancelAnimationFrame(raf); timers.forEach(clearTimeout); window.removeEventListener('keydown', onKey); };
+    }, []);
+    const mono = { font: "400 12px 'JetBrains Mono',monospace", color: 'var(--faint,rgba(244,244,245,0.45))' };
+    const fade = { opacity: phase === 'load' ? 1 : 0, transition: 'opacity .35s ease' }, nw = window.innerWidth < 640;
+    return h('div', { style: { position: 'fixed', inset: 0, zIndex: 1000, color: 'var(--text,#f4f4f5)', pointerEvents: phase === 'load' ? 'auto' : 'none' } },
+      h('div', { ref: bgRef, style: { position: 'absolute', inset: 0, background: 'var(--bg,#0a0a0c)' } }),
+      h('div', { style: { position: 'absolute', inset: 0 } }, h('canvas', { ref, style: { position: 'absolute', inset: 0 } })),
+      h('div', { style: Object.assign({}, mono, fade, { position: 'absolute', left: nw ? 20 : 40, top: 28 }) }, nw ? 'Bartosz Cłapiński' : 'Bartosz Cłapiński — portfolio'),
+      h('div', { style: Object.assign({}, mono, fade, { position: 'absolute', right: nw ? 20 : 40, top: nw ? 50 : 28, fontVariantNumeric: 'tabular-nums' }) }, st.nodes + ' nodes · ' + st.rels + ' relationships'),
+      h('button', { onClick: () => { skipRef.current = true; }, style: Object.assign({}, mono, fade, { position: 'absolute', right: nw ? 20 : 40, top: nw ? 76 : 54, background: 'transparent', border: '1px solid var(--line,rgba(244,244,245,0.14))', color: 'var(--muted,rgba(244,244,245,0.66))', padding: '7px 14px', borderRadius: 999, cursor: 'pointer' }) }, Component.LANG === 'pl' ? 'pomiń intro  esc' : 'skip intro  esc'),
+      h('div', { style: Object.assign({}, fade, { position: 'absolute', left: nw ? 20 : 40, right: nw ? 20 : 40, bottom: 32, display: 'flex', flexDirection: nw ? 'column' : 'row', justifyContent: 'space-between', alignItems: nw ? 'flex-start' : 'flex-end', gap: nw ? 8 : 24 }) },
+        h('div', { style: { flex: 'none', font: "300 15px 'Geist',sans-serif", fontVariantNumeric: 'tabular-nums', display: 'flex', gap: 10, alignItems: 'baseline' } }, h('span', { style: mono }, Component.LANG === 'pl' ? 'budowanie grafu' : 'building graph'), String(Math.floor(st.p)).padStart(3, '0')),
+        h('div', { style: Object.assign({}, mono, { color: 'var(--muted,rgba(244,244,245,0.66))', minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }) }, h('span', { style: { color: '#7b4dff' } }, '› '), st.log)),
+      h('div', { style: Object.assign({}, fade, { position: 'absolute', left: 0, bottom: 0, height: 1, width: st.p + '%', background: 'linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff,#14c4f0)' }) })
+    );
+  };
+
+  // Free-tier hosts (Render) sleep when idle: pre-warm on project open, and explain the cold start in a modal with Node.
+  static sleepy = url => /onrender\.com/.test(url || '');
+  static warmed = {};
+  static up = {};
+  // A demo can depend on more sleepy services (e.g. a separate API) listed in site-data.js as `wake`.
+  static extra = url => { const p = ((window.SITE_DATA || {}).projects || []).find(x => x.demo === url); return (p && p.wake) || []; };
+  static pingAll = url => Promise.all([url, ...Component.extra(url)].map(u => fetch(u, { mode: 'no-cors', cache: 'no-store' })))
+    .then(() => { Component.up[url] = true; return true; }, () => false);
+  static warm = url => {
+    if (!Component.sleepy(url) || Component.warmed[url]) return Component.warmed[url];
+    const t0 = performance.now();
+    Component.warmed[url] = Component.pingAll(url).then(ok => ok ? performance.now() - t0 : -1);
+    return Component.warmed[url];
+  };
+  static WakeModal = function WakeModal({ url, name, onClose, sim }) {
+    const h = React.createElement, cvRef = React.useRef(null), PL = Component.LANG === 'pl';
+    const [phase, setPhase] = React.useState('check'), [sec, setSec] = React.useState(0), [msgI, setMsgI] = React.useState(0), [typed, setTyped] = React.useState(0);
+    const phaseRef = React.useRef('check'); phaseRef.current = phase;
+    const host = url.replace(/^https?:\/\//, '').replace(/\/$/, '');
+    const go = React.useCallback(() => { const w = window.open(url, '_blank'); if (w) { try { w.opener = null; } catch (e) {} onClose(); } }, [url]);
+    const T = PL ? {
+      title: { check: 'Sprawdzam demo…', wake: 'Wybudzam demo…', ready: 'Demo nie śpi!', slow: 'Trwa dłużej niż zwykle' },
+      body: 'Projekt działa na darmowym planie Render, który usypia aplikację po 15 minutach bezczynności. Pierwsze uruchomienie trwa około minuty.',
+      slow: 'Serwer jeszcze się nie odezwał. Możesz otworzyć demo bezpośrednio — doładuje się w nowej karcie.',
+      msgs: ['Psst… serwer śpi. Już go budzę.', 'Darmowy hosting = drzemki po 15 min.', 'Wysyłam pingi. Tak, wiele pingów.', 'Zwykle to około minuty. Warto!', 'Rozgrzewam .NET i bazę…'],
+      ready: 'Wstał! Otwieram demo…', slowMsg: 'Śpi jak kamień. Spróbuj bezpośrednio?',
+      anyway: 'Otwórz mimo to →', open: 'Otwórz demo →', cancel: 'Anuluj', st: { check: 'ping', wake: 'czekam na odpowiedź', ready: 'odpowiada', slow: 'brak odpowiedzi' }
+    } : {
+      title: { check: 'Checking the demo…', wake: 'Waking up the demo…', ready: 'The demo is awake!', slow: 'Taking longer than usual' },
+      body: "This project runs on Render's free tier, which sleeps after 15 minutes of inactivity. The first load takes about a minute.",
+      slow: "The server hasn't answered yet. You can open the demo directly — it will finish loading in a new tab.",
+      msgs: ['Psst… the server is napping. Waking it up.', 'Free hosting = naps after 15 idle minutes.', 'Sending pings. Lots of pings.', 'Usually about a minute. Worth it!', 'Warming up .NET and the database…'],
+      ready: "It's up! Opening the demo…", slowMsg: 'Sleeping like a log. Try it directly?',
+      anyway: 'Go anyway →', open: 'Open demo →', cancel: 'Cancel', st: { check: 'ping', wake: 'waiting for response', ready: 'responding', slow: 'no response yet' }
+    };
+    const msg = phase === 'ready' ? T.ready : phase === 'slow' ? T.slowMsg : phase === 'check' ? T.msgs[0] : T.msgs[msgI % T.msgs.length];
+    React.useEffect(() => {
+      let dead = false, t0 = performance.now(), tries = 0;
+      const ping = () => sim ? new Promise(r => setTimeout(() => r(performance.now() - t0 > 9000), 1500)) : Component.pingAll(url);
+      const loop = () => {
+        if (dead) return; tries++;
+        const p = tries === 1 && !sim ? (Component.warm(url) || ping()).then(r => r !== -1 && r !== false) : ping();
+        p.then(ok => {
+          if (dead) return;
+          if (ok) { setPhase('ready'); setTimeout(() => { if (!dead && !sim) go(); }, 1800); }
+          else setTimeout(loop, 3000);
+        });
+      };
+      loop();
+      const chk = setTimeout(() => { if (!dead && phaseRef.current === 'check') setPhase('wake'); }, 1000);
+      const iv = setInterval(() => {
+        const s = Math.floor((performance.now() - t0) / 1000); setSec(s);
+        if (s >= 90 && phaseRef.current === 'wake') setPhase('slow');
+      }, 250);
+      const mi = setInterval(() => setMsgI(i => i + 1), 4600);
+      const key = e => { if (e.key === 'Escape') onClose(); };
+      window.addEventListener('keydown', key);
+      return () => { dead = true; clearTimeout(chk); clearInterval(iv); clearInterval(mi); window.removeEventListener('keydown', key); };
+    }, [url]);
+    React.useEffect(() => {
+      setTyped(0); let n = 0;
+      const iv = setInterval(() => { n++; setTyped(n); if (n >= msg.length) clearInterval(iv); }, 26);
+      return () => clearInterval(iv);
+    }, [msg]);
+    React.useEffect(() => {
+      const cv = cvRef.current; let g = Component.fit(cv), raf, blinkAt = performance.now() + 1800, pk = [], lastPk = 0, wakeAt = 0;
+      const P0 = Component.PAL;
+      const draw = now => {
+        raf = requestAnimationFrame(draw);
+        g = Component.refit(cv, g); const ctx = g.ctx, W = g.W, H = g.H; if (W < 2) return;
+        const t = Component.RM ? 0 : now / 1000, ph = phaseRef.current, awake = ph === 'ready';
+        if (awake && !wakeAt) wakeAt = t;
+        ctx.clearRect(0, 0, W, H);
+        const r = Math.min(40, H * 0.26), nx = W * 0.2, ny = H * 0.62, sx = W * 0.8, sy = H * 0.6;
+        // wire
+        const wx0 = nx + r * 1.15, wx1 = sx - 44, mid = (wx0 + wx1) / 2, bend = -H * 0.16;
+        const at = u => ({ x: (1 - u) * (1 - u) * wx0 + 2 * (1 - u) * u * mid + u * u * wx1, y: (1 - u) * (1 - u) * ny + 2 * (1 - u) * u * (ny + bend) + u * u * sy });
+        ctx.setLineDash([3, 6]); ctx.lineDashOffset = -t * 20; ctx.strokeStyle = 'rgba(244,244,245,0.18)'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(wx0, ny); ctx.quadraticCurveTo(mid, ny + bend, wx1, sy); ctx.stroke(); ctx.setLineDash([]);
+        // packets
+        if (t - lastPk > (awake ? 0.25 : 0.9)) { lastPk = t; pk.push({ t0: t, back: awake, c: P0[Math.floor(t * 3) % P0.length] }); }
+        pk = pk.filter(p => t - p.t0 < 1.4);
+        pk.forEach(p => {
+          let u = (t - p.t0) / 1.4; if (p.back) u = 1 - u;
+          const q = at(u), a = Math.sin(Math.min(1, (t - p.t0) / 1.4) * Math.PI);
+          ctx.globalAlpha = a; ctx.fillStyle = p.back ? '#1fd68a' : p.c; ctx.shadowColor = ctx.fillStyle; ctx.shadowBlur = 10;
+          ctx.beginPath(); ctx.arc(q.x, q.y, 3.5, 0, 7); ctx.fill(); ctx.shadowBlur = 0;
+        });
+        ctx.globalAlpha = 1;
+        // server rack
+        const shake = ph === 'wake' || ph === 'check' ? Math.sin(t * 40) * (Math.sin(t * 1.3) > 0.85 ? 1.2 : 0) : 0;
+        const rw = 74, rh = 22, gap = 6, top = sy - (rh * 3 + gap * 2) / 2;
+        if (awake) { const gl = ctx.createRadialGradient(sx, sy, 0, sx, sy, 90); gl.addColorStop(0, 'rgba(31,214,138,0.22)'); gl.addColorStop(1, 'rgba(31,214,138,0)'); ctx.fillStyle = gl; ctx.fillRect(sx - 90, sy - 90, 180, 180); }
+        for (let k = 0; k < 3; k++) {
+          const y = top + k * (rh + gap), x = sx - rw / 2 + shake;
+          ctx.fillStyle = '#16161c'; ctx.strokeStyle = awake ? 'rgba(31,214,138,0.55)' : 'rgba(244,244,245,0.16)'; ctx.lineWidth = 1.2;
+          ctx.beginPath(); ctx.roundRect(x, y, rw, rh, 5); ctx.fill(); ctx.stroke();
+          for (let d = 0; d < 3; d++) {
+            const on = awake ? (Math.sin(t * 9 + k * 2 + d * 1.7) > -0.3) : (ph !== 'check' && Math.sin(t * 5 + k * 3 + d) > 0.92);
+            ctx.fillStyle = awake ? (on ? '#1fd68a' : '#0f5b3d') : (on ? '#ffb21f' : 'rgba(244,244,245,0.12)');
+            ctx.beginPath(); ctx.arc(x + 12 + d * 10, y + rh / 2, 2.6, 0, 7); ctx.fill();
+          }
+          ctx.fillStyle = 'rgba(244,244,245,0.1)'; ctx.fillRect(x + rw - 30, y + rh / 2 - 1, 20, 2);
+        }
+        // zzz
+        if (!awake) {
+          ctx.font = "600 14px 'JetBrains Mono', monospace"; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+          for (let j = 0; j < 3; j++) { const p = (t * 0.45 + j / 3) % 1; ctx.globalAlpha = Math.sin(p * Math.PI) * 0.8; ctx.fillStyle = '#a78bfa'; ctx.font = "600 " + (10 + p * 10) + "px 'JetBrains Mono', monospace"; ctx.fillText('z', sx + rw / 2 + 4 + p * 22 + Math.sin(p * 6) * 4, top - 4 - p * 40); }
+          ctx.globalAlpha = 1;
+        } else {
+          const p = Math.min(1, (t - wakeAt) / 0.5); ctx.globalAlpha = 1 - Math.max(0, (t - wakeAt - 1) / 0.6);
+          ctx.strokeStyle = '#1fd68a'; ctx.lineWidth = 2;
+          for (let j = 0; j < 6; j++) { const a = j / 6 * 6.283 - 1.57; ctx.beginPath(); ctx.moveTo(sx + Math.cos(a) * (50 + p * 6), sy + Math.sin(a) * (50 + p * 6)); ctx.lineTo(sx + Math.cos(a) * (58 + p * 14), sy + Math.sin(a) * (58 + p * 14)); ctx.stroke(); }
+          ctx.globalAlpha = 1;
+        }
+        // Node
+        const hop = awake ? Math.abs(Math.sin((t - wakeAt) * 6)) * 14 * Math.max(0, 1 - (t - wakeAt) / 1.6) : 0;
+        const cx = nx, cy = ny - Math.sin(t * 1.8) * 4 - hop, sq = 1 + Math.sin(t * 2.2) * 0.03, k = r / 54;
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(Math.sin(t * 0.9) * 0.06); ctx.scale(1 - (sq - 1) * 0.6, sq);
+        ctx.beginPath();
+        for (let i = 0; i <= 60; i++) { const a = i / 60 * 6.2832, rr = r * (1 + 0.035 * Math.sin(3 * a + t * 1.4) + 0.025 * Math.sin(5 * a - t * 1.1)); i ? ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr) : ctx.moveTo(Math.cos(a) * rr, Math.sin(a) * rr); }
+        ctx.closePath();
+        const gr = ctx.createLinearGradient(-r, -r, r, r); gr.addColorStop(0, '#ff8a1f'); gr.addColorStop(0.5, '#ff2d87'); gr.addColorStop(1, '#7b4dff');
+        ctx.shadowColor = 'rgba(255,45,135,0.45)'; ctx.shadowBlur = 28; ctx.fillStyle = gr; ctx.fill(); ctx.shadowBlur = 0;
+        const hl = ctx.createRadialGradient(-r * 0.4, -r * 0.45, 0, -r * 0.4, -r * 0.45, r * 0.9); hl.addColorStop(0, 'rgba(255,255,255,0.4)'); hl.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = hl; ctx.fill();
+        let blink = 1; if (now > blinkAt) { if (now - blinkAt < 140) blink = 0.1; else blinkAt = now + 2000 + Math.random() * 2500; }
+        ctx.scale(k, k);
+        const lx = awake ? 0 : 4, ly = awake ? 0 : -1;
+        [-1, 1].forEach(sd => {
+          const x = sd * 17 + lx * 0.6, y = -4 + ly;
+          if (awake) { ctx.strokeStyle = '#fff'; ctx.lineWidth = 3.2; ctx.lineCap = 'round'; ctx.beginPath(); ctx.arc(x, y + 4, 8, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke(); return; }
+          ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(x, y, 10.5, 12.5 * blink, 0, 0, 7); ctx.fill();
+          if (blink > 0.5) { ctx.fillStyle = '#0a0a0c'; ctx.beginPath(); ctx.arc(x + lx, y + ly, 5.5, 0, 7); ctx.fill(); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x + lx + 2, y + ly - 2.2, 1.6, 0, 7); ctx.fill(); }
+        });
+        const talking = typedRef.current < msgRef.current;
+        if (talking || awake) { ctx.fillStyle = '#0a0a0c'; ctx.beginPath(); ctx.ellipse(lx * 0.4, 18, 6, awake ? 7 : 2 + Math.abs(Math.sin(t * 16)) * 5, 0, 0, 7); ctx.fill(); }
+        else { ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(-9, 16); ctx.quadraticCurveTo(0, 22, 9, 16); ctx.stroke(); }
+        ctx.restore();
+      };
+      raf = requestAnimationFrame(draw);
+      return () => cancelAnimationFrame(raf);
+    }, []);
+    const typedRef = React.useRef(0), msgRef = React.useRef(0); typedRef.current = typed; msgRef.current = msg.length;
+    const mono = "'JetBrains Mono', monospace", mm = String(Math.floor(sec / 60)).padStart(2, '0') + ':' + String(sec % 60).padStart(2, '0');
+    const ready = phase === 'ready', slow = phase === 'slow', pct = ready ? 100 : Math.min(94, (1 - Math.exp(-sec / 28)) * 100);
+    const btn = (label, onClick, primary) => h('button', { onClick, style: { padding: '11px 18px', borderRadius: 999, border: primary ? 'none' : '1px solid rgba(244,244,245,0.18)', background: primary ? 'linear-gradient(90deg,#ff8a1f,#ff2d87 55%,#7b4dff)' : 'transparent', color: primary ? '#fff' : 'var(--text,#f4f4f5)', font: '500 14px Geist, sans-serif', cursor: 'pointer' } }, label);
+    return h('div', { role: 'dialog', 'aria-modal': 'true', 'aria-label': T.title[phase], onClick: e => { if (e.target === e.currentTarget) onClose(); }, style: { position: 'fixed', inset: 0, zIndex: 200, background: 'rgba(5,5,8,0.66)', backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20, animation: 'bcFadeIn .25s ease' } },
+      h('div', { style: { position: 'relative', width: '100%', maxWidth: 540, borderRadius: 20, background: 'linear-gradient(180deg,#14141b,#0d0d12)', border: '1px solid rgba(244,244,245,0.1)', boxShadow: '0 30px 80px rgba(0,0,0,0.55)', overflow: 'hidden', color: 'var(--text,#f4f4f5)', animation: 'bcPopIn .35s cubic-bezier(.2,.9,.3,1.2)' } },
+        h('div', { style: { height: 3, background: 'linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff,#14c4f0)' } }),
+        h('div', { style: { position: 'relative', height: 200, background: 'radial-gradient(60% 80% at 20% 70%, rgba(255,45,135,0.12), transparent 70%), radial-gradient(50% 70% at 80% 60%, ' + (ready ? 'rgba(31,214,138,0.12)' : 'rgba(123,77,255,0.12)') + ', transparent 70%)' } },
+          h('canvas', { ref: cvRef, style: { position: 'absolute', inset: 0, width: '100%', height: '100%' } }),
+          h('div', { style: { position: 'absolute', left: 'calc(20% - 31px)', top: 16, width: 'max-content', maxWidth: '64%', boxSizing: 'border-box', padding: '10px 14px', borderRadius: '18px 18px 18px 6px', background: '#f4f4f5', color: '#0a0a0c', font: '500 13.5px/1.35 Geist, sans-serif', boxShadow: '0 8px 24px rgba(0,0,0,0.35)', minHeight: 18 } },
+            msg.slice(0, typed), h('span', { style: { opacity: typed < msg.length ? 1 : 0 } }, '▍'),
+            h('span', { style: { position: 'absolute', left: 22, bottom: -9, width: 0, height: 0, borderLeft: '9px solid transparent', borderRight: '9px solid transparent', borderTop: '10px solid #f4f4f5' } })),
+          h('span', { style: { position: 'absolute', right: 16, bottom: 12, font: '400 11px ' + mono, color: 'rgba(244,244,245,0.45)' } }, host)),
+        h('div', { style: { padding: '22px 26px 24px', display: 'flex', flexDirection: 'column', gap: 14 } },
+          h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 12 } },
+            h('h3', { style: { margin: 0, font: '600 22px/1.15 Geist, sans-serif', letterSpacing: '-0.02em' } }, T.title[phase]),
+            h('span', { style: { font: '500 13px ' + mono, color: ready ? '#1fd68a' : 'rgba(244,244,245,0.55)', fontVariantNumeric: 'tabular-nums' } }, mm)),
+          h('p', { style: { margin: 0, font: '300 15px/1.55 Geist, sans-serif', color: 'var(--muted,rgba(244,244,245,0.66))', textWrap: 'pretty' } }, slow ? T.slow : T.body),
+          h('div', { style: { display: 'flex', flexDirection: 'column', gap: 8 } },
+            h('div', { style: { height: 4, borderRadius: 4, background: 'rgba(244,244,245,0.08)', overflow: 'hidden' } },
+              h('div', { style: { width: pct + '%', height: '100%', borderRadius: 4, background: ready ? '#1fd68a' : 'linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff)', transition: 'width .6s ease, background .3s' } })),
+            h('span', { style: { font: '400 12px ' + mono, color: 'rgba(244,244,245,0.45)' } }, '› ' + T.st[phase] + ' · ' + (name || host))),
+          h('div', { style: { display: 'flex', gap: 10, flexWrap: 'wrap', marginTop: 4 } }, btn(ready ? T.open : T.anyway, go, ready || slow), btn(T.cancel, onClose, false)))));
+  };
+
+  // "Node" — the contact mascot: a gradient graph node with orbiting satellite nodes, cursor-tracking eyes and a speech bubble.
+  static Mascot = function Mascot() {
+    const h = React.createElement, ref = React.useRef(null), bubRef = React.useRef(null), hovRef = React.useRef(false), jumpRef = React.useRef(-10);
+    const PLm = Component.LANG === 'pl';
+    const msgs = PLm ? ["Cześć, jestem Node, maskotka Bartosza.", "Szukasz junior .NET developera? Mogę to przekazać.", "MATCH (ty)-[:ZATRUDNIA]->(bartosz)", "Kliknij mnie, a skopiuję maila."] : ["Hi, I'm Node, Bartosz's graph mascot.", "Hiring a junior .NET developer? I can route that.", "MATCH (you)-[:HIRES]->(bartosz)", "Click me and I'll copy the email."];
+    const [idx, setIdx] = React.useState(0), [over, setOver] = React.useState(null), [typed, setTyped] = React.useState(0), [dots, setDots] = React.useState(true);
+    const talkRef = React.useRef(false), overRef = React.useRef(null);
+    React.useEffect(() => {
+      let tm;
+      const on = () => { jumpRef.current = performance.now() / 1000; setOver(Component.LANG === 'pl' ? 'Skopiowane! Wklej gdziekolwiek. Do usłyszenia.' : 'Copied! Paste it anywhere. Talk soon.'); clearTimeout(tm); tm = setTimeout(() => setOver(null), 3200); };
+      window.addEventListener('bc:copied', on);
+      return () => { window.removeEventListener('bc:copied', on); clearTimeout(tm); };
+    }, []);
+    overRef.current = over;
+    const msg = over || msgs[idx];
+    React.useEffect(() => {
+      const iv = setInterval(() => { if (!overRef.current) setIdx(i => (i + 1) % msgs.length); }, 5200);
+      return () => clearInterval(iv);
+    }, []);
+    React.useEffect(() => {
+      setTyped(0); setDots(true); talkRef.current = false;
+      let n = 0, iv;
+      const tm = setTimeout(() => {
+        setDots(false); talkRef.current = true;
+        iv = setInterval(() => { n += 1; setTyped(n); if (n >= msg.length) { clearInterval(iv); talkRef.current = false; } }, 28);
+      }, 420);
+      return () => { clearTimeout(tm); clearInterval(iv); };
+    }, [msg]);
+    React.useEffect(() => {
+      const cv = ref.current;
+      let g = Component.fit(cv), raf, mx = -1, my = -1, pmx = -1, pmy = -1, lastMove = 0, lastT = 0, ouchUntil = 0, visible = true, blinkAt = performance.now() + 2500, ex = 0, ey = 0, hv = 0;
+      const io = new IntersectionObserver(es => { visible = es[0].isIntersecting; }); io.observe(cv.parentElement);
+      const P0 = Component.PAL, rnd = Math.random, OX = 60, OT = 60, OB = 140;
+      const parts = Array.from({ length: 30 }, () => ({ x: (rnd() * 2 - 1) * 1.9, y: rnd() * 4 - 2.1, v: 0.12 + rnd() * 0.22, s: 0.8 + rnd() * 1.6, c: P0[Math.floor(rnd() * P0.length)], ph: rnd() * 6.28 }));
+      const GL = ['{ }', '</>', 'AI', '=>', '#', '()'];
+      const glyphs = GL.map((g, i) => ({ g, x: (i % 2 ? 1 : -1) * (1.3 + rnd() * 0.5), y: -2.2 + (i / GL.length) * 3.8, v: 0.07 + rnd() * 0.08, c: P0[i % P0.length], ph: rnd() * 6.28 }));
+      const move = e => { mx = e.clientX; my = e.clientY; };
+      window.addEventListener('pointermove', move);
+      const draw = now => {
+        raf = requestAnimationFrame(draw);
+        if (!visible) return;
+        g = Component.refit(cv, g);
+        const ctx = g.ctx, W = g.W, H = g.H; if (W < 2 || H < 2) return;
+        const t = Component.RM ? 0 : now / 1000, th = Component.themeColors(), W0 = W - 2 * OX, H0 = H - OT - OB, r = Math.min(84, Math.min(W0, H0) * 0.26), k = r / 54;
+        hv += ((hovRef.current ? 1 : 0) - hv) * 0.12;
+        const jt = t - jumpRef.current, jumping = jt >= 0 && jt < 0.6, jump = jumping ? Math.sin(jt / 0.6 * Math.PI) * 34 : 0;
+        const ph = t % 7, big = Math.floor(t / 7) % 3 === 2, hd = big ? 0.8 : 0.45;
+        const hop = !hovRef.current && ph < hd ? Math.sin(ph / hd * Math.PI) * (big ? 48 : 14) : 0;
+        const baseH = H0 * 0.64, base = OT + baseH, cx = OX + W0 * 0.5 + Math.sin(t * 0.5) * 8;
+        let cy = base - jump - hop - Math.sin(t * 1.6) * 6 - hv * Math.abs(Math.sin(t * 7)) * 6, squash = 0, push = 0;
+        const tipY = base - r - 26;
+        if (cy - r < tipY) { const ov = tipY - (cy - r); cy += ov; squash = Math.min(0.16, ov / r * 0.8); push = ov * 0.6; ouchUntil = t + 0.9; }
+        if (bubRef.current) { bubRef.current.style.bottom = (H0 - (baseH - r - 46)) + 'px'; bubRef.current.style.transform = 'translateX(-50%) translateY(' + (-push) + 'px) rotate(' + (push * 0.9) + 'deg)'; }
+        const rect = cv.getBoundingClientRect();
+        if (mx !== pmx || my !== pmy) { lastMove = now; pmx = mx; pmy = my; }
+        if (mx >= 0 && now - lastMove < 2500) {
+          const dx = mx - (rect.left + cx), dy = my - (rect.top + cy), dl = Math.hypot(dx, dy) || 1, look = Math.min(1, dl / 300);
+          ex += (dx / dl * look * 5 - ex) * 0.15; ey += (dy / dl * look * 5 - ey) * 0.15;
+        } else { ex += (Math.sin(t * 0.7) * 4 - ex) * 0.04; ey += (Math.cos(t * 0.45) * 2.5 - ey) * 0.04; }
+        ctx.clearRect(0, 0, W, H);
+        const dt = lastT ? Math.min(0.05, (now - lastT) / 1000) : 0; lastT = now;
+        const ax = OX + W0 * 0.5, ay = base, period = 2.8 - hv * 1.4;
+        ctx.lineWidth = 1.2;
+        for (let j = 0; j < 3; j++) {
+          const q = t / period + j / 3, p = q % 1;
+          ctx.globalAlpha = (1 - p) * (0.16 + hv * 0.16); ctx.strokeStyle = P0[Math.floor(q) % P0.length];
+          ctx.beginPath(); ctx.arc(ax, ay, r * (1.05 + p * 0.85), 0, 7); ctx.stroke();
+        }
+        parts.forEach(q => {
+          q.y -= q.v * dt * (1 + hv * 1.5);
+          if (q.y < -2.1) { q.y = 1.9; q.x = (rnd() * 2 - 1) * 1.9; }
+          const fade = Math.max(0, Math.min(1, (1.9 - q.y) / 0.5, (q.y + 2.1) / 0.6)), tw = 0.5 + 0.5 * Math.sin(t * 3 + q.ph);
+          ctx.globalAlpha = fade * (0.2 + tw * 0.45); ctx.fillStyle = q.c;
+          ctx.beginPath(); ctx.arc(ax + q.x * r + Math.sin(t + q.ph) * 6, ay + q.y * r, q.s * k, 0, 7); ctx.fill();
+        });
+        ctx.font = '500 ' + 12 * k + "px 'JetBrains Mono', monospace"; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+        glyphs.forEach(q => {
+          q.y -= q.v * dt;
+          if (q.y < -2.2) q.y = 1.6;
+          const fade = Math.max(0, Math.min(1, (1.6 - q.y) / 0.5, (q.y + 2.2) / 0.6));
+          ctx.globalAlpha = fade * 0.32; ctx.fillStyle = q.c;
+          ctx.fillText(q.g, ax + q.x * r + Math.sin(t * 0.8 + q.ph) * 8, ay + q.y * r);
+        });
+        ctx.globalAlpha = 1;
+        const sats = [['#14c4f0', 0], ['#1fd68a', 2.094], ['#ffb21f', 4.189]].map(s => {
+          const a = t * (0.7 + hv * 1.4) + s[1];
+          return { c: s[0], x: cx + Math.cos(a) * r * 1.65, y: cy - r * 0.15 + Math.sin(a) * r * 0.55, front: Math.sin(a) > 0 };
+        });
+        const sat = s => {
+          const d = Math.hypot(s.x - cx, s.y - cy) || 1;
+          ctx.globalAlpha = 0.5; ctx.strokeStyle = s.c; ctx.lineWidth = 1.2;
+          ctx.beginPath(); ctx.moveTo(cx + (s.x - cx) / d * r * 0.95, cy + (s.y - cy) / d * r * 0.95); ctx.lineTo(s.x, s.y); ctx.stroke();
+          ctx.globalAlpha = 1; ctx.fillStyle = th.bg; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.front ? 6 : 4.5, 0, 7); ctx.fill(); ctx.stroke();
+          ctx.fillStyle = s.c; ctx.beginPath(); ctx.arc(s.x, s.y, s.front ? 2.5 : 2, 0, 7); ctx.fill();
+        };
+        const sy = 1 + Math.sin(t * 2.2) * 0.03 + (jumping ? 0.06 : 0) - squash, sx = 1 - Math.sin(t * 2.2) * 0.02 + squash * 0.8;
+        ctx.save(); ctx.translate(cx, cy); ctx.rotate(Math.sin(t * 0.9) * 0.07 + (hop ? Math.sin(ph / hd * Math.PI * 2) * 0.08 : 0)); ctx.scale(sx, sy);
+        ctx.beginPath();
+        for (let i = 0; i <= 72; i++) {
+          const a = i / 72 * Math.PI * 2, rr = r * (1 + 0.035 * Math.sin(3 * a + t * 1.4) + 0.025 * Math.sin(5 * a - t * 1.1));
+          if (i) ctx.lineTo(Math.cos(a) * rr, Math.sin(a) * rr); else ctx.moveTo(Math.cos(a) * rr, Math.sin(a) * rr);
+        }
+        ctx.closePath();
+        const gr = ctx.createLinearGradient(-r, -r, r, r); gr.addColorStop(0, '#ff8a1f'); gr.addColorStop(0.5, '#ff2d87'); gr.addColorStop(1, '#7b4dff');
+        ctx.globalAlpha = 1; ctx.shadowColor = 'rgba(255,45,135,0.45)'; ctx.shadowBlur = 40; ctx.fillStyle = gr; ctx.fill(); ctx.shadowBlur = 0;
+        const hl = ctx.createRadialGradient(-r * 0.4, -r * 0.45, 0, -r * 0.4, -r * 0.45, r * 0.9);
+        hl.addColorStop(0, 'rgba(255,255,255,0.4)'); hl.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.fillStyle = hl; ctx.fill();
+        let blink = 1;
+        if (now > blinkAt) { if (now - blinkAt < 140) blink = 0.1; else blinkAt = now + 2200 + Math.random() * 3000; }
+        ctx.scale(k, k);
+        const eyeY = -54 * 0.08, eyeX = 54 * 0.32;
+        [-1, 1].forEach(sd => {
+          const x = sd * eyeX + ex * 0.6, y = eyeY + ey * 0.6;
+          if (t < ouchUntil) {
+            const q2 = -sd; ctx.strokeStyle = '#fff'; ctx.lineWidth = 3.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+            ctx.beginPath(); ctx.moveTo(x - 6 * q2, y - 6); ctx.lineTo(x + 5 * q2, y); ctx.lineTo(x - 6 * q2, y + 6); ctx.stroke();
+          } else if (hv > 0.5) {
+            ctx.strokeStyle = '#fff'; ctx.lineWidth = 3.2; ctx.lineCap = 'round';
+            ctx.beginPath(); ctx.arc(x, y + 4, 8, Math.PI * 1.15, Math.PI * 1.85); ctx.stroke();
+          } else {
+            ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.ellipse(x, y, 10.5, 12.5 * blink, 0, 0, 7); ctx.fill();
+            if (blink > 0.5) {
+              ctx.fillStyle = '#0a0a0c'; ctx.beginPath(); ctx.arc(x + ex, y + ey, 5.5, 0, 7); ctx.fill();
+              ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x + ex + 2, y + ey - 2.2, 1.6, 0, 7); ctx.fill();
+            }
+          }
+        });
+        const mY = 54 * 0.3 + ey * 0.3, mX = ex * 0.4;
+        if (jumping || talkRef.current || t < ouchUntil) { const oh = jumping || t < ouchUntil ? 7 : 2 + Math.abs(Math.sin(t * 16)) * 5; ctx.fillStyle = '#0a0a0c'; ctx.beginPath(); ctx.ellipse(mX, mY + 2, 6, oh, 0, 0, 7); ctx.fill(); }
+        else {
+          ctx.strokeStyle = '#fff'; ctx.lineWidth = 3; ctx.lineCap = 'round';
+          ctx.beginPath(); ctx.moveTo(mX - 9, mY); ctx.quadraticCurveTo(mX, mY + 6 + hv * 6, mX + 9, mY); ctx.stroke();
+        }
+        ctx.restore();
+        ctx.globalAlpha = 1;
+      };
+      raf = requestAnimationFrame(draw);
+      return () => { cancelAnimationFrame(raf); io.disconnect(); window.removeEventListener('pointermove', move); };
+    }, []);
+    const hit = e => {
+      const b = e.currentTarget.getBoundingClientRect(), r = Math.min(84, Math.min(b.width, b.height) * 0.26);
+      return Math.hypot(e.clientX - b.left - b.width * 0.5, e.clientY - b.top - b.height * 0.64) < r * 1.3;
+    };
+    const onMove = e => {
+      const v = hit(e);
+      if (v !== hovRef.current) { hovRef.current = v; e.currentTarget.style.cursor = v ? 'pointer' : 'default'; setOver(v ? (Component.LANG === 'pl' ? "Tak, ja! Kliknij, a skopiuję maila." : "Yes, me! Click and I'll copy the email.") : null); }
+    };
+    const onLeave = () => { hovRef.current = false; setOver(null); };
+    const onClick = e => {
+      if (!hit(e)) return;
+      jumpRef.current = performance.now() / 1000; Component.copyEmail();
+    };
+    const ink = 'var(--text,#f4f4f5)', paper = 'var(--bg,#0a0a0c)';
+    const dot = d => h('span', { key: d, style: { width: 6, height: 6, borderRadius: '50%', background: paper, animation: 'bcDot 1s ease-in-out ' + d + 's infinite' } });
+    return h('div', { style: { position: 'absolute', inset: 0 }, onPointerMove: onMove, onPointerLeave: onLeave, onClick },
+      h('div', { style: { position: 'absolute', left: -60, right: -60, top: -60, bottom: -140, pointerEvents: 'none' } }, h('canvas', { ref, style: { position: 'absolute', inset: 0 } })),
+      h('div', { ref: bubRef, style: { position: 'absolute', left: '50%', bottom: 'calc(36% + 130px)', transform: 'translateX(-50%)', animation: 'bcBob 3.4s ease-in-out infinite', pointerEvents: 'none' } },
+        h('div', { key: msg, style: { position: 'relative', transformOrigin: '45% 125%', animation: 'bcPop .55s cubic-bezier(.2,.9,.3,1) both' } },
+          h('svg', { width: 30, height: 28, viewBox: '0 0 30 28', style: { position: 'absolute', left: 'calc(50% - 6px)', top: 'calc(100% - 6px)', overflow: 'visible' } },
+            h('path', { d: 'M8 0 C 10 10, 9 18, 4 28 C 14 21, 21 11, 25 0 Z', fill: '#ff2d87', transform: 'translate(4 4)' }),
+            h('path', { d: 'M8 0 C 10 10, 9 18, 4 28 C 14 21, 21 11, 25 0 Z', fill: ink })),
+          h('div', { style: { position: 'relative', width: 'max-content', maxWidth: 240, padding: '13px 18px', background: ink, color: paper, borderRadius: '30px 34px 32px 28px / 26px 32px 30px 34px', boxShadow: '4px 4px 0 #ff2d87', font: "500 13px/1.45 'JetBrains Mono',monospace", textAlign: 'center' } },
+            h('span', null, msg.slice(0, typed)),
+            h('span', { style: { color: 'transparent' } }, msg.slice(typed)),
+            dots ? h('span', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5 } }, dot(0), dot(0.15), dot(0.3)) : null)))
+    );
+  };
+
+  // Skills marquee: four lanes of large tech names drifting in opposite directions; hover pauses a lane and focuses a tech.
+  static Marquee = function Marquee(props) {
+    const h = React.createElement, r0 = React.useRef(null), r1 = React.useRef(null), r2 = React.useRef(null), r3 = React.useRef(null), paused = React.useRef([false, false, false, false]);
+    React.useEffect(() => {
+      let raf, prev = performance.now();
+      const off = [0, 0, 0, 0], refs = [r0, r1, r2, r3], speed = [40, 34, 46, 38];
+      const tick = now => {
+        raf = requestAnimationFrame(tick);
+        const dt = Math.min(0.05, (now - prev) / 1000); prev = now;
+        refs.forEach((r, i) => {
+          const el = r.current; if (!el) return;
+          const half = el.scrollWidth / 2; if (!half) return;
+          if (!paused.current[i] && !Component.RM) off[i] = (off[i] + dt * speed[i] * (i % 2 ? -1 : 1) + half) % half;
+          el.style.transform = 'translateX(' + (-off[i]) + 'px)';
+        });
+      };
+      raf = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(raf);
+    }, []);
+    const item = (e, k) => {
+      const dim = (props.area && e.area !== props.area) || (props.tech && props.tech !== e.n), lit = props.tech === e.n || (props.area && e.area === props.area);
+      return h('span', { key: k, onMouseEnter: () => props.onTech(e.n), onMouseLeave: () => props.onTech(null), onClick: () => props.onArea(e.area),
+        style: { display: 'inline-flex', alignItems: 'center', gap: 28, paddingRight: 28, cursor: 'pointer', color: lit ? (Component.isLight() ? Component.shade(e.c, 0.38) : e.c) : 'var(--text,#f4f4f5)', opacity: dim ? 0.12 : lit ? 1 : 0.42, transition: 'opacity .3s, color .3s', font: "500 clamp(36px,5.2vw,70px)/1.18 'Geist',sans-serif", letterSpacing: '-0.04em', whiteSpace: 'nowrap' } },
+        e.n, h('span', { style: { flex: 'none', width: 8, height: 8, borderRadius: '50%', background: e.c, opacity: 0.6 } }));
+    };
+    const fadeMask = 'linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)';
+    return h('div', { style: { display: 'flex', flexDirection: 'column', gap: 4, maskImage: fadeMask, WebkitMaskImage: fadeMask } },
+      [r0, r1, r2, r3].map((ref, i) => h('div', { key: i, style: { overflow: 'hidden' }, onMouseEnter: () => { paused.current[i] = true; }, onMouseLeave: () => { paused.current[i] = false; } },
+        h('div', { ref, style: { display: 'inline-flex', willChange: 'transform' } }, (props.lanes[i] || []).concat(props.lanes[i] || []).map(item)))));
+  };
+
+  // Under-nav line: a faint flowing gradient + a bright scroll-progress bar on top.
+  static NavLine = function NavLine() {
+    const h = React.createElement, flow = React.useRef(null), bar = React.useRef(null);
+    React.useEffect(() => {
+      let raf;
+      const tick = now => {
+        raf = requestAnimationFrame(tick);
+        if (flow.current && !Component.RM) { const tile = Math.max(1600, window.innerWidth * 1.6); flow.current.style.backgroundSize = tile + 'px 100%'; flow.current.style.backgroundPosition = ((now / 30) % tile) + 'px 0'; }
+        const d = document.documentElement, max = d.scrollHeight - d.clientHeight, p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+        if (bar.current) bar.current.style.transform = 'scaleX(' + p + ')';
+      };
+      raf = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(raf);
+    }, []);
+    const g = 'linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff,#14c4f0,#1fd68a,#ff8a1f)';
+    return h('div', { style: { position: 'relative', height: 2 } },
+      h('div', { ref: flow, style: { position: 'absolute', inset: 0, opacity: 0.4, background: g, backgroundSize: '1600px 100%' } }),
+      h('div', { ref: bar, style: { position: 'absolute', inset: 0, transformOrigin: '0 50%', transform: 'scaleX(0)', background: 'linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff,#14c4f0)', boxShadow: '0 0 14px rgba(255,45,135,0.55)' } }));
+  };
+
+  themeName() { return this.state.theme || this.props.defaultTheme || 'dark'; }
+
+  applyTheme() {
+    const v = this.themeName() === 'dark'
+      ? { bg: '#0a0a0c', text: '#f4f4f5', muted: 'rgba(244,244,245,0.66)', faint: 'rgba(244,244,245,0.45)', line: 'rgba(244,244,245,0.14)', hover: 'rgba(244,244,245,0.04)', navbg: 'rgba(10,10,12,0.75)', glow: 'rgba(123,77,255,0.22)' }
+      : { bg: '#fafaf9', text: '#111113', muted: 'rgba(17,17,19,0.68)', faint: 'rgba(17,17,19,0.5)', line: 'rgba(17,17,19,0.14)', hover: 'rgba(17,17,19,0.035)', navbg: 'rgba(250,250,249,0.8)', glow: 'rgba(123,77,255,0.14)' };
+    const s = document.documentElement.style;
+    Object.keys(v).forEach(k => s.setProperty('--' + k, v[k]));
+  }
+
+  parseRoute() {
+    const m = (window.location.hash || '').match(/^#\/work\/([\w-]+)/);
+    return m && Component.data().projects.some(p => p.slug === m[1]) ? m[1] : 'home';
+  }
+
+  componentDidMount() {
+    this.applyTheme();
+    this.onHash = () => { this.setState({ route: this.parseRoute(), qSel: null, qChecked: false, gIdx: 0, menuOpen: false }); window.scrollTo(0, 0); };
+    this.onKey = e => {
+      const p = Component.data().projects.find(x => x.slug === this.state.route); if (!p || !p.tryIt) return;
+      const tag = (e.target && e.target.tagName) || ''; if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      if (/^[1-9]$/.test(e.key)) { const i = +e.key - 1; if (i < p.tryIt.options.length && !this.state.qChecked) this.setState({ qSel: i }); }
+      else if (e.key === 'Enter' && this.state.qSel != null && !this.state.qChecked) this.setState({ qChecked: true });
+    };
+    window.addEventListener('keydown', this.onKey);
+    this.stageTimer = setInterval(() => this.watchStages(), 300);
+    window.addEventListener('resize', this.watchStagesBound = () => this.watchStages());
+    window.addEventListener('hashchange', this.onHash);
+    this.onResize = () => { const w = window.innerWidth, n = w < 860, c = w < 1080; if (n !== this.state.narrow || c !== this.state.compact) this.setState({ narrow: n, compact: c }); };
+    window.addEventListener('resize', this.onResize);
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const st = { route: this.parseRoute() };
+    let seen = false; try { seen = sessionStorage.getItem('bc_intro_seen') === '1'; } catch (e) {}
+    if (reduce || seen) { st.loaderOn = false; st.revealed = true; }
+    this.onCopied = () => { this.setState({ copied: true }); clearTimeout(this.copyTm); this.copyTm = setTimeout(() => this.setState({ copied: false }), 2400); };
+    window.addEventListener('bc:copied', this.onCopied);
+    this.setState(st);
+    if (!window.SITE_DATA) this.waitData = setInterval(() => {
+      if (!window.SITE_DATA) return;
+      clearInterval(this.waitData); Component._G = null;
+      this.setState({ dataReady: true, route: this.parseRoute() });
+    }, 30);
+  }
+  componentDidUpdate() { this.applyTheme(); this.watchStages(); this.watchReveal(); }
+  watchReveal() {
+    if (Component.RM || !this.state.revealed) return;
+    if (!this.revealIO) this.revealIO = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.style.opacity = '1'; e.target.style.transform = 'none'; this.revealIO.unobserve(e.target);
+    }), { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('main section').forEach(el => {
+      if (el.__bcRev) return; el.__bcRev = true;
+      if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
+      el.style.opacity = '0'; el.style.transform = 'translateY(40px)';
+      el.style.transition = 'opacity .9s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1)';
+      this.revealIO.observe(el);
+    });
+  }
+  // Scales the fixed-size showcase stages to their frame width. Applied imperatively (not via state) so it can never get stuck.
+  watchStages() {
+    document.querySelectorAll('[data-stage]').forEach(el => {
+      const inner = el.firstElementChild, w = el.clientWidth;
+      if (!inner || !w) return;
+      const tf = 'scale(' + (w / (+el.dataset.base || 1440)).toFixed(4) + ')';
+      if (inner.style.transform !== tf) inner.style.transform = tf;
+    });
+  }
+  componentWillUnmount() { clearInterval(this.stageTimer); window.removeEventListener('resize', this.watchStagesBound); window.removeEventListener('hashchange', this.onHash); window.removeEventListener('keydown', this.onKey); clearInterval(this.waitData); }
+
+  goSection(id) {
+    const scroll = () => { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); };
+    if (this.state.route !== 'home') { window.location.hash = '#/'; setTimeout(scroll, 80); } else scroll();
+  }
+
+  renderVals() {
+    const h = React.createElement, D = Component.data(), PAL = Component.PAL, ready = !!window.SITE_DATA;
+    const pad = n => String(n).padStart(2, '0');
+    const grad = i => 'linear-gradient(90deg,' + PAL[i % PAL.length] + ',' + PAL[(i + 1) % PAL.length] + ')';
+    const lang = this.state.lang || 'en', Dl = lang === 'pl' ? Object.assign({}, D, { projects: D.projects.map(p => p.pl ? Object.assign({}, p, p.pl) : p) }) : D;
+    Component.LANG = lang; const t = Component.I18N[lang], lt = this.themeName() === 'light';
+    const pg = (p, i) => p.accent ? 'linear-gradient(90deg,' + p.accent[0] + ',' + p.accent[1] + ')' : grad(i);
+    const lerpHex = (a, b, t) => { const A = parseInt(a.slice(1), 16), B = parseInt(b.slice(1), 16), c = sh => Math.round(((A >> sh) & 255) * (1 - t) + ((B >> sh) & 255) * t); return '#' + ((1 << 24) + (c(16) << 16) + (c(8) << 8) + c(0)).toString(16).slice(1); };
+    const projects = Dl.projects.map((p, i) => Object.assign({}, p, {
+      idx: pad(i + 1), href: '#/work/' + p.slug,
+      repo: !p.repo ? 'https://github.com/bartoszclapinski' : p.repo.indexOf('http') === 0 ? p.repo : 'https://github.com/' + p.repo,
+      c: lt ? Component.shade(PAL[i % PAL.length], 0.3) : PAL[i % PAL.length], glow: PAL[i % PAL.length] + '99',
+      techTop: (p.tech || []).slice(0, 5).map(n => { const a = (D.areas || []).find(x => (x.techs || []).indexOf(n) >= 0), col = (a && a.color) || '#9a9aa5'; return { n, c: lt ? Component.shade(col, 0.38) : col, bd: col + '59' }; }),
+      grad: pg(p, i), gradV: pg(p, i).replace('90deg', '180deg'),
+      acA: p.accent ? p.accent[0] : PAL[i % PAL.length], url: p.url || '',
+      hasShowcase: !!p.showcase, showcaseCaption: p.showcaseCaption || '', hasVideo: !!p.video && !p.showcase, noVideo: !p.video && !p.showcase, videoBg: p.video ? "url('" + p.video + "') center / cover no-repeat" : 'none', videoCaption: p.videoCaption || '',
+      glowA: (p.accent ? p.accent[0] : PAL[i % PAL.length]) + '40', glowB: (p.accent ? p.accent[1] : PAL[(i + 1) % PAL.length]) + '33',
+      hasGallery: !!(p.gallery && p.gallery.length), hasTry: !!p.tryIt, tryIt: p.tryIt || { question: '', explanation: '', label: '', options: [] },
+      hasTimeline: !!(p.timeline && p.timeline.length),
+      timeline: (p.timeline || []).map((t, j, arr) => { const a = p.accent || [PAL[i % PAL.length], PAL[(i + 1) % PAL.length]], col = lerpHex(a[0], a[1], arr.length > 1 ? j / (arr.length - 1) : 0); return Object.assign({}, t, { dot: col, line: col + '88', sc: t.status === 'done' ? 'var(--faint,rgba(244,244,245,0.45))' : '#fbbf24' }); }), hasDemo: !!p.demo, hasImage: !!p.image, noImage: !p.image, imageBg: p.image ? "url('" + p.image + "') center / cover no-repeat" : 'none',
+      stats: (p.stats || []).map(s => ({ v: s.value, k: s.label })),
+      features: (p.features || []).map((f, j) => ({ t: f.title, d: f.text, n: pad(j + 1) })),
+      layers: (p.layers || []).map(l => ({ n: l.name, d: l.text })),
+      decisions: (p.decisions || []).map((t, j) => ({ t, n: pad(j + 1) })),
+      stack: (p.stack || []).map(g => ({ g: g.group, items: g.items || [] }))
+    }));
+    projects.forEach((p, i) => { const n = projects[(i + 1) % projects.length]; p.next = { name: n.name, href: n.href, grad: n.grad }; });
+    const route = this.state.route, cur = projects.find(p => p.slug === route) || projects[0] || { next: {} };
+    if (route && cur.demo) Component.warm(cur.demo);
+    const gl = cur.gallery || [], gi = Math.min(this.state.gIdx || 0, Math.max(0, gl.length - 1)), gc = gl[gi] || {};
+    const gal = { title: gc.title || '', caption: gc.caption || '', isScreen: !!gc.screen, screen: gc.screen || 'landing', bg: gc.src ? "url('" + gc.src + "') center / contain no-repeat" : 'none', pos: pad(gi + 1) + ' / ' + pad(gl.length) };
+    const galThumbs = gl.map((g, j) => ({ title: g.title, label: g.src ? '' : g.title, bg: g.src ? "url('" + g.src + "') top center / cover no-repeat" : 'radial-gradient(circle at 80% 10%,rgba(251,191,36,0.22),transparent 60%),linear-gradient(150deg,#2a2137,#17121f)', bd: j === gi ? (cur.acA || '#a78bfa') : 'var(--line,rgba(244,244,245,0.14))', op: j === gi ? 1 : 0.5, onClick: () => this.setState({ gIdx: j }) }));
+    const galStep = dlt => () => this.setState(st0 => ({ gIdx: ((st0.gIdx || 0) + dlt + gl.length) % Math.max(1, gl.length) }));
+    const tq = cur.tryIt || { options: [] }, qs = this.state.qSel, qc = !!this.state.qChecked, qok = qs === tq.correct;
+    const quizOpts = (tq.options || []).map((o, i) => {
+      const sel = qs === i, ok = i === tq.correct;
+      const r = { n: i + 1, text: o, bd: 'rgba(255,255,255,0.08)', bg: '#221a2e', badge: '#392c4d', badgeFg: '#f4f0fa', mark: '', markC: '#22c55e', op: 1, ring: 'none', cur: qc ? 'default' : 'pointer', onClick: () => { if (!this.state.qChecked) this.setState({ qSel: i }); } };
+      if (!qc && sel) Object.assign(r, { bd: '#a78bfa', badge: 'linear-gradient(135deg,#a78bfa,#fbbf24)', badgeFg: '#17121f', ring: '0 0 0 3px rgba(167,139,250,0.22)' });
+      if (qc) { if (ok) Object.assign(r, { bd: '#22c55e', bg: 'rgba(34,197,94,0.12)', badge: '#22c55e', badgeFg: '#06210f', mark: '✓' }); else if (sel) Object.assign(r, { bd: '#ef4444', bg: 'rgba(239,68,68,0.12)', badge: '#ef4444', badgeFg: '#ffffff', mark: '✗', markC: '#ef4444' }); else r.op = 0.5; }
+      return r;
+    });
+    const quizVals = {
+      quizOpts, quizChecked: qc,
+      quizBtnLabel: qc ? t.again : t.check, quizBtnOp: qc || qs != null ? 1 : 0.45,
+      quizBtn: () => { if (this.state.qChecked) this.setState({ qSel: null, qChecked: false }); else if (this.state.qSel != null) this.setState({ qChecked: true }); },
+      quizPanelBg: qok ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)', quizPanelBd: qok ? 'rgba(34,197,94,0.35)' : 'rgba(239,68,68,0.35)', quizPanelC: qok ? '#4ade80' : '#f87171',
+      quizPanelTitle: (qok ? t.correct : t.notQuite) + ((tq.options || [])[tq.correct] || ''),
+      gal, galThumbs, galPrev: galStep(-1), galNext: galStep(1)
+    };
+    const G = ready ? Component.graph() : null;
+    const skills = G ? G.areas.map(a => {
+      const items = []; for (let i = 0; i < a.techs.length; i += 2) items.push(a.techs.slice(i, i + 2).join(', '));
+      const used = D.projects.filter(p => (p.tech || []).some(t => a.techs.indexOf(t) >= 0)).map(p => p.name).join(', ');
+      return { name: a.label, c: a.c, items, used: used ? '↳ ' + t.usedIn + ' ' + used : '' };
+    }) : [];
+    const SYM = { 'C#': 'C#', '.NET': 'Nt', 'ASP.NET Core': 'As', 'EF Core': 'Ef', 'LINQ': 'Lq', 'MediatR': 'Md', 'REST APIs': 'Rs', 'Java': 'Jv', 'Python': 'Py', 'Blazor': 'Bz', 'React': 'Re', 'TypeScript': 'Ts', 'Avalonia': 'Av', 'Tailwind': 'Tw', 'Razor Pages': 'Rz', 'HTMX': 'Hx', 'SQL Server': 'Ss', 'PostgreSQL': 'Pg', 'SQLite': 'Sl', 'Docker': 'Dk', 'Azure': 'Az', 'GitHub Actions': 'Ga', 'Clean Architecture': 'Ca', 'CQRS': 'Cq', 'TDD': 'Td', 'xUnit': 'Xu', 'Git': 'Gt', 'OpenAI': 'Oa', 'Claude': 'Cl', 'RAG': 'Rg', 'Tool-calling': 'Tc', 'Embeddings': 'Em', 'FastAPI': 'Fa', 'Javalin': 'Jl' };
+    const symOf = n => SYM[n] || (n.replace(/[^A-Za-z#]/g, '').slice(0, 1).toUpperCase() + n.replace(/[^A-Za-z]/g, '').slice(1, 2).toLowerCase());
+    let num = 0;
+    const techOf = (n, a) => {
+      const by = D.projects.filter(p => (p.tech || []).indexOf(n) >= 0).map(p => p.name);
+      num += 1;
+      return { n, c: a.c, bd: a.c + '55', bg: a.c + '12', sym: symOf(n), num: String(num).padStart(2, '0'), uses: by.length, dots: '●'.repeat(Math.min(3, by.length)), countLabel: by.length ? '×' + by.length : '', title: n + (by.length ? ' — used in ' + by.join(', ') : ' — not in a featured project yet') };
+    };
+    const skillRows = G ? G.areas.map(a => ({ name: a.label, c: a.c, techs: a.techs.map(n => techOf(n, a)) })) : [];
+    const skillTechs = [].concat.apply([], skillRows.map(r => r.techs));
+    const treeLines = [];
+    skillRows.forEach((r, i) => {
+      const lastA = i === skillRows.length - 1;
+      treeLines.push({ pre: lastA ? '└──' : '├──', label: r.name.toLowerCase().replace(/[^a-z]+/g, '-') + '/', c: r.c, w: 600, meta: r.techs.length + ' items', mc: 'var(--faint,rgba(244,244,245,0.45))', lead: 'transparent' });
+      r.techs.forEach((e, j) => treeLines.push({ pre: (lastA ? '    ' : '│   ') + (j === r.techs.length - 1 ? '└──' : '├──'), label: e.n, c: 'var(--text,#f4f4f5)', w: 400, meta: e.uses ? e.uses + (e.uses > 1 ? ' projects' : ' project') : '—', mc: e.uses ? r.c : 'var(--faint,rgba(244,244,245,0.45))', lead: 'var(--line,rgba(244,244,245,0.14))' }));
+    });
+    const treeSummary = skillRows.length + ' areas, ' + skillTechs.length + ' technologies, ' + D.projects.length + ' projects';
+    const sv = this.props.skillsView || 'marquee';
+    const sa = this.state.skillArea || null, stt = this.state.skillTech || null;
+    const areaOfTech = {};
+    skillRows.forEach(r => r.techs.forEach(e => { areaOfTech[e.n] = r.name; }));
+    const laneAll = skillTechs.map(e => ({ n: e.n, c: e.c, area: areaOfTech[e.n] }));
+    const lanes = [0, 1, 2, 3].map(k => laneAll.filter((e, i) => i % 4 === k));
+    const uses = (p, t) => (p.tech || []).indexOf(t) >= 0;
+    projects.forEach(p => {
+      let on = true;
+      if (stt) on = uses(p, stt);
+      else if (sa) { const r = skillRows.find(x => x.name === sa); on = !r || r.techs.some(e => uses(p, e.n)); }
+      p.op = on ? 1 : 0.22;
+    });
+    const skillTabs = [{ name: t.all, c: 'linear-gradient(90deg,#ff8a1f,#ff2d87,#7b4dff,#14c4f0)', count: skillTechs.length, active: !sa }]
+      .concat(skillRows.map(r => ({ name: r.name, c: r.c, count: r.techs.length, active: sa === r.name })))
+      .map(a => Object.assign(a, { bd: a.active ? 'var(--text,#f4f4f5)' : 'var(--line,rgba(244,244,245,0.14))', bg: a.active ? 'var(--hover,rgba(244,244,245,0.04))' : 'transparent', onClick: () => this.setState({ skillArea: a.name === t.all ? null : a.name }) }));
+    let skillCaption = t.skCap;
+    if (stt) { const by = D.projects.filter(p => uses(p, stt)).map(p => p.name); skillCaption = stt + '  →  ' + (by.length ? t.usedIn + ' ' + by.join(', ') : t.notUsed); }
+    else if (sa) skillCaption = sa + '  →  ' + projects.filter(p => p.op === 1).length + t.of + projects.length + t.highlighted;
+    const marqueeEl = h(Component.Marquee, { lanes, area: sa, tech: stt, onTech: n => this.setState({ skillTech: n }), onArea: a => this.setState(st0 => ({ skillArea: st0.skillArea === a ? null : a })) });
+    const path = t.path.map((x, j) => ({ when: x[0], title: x[1], text: x[2], c: ['#ff8a1f', '#ff2d87', '#7b4dff', '#14c4f0'][j % 4] }));
+    const loaderWanted = (this.props.showLoader ?? true) && this.state.loaderOn;
+    const revealed = this.state.revealed || !loaderWanted;
+    let loaderEl = null;
+    if (loaderWanted) loaderEl = ready
+      ? h(Component.Loader, { key: this.state.loaderKey, seconds: this.props.loaderSeconds ?? 3.5, onReveal: () => this.setState({ revealed: true }), onDone: () => { try { sessionStorage.setItem('bc_intro_seen', '1'); } catch (e) {} this.setState({ loaderOn: false, usedLoader: true, revealed: true }); } })
+      : h('div', { style: { position: 'fixed', inset: 0, zIndex: 1000, background: 'var(--bg,#0a0a0c)' } });
+    return {
+      bgEl: (this.props.bgField ?? true) ? h(Component.BgField) : null,
+      mascot: (this.props.mascot ?? true) ? h(Component.Mascot) : null,
+      navLine: h(Component.NavLine),
+      skillRows, skillTechs, treeLines, treeSummary,
+      ...quizVals,
+      copyEmail: () => Component.copyEmail(), copyLabel: this.state.copied ? t.copied : t.copy,
+      projGraph: ready && route !== 'home' ? h(Component.ProjectGraph, { key: route, techs: cur.tech || [] }) : null,
+      skillTabs, skillCaption, marqueeEl, svMarquee: sv === 'marquee',
+      svTable: sv === 'table', svRows: sv === 'rows', svTree: sv === 'tree', svColumns: sv === 'columns',
+      loaderEl,
+      openDemo: e => { if (!Component.sleepy(cur.demo) || (Component.up[cur.demo] && !(this.props.simulateColdStart))) return; e.preventDefault(); this.setState({ wake: { url: cur.demo, name: cur.name } }); },
+      wakeEl: this.state.wake ? h(Component.WakeModal, { url: this.state.wake.url, name: this.state.wake.name, sim: !!(this.props.simulateColdStart), onClose: () => this.setState({ wake: null }) }) : null,
+      heroGraph: (this.props.heroGraph ?? true) && ready ? h(Component.HeroGraph, { play: !loaderWanted, instant: this.state.usedLoader || (this.props.showLoader ?? true) }) : null,
+      projects, cur, skills, path, total: pad(projects.length),
+      isHome: route === 'home', isProject: route !== 'home',
+      rvOp: revealed ? 1 : 0, rvTf: revealed ? 'none' : 'translateY(28px)', navOp: revealed ? 1 : 0,
+      themeLabel: this.themeName() === 'dark' ? t.lightL : t.darkL, t, langLabel: t.langL, availDisp: this.state.compact ? 'none' : 'flex', stageW: this.state.narrow ? 480 : 1440, stageWpx: this.state.narrow ? '480px' : '1440px', stageH: this.state.narrow ? 860 : 900, stageHpx: this.state.narrow ? '860px' : '900px', stageAR: this.state.narrow ? '480/860' : '16/10',
+      projHeadMinH: this.state.narrow ? 'calc(100svh - 69px - 56px)' : 'auto',
+      heroMinH: this.state.narrow ? 'auto' : 'calc(100vh - 69px)', heroTextMinH: this.state.narrow ? 'calc(100svh - 69px)' : 'auto', heroGH: this.state.narrow ? 'min(108vw, 440px)' : 'clamp(480px,84vh,1000px)', heroPad: this.state.narrow ? '24px 0 40px' : '64px 0 32px', navLinksDisp: this.state.narrow ? 'none' : 'flex', menuBtnDisp: this.state.narrow ? 'flex' : 'none',
+      menuOpen: !!(this.state.narrow && this.state.menuOpen), menuLabel: this.state.menuOpen ? (lang === 'pl' ? 'zamknij ✕' : 'close ✕') : 'menu ≡',
+      toggleMenu: () => this.setState(st0 => ({ menuOpen: !st0.menuOpen })), heroML: this.state.narrow ? '0px' : '-24px',
+      mWork: () => { this.setState({ menuOpen: false }); this.goSection('work'); }, mAbout: () => { this.setState({ menuOpen: false }); this.goSection('about'); }, mContact: () => { this.setState({ menuOpen: false }); this.goSection('contact'); },
+      toggleLang: () => { const nl = lang === 'pl' ? 'en' : 'pl'; try { localStorage.setItem('bc_lang', nl); } catch (e) {} this.setState({ lang: nl }); },
+      toggleTheme: () => this.setState({ theme: this.themeName() === 'dark' ? 'light' : 'dark' }),
+      goWork: () => this.goSection('work'), goAbout: () => this.goSection('about'), goContact: () => this.goSection('contact'),
+      replay: () => { window.scrollTo(0, 0); this.setState(s => ({ loaderOn: true, revealed: false, loaderKey: s.loaderKey + 1 })); }
+    };
+  }
+}
+</script>
+</body>
+</html>
