@@ -6,6 +6,30 @@
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<!-- GoatCounter: privacy-friendly stats, no cookies. Counted manually because the site switches views with #/ routes. -->
+<script>window.goatcounter = { no_onload: true };</script>
+<script data-goatcounter="https://bartoszclapinski.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+(function () {
+  var gc = function () { return window.goatcounter && window.goatcounter.count ? window.goatcounter : null; };
+  var path = function () { var h = location.hash.replace(/^#/, ''); return h && h !== '/' ? h : '/'; };
+  var last = null;
+  var pageview = function () { var p = path(); if (p === last || !gc()) return; last = p; gc().count({ path: p }); };
+  var event = function (kind, url) { if (gc()) gc().count({ path: kind + ': ' + url, title: kind, event: true }); };
+  var tries = 0;
+  (function wait() { if (gc()) pageview(); else if (tries++ < 50) setTimeout(wait, 200); })();
+  window.addEventListener('hashchange', pageview);
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var u = a.href.replace(/^https?:\/\//, '').replace(/[?#].*$/, '');
+    if (/onrender\.com|github\.io\/(BlockSmith|TokenMuncher)/i.test(u)) event('demo', u);
+    else if (/github\.com/i.test(u)) event('github', u);
+    else if (/linkedin\.com/i.test(u)) event('linkedin', 'profile');
+    else if (/^mailto:/i.test(a.href)) event('email', 'mailto');
+  }, true);
+})();
+</script>
 </head>
 <body>
 <x-dc>
