@@ -32,6 +32,7 @@ window.SITE_DATA = {
         "short": "Sprawdzanie wiedzy technicznej z pytaniami generowanymi przez AI i powtórkami.",
         "tagline": "Platforma do sprawdzania wiedzy technicznej: pytania generowane przez AI, powtórki w odstępach i grywalizacja postępów.",
         "overview": "TechQuiz pozwala programistom sprawdzić, co naprawdę wiedzą o .NET, bazach danych, front-endzie i praktykach inżynierskich, i podtrzymać nawyk dzięki XP, codziennym seriom i wyliczanemu Skill IQ. AI generuje nowe pytania na żądanie, korzystając z własnego klucza API użytkownika, a każde wygenerowane pytanie trafia do wspólnej, publicznej puli.",
+        "videoCaption": "Przejście przez działającą aplikację: logowanie → dashboard → kategorie → pytanie → wynik.",
         "showcaseCaption": "Przejście przez aktualny projekt Momentum: strona startowa → logowanie → dashboard → kategorie → pytanie → wynik.",
         "stats": [
           {
@@ -84,36 +85,12 @@ window.SITE_DATA = {
           "Wdrożenie na Render + Neon, CI przy każdym pull requeście."
         ],
         "gallery": [
-          {
-            "screen": "landing",
-            "title": "Strona startowa",
-            "caption": "Projekt „Momentum” w fiolecie i bursztynie, nacisk na serię."
-          },
-          {
-            "screen": "login",
-            "title": "Logowanie",
-            "caption": "Konto demo jednym kliknięciem; prawy panel sprzedaje produkt."
-          },
-          {
-            "screen": "dashboard",
-            "title": "Dashboard",
-            "caption": "Skill IQ, seria, skuteczność, postęp w kategoriach i aktywność."
-          },
-          {
-            "screen": "categories",
-            "title": "Kategorie",
-            "caption": "Wybór ścieżki; postęp na każdej karcie."
-          },
-          {
-            "screen": "quiz",
-            "title": "Quiz",
-            "caption": "Jedno pytanie naraz, obsługa klawiaturą, natychmiastowa informacja zwrotna."
-          },
-          {
-            "screen": "result",
-            "title": "Wynik",
-            "caption": "Wynik, zdobyte XP i zmiana Skill IQ po każdym podejściu."
-          }
+          {"src": "assets/techquiz/login.png", "title": "Logowanie", "caption": "Konto demo jednym kliknięciem; prawy panel sprzedaje produkt."},
+          {"src": "assets/techquiz/dashboard.png", "title": "Dashboard", "caption": "Skill IQ, seria, skuteczność, postęp w kategoriach i aktywność."},
+          {"src": "assets/techquiz/categories.png", "title": "Kategorie", "caption": "Wybór ścieżki; postęp na każdej karcie."},
+          {"src": "assets/techquiz/quiz.png", "title": "Quiz", "caption": "Jedno pytanie naraz, obsługa klawiaturą, natychmiastowa informacja zwrotna."},
+          {"src": "assets/techquiz/quiz-code.png", "title": "Pytanie z kodem", "caption": "Pytania z prawdziwym kodem w edytorze Monaco."},
+          {"src": "assets/techquiz/result.png", "title": "Wynik", "caption": "Wynik, zdobyte XP i zmiana Skill IQ po każdym podejściu."}
         ],
         "timeline": [
           {
@@ -157,16 +134,18 @@ window.SITE_DATA = {
       // Optional per-project personalisation — any project can use these fields.
       accent: ['#a78bfa', '#fbbf24'],
       url: 'techquiz-web.onrender.com',
-      showcase: true,
+      showcase: false,
+      video: 'assets/techquiz/demo.gif',
+      videoCaption: 'Walkthrough of the live app: sign in → dashboard → categories → a question → result.',
       showcaseCaption: 'Live walkthrough of the current Momentum design: landing → sign in → dashboard → categories → a question → result.',
       // gallery items take either { src: 'image.png' } or { screen: '<name>' } for a live screen from the showcase component
       gallery: [
-        { screen: 'landing', title: 'Landing', caption: 'Violet + amber "Momentum" design, streak-first messaging.' },
-        { screen: 'login', title: 'Sign in', caption: 'Demo account in one click; the right panel sells the product.' },
-        { screen: 'dashboard', title: 'Dashboard', caption: 'Skill IQ, streak, accuracy, category progress and weekly activity.' },
-        { screen: 'categories', title: 'Categories', caption: 'Pick a track; progress on every card.' },
-        { screen: 'quiz', title: 'Quiz', caption: 'One question at a time, keyboard-first, instant feedback.' },
-        { screen: 'result', title: 'Result', caption: 'Score, XP earned and Skill IQ change after every run.' }
+        { src: 'assets/techquiz/login.png', title: 'Sign in', caption: 'Demo account in one click; the right panel sells the product.' },
+        { src: 'assets/techquiz/dashboard.png', title: 'Dashboard', caption: 'Skill IQ, streak, accuracy, category progress and weekly activity.' },
+        { src: 'assets/techquiz/categories.png', title: 'Categories', caption: 'Pick a track; progress on every card.' },
+        { src: 'assets/techquiz/quiz.png', title: 'Quiz', caption: 'One question at a time, keyboard-first, instant feedback.' },
+        { src: 'assets/techquiz/quiz-code.png', title: 'Code question', caption: 'Questions with real code, shown in a Monaco editor.' },
+        { src: 'assets/techquiz/result.png', title: 'Result', caption: 'Score, XP earned and Skill IQ change after every run.' }
       ],
       tryIt: {
         label: 'C# BASICS · 3 / 10',
