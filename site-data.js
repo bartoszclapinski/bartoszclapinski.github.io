@@ -24,8 +24,8 @@ window.SITE_DATA = {
   projects: [
     {
       slug: 'techquiz', name: 'TechQuiz', repo: 'bartoszclapinski/TechQuiz', demo: 'https://techquiz-web.onrender.com', image: 'assets/techquiz/dashboard.png',
-      // Extra services woken together with the demo (the SPA calls a separate API service on Render).
-      wake: ['https://techquiz-api-j4kr.onrender.com/health'],
+      // CORS-readable health checks, one per Render service (the SPA and its separate API).
+      health: ['https://techquiz-web.onrender.com/healthz', 'https://techquiz-api-j4kr.onrender.com/health'],
       pl: {
         "kind": "Aplikacja webowa full-stack",
         "status": "Działa",
@@ -280,6 +280,7 @@ window.SITE_DATA = {
     },
     {
       slug: 'doc-flow-hub', name: 'DocFlowHub', repo: 'bartoszclapinski/Doc-Flow-Hub', demo: 'https://docflowhub-demo.onrender.com', image: '',
+      health: ['https://docflowhub-demo.onrender.com/healthz'],
       pl: {
         "kind": "Aplikacja webowa",
         "status": "Demo na żywo (tylko odczyt)",

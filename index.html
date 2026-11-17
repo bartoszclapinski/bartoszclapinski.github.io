@@ -826,10 +826,13 @@ class Component extends DCLogic {
   static sleepy = url => /onrender\.com/.test(url || '');
   static warmed = {};
   static up = {};
-  // A demo can depend on more sleepy services (e.g. a separate API) listed in site-data.js as `wake`.
-  static extra = url => { const p = ((window.SITE_DATA || {}).projects || []).find(x => x.demo === url); return (p && p.wake) || []; };
-  static pingAll = url => Promise.all([url, ...Component.extra(url)].map(u => fetch(u, { mode: 'no-cors', cache: 'no-store' })))
-    .then(() => { Component.up[url] = true; return true; }, () => false);
+  // Each sleepy demo lists CORS-readable health endpoints in site-data.js (`health`), one per service
+  // (e.g. the SPA and its API). While a free Render instance sleeps, Render answers browsers at once
+  // with its own 503 loading page; it has no CORS header, so the fetch below rejects and we keep
+  // waiting. Only a real 200 from every service counts as awake.
+  static health = url => { const p = ((window.SITE_DATA || {}).projects || []).find(x => x.demo === url); return (p && p.health && p.health.length) ? p.health : [url]; };
+  static pingAll = url => Promise.all(Component.health(url).map(u => fetch(u, { mode: 'cors', cache: 'no-store' }).then(r => r.ok, () => false)))
+    .then(oks => { const ok = oks.every(Boolean); if (ok) Component.up[url] = true; return ok; });
   static warm = url => {
     if (!Component.sleepy(url) || Component.warmed[url]) return Component.warmed[url];
     const t0 = performance.now();
