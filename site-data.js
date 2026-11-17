@@ -23,7 +23,7 @@ window.SITE_DATA = {
   ],
   projects: [
     {
-      slug: 'techquiz', name: 'TechQuiz', repo: 'bartoszclapinski/TechQuiz', demo: 'https://techquiz-web.onrender.com', image: '',
+      slug: 'techquiz', name: 'TechQuiz', repo: 'bartoszclapinski/TechQuiz', demo: 'https://techquiz-web.onrender.com', image: 'assets/techquiz/dashboard.png',
       // Extra services woken together with the demo (the SPA calls a separate API service on Render).
       wake: ['https://techquiz-api-j4kr.onrender.com/health'],
       pl: {
@@ -83,7 +83,11 @@ window.SITE_DATA = {
           "Warstwy domeny i aplikacji pisane metodą TDD.",
           "Wdrożenie na Render + Neon, CI przy każdym pull requeście."
         ],
-        "gallery": [],
+        "gallery": [
+          {"src": "assets/techquiz/login.png", "title": "Logowanie", "caption": "Logowanie e-mailem albo konto demo jednym kliknięciem."},
+          {"src": "assets/techquiz/dashboard.png", "title": "Dashboard", "caption": "Skill IQ, seria, skuteczność, postęp w kategoriach, aktywność i ostatnie podejścia."},
+          {"src": "assets/techquiz/categories.png", "title": "Kategorie", "caption": "4 ścieżki i 18 tematów, do tego zadania z kodem."}
+        ],
         "timeline": [
           {
             "phase": "Faza 0",
@@ -129,7 +133,11 @@ window.SITE_DATA = {
       showcase: false,
       showcaseCaption: 'Live walkthrough of the current Momentum design: landing → sign in → dashboard → categories → a question → result.',
       // gallery items take either { src: 'image.png' } or { screen: '<name>' } for a live screen from the showcase component
-      gallery: [],
+      gallery: [
+        { src: 'assets/techquiz/login.png', title: 'Sign in', caption: 'Email login or a one-click demo account.' },
+        { src: 'assets/techquiz/dashboard.png', title: 'Dashboard', caption: 'Skill IQ, streak, accuracy, category progress, weekly activity and recent attempts.' },
+        { src: 'assets/techquiz/categories.png', title: 'Categories', caption: '4 tracks and 18 topics, plus hands-on code challenges.' }
+      ],
       tryIt: {
         label: 'C# BASICS · 3 / 10',
         question: 'Which access modifier makes a type visible only inside its own assembly?',
